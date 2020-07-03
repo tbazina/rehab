@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot xmlns:xacro='http://www.ros.org/wiki/xacro'>
+
+<xacro:macro name='wr_link' params='name'>
+  <link name='wrist${name}'>
+    <!-- <visual> -->
+      <!-- <geometry> -->
+
+      <!-- </geometry> -->
+    <!-- </visual> -->
+  </link>
+</xacro:macro>
+
+<xacro:macro name='wr_joint' params='parent child type:=fixed'>
+  <joint name='wr${parent}_wr${child}' type='${type}'>
+    <parent link='wrist${parent}'/>
+    <child link='wrist${child}'/>
+    <origin rpy='0 0 0' xyz='0 0 0'/>
+    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+  </joint>
+</xacro:macro>
+
+<xacro:macro name='wr_spher_joint' params='parent child'>
+  <joint name='wr${parent}_wr${child}_rotx' type='revolute'>
+    <parent link='wrist${parent}'/>
+    <child link='wrist${child}'/>
+    <origin rpy='0 0 0' xyz='0 0 0'/>
+    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+  </joint>
+  <joint name='wr${parent}_wr${child}_roty' type='revolute'>
+    <parent link='wrist${parent}'/>
+    <child link='wrist${child}'/>
+    <origin rpy='0 0 0' xyz='0 0 0'/>
+    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+  </joint>
+  <joint name='wr${parent}_wr${child}_rotz' type='revolute'>
+    <parent link='wrist${parent}'/>
+    <child link='wrist${child}'/>
+    <origin rpy='0 0 0' xyz='0 0 0'/>
+    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+  </joint>
+</xacro:macro>
+
+</robot>

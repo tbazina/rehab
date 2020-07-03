@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot name='rehab' xmlns:xacro='http://www.ros.org/wiki/xacro'>
+
+<xacro:include filename='$(find rehab)/urdf/shoulder.urdf.xacro'/>
+<xacro:include filename='$(find rehab)/urdf/elbow.urdf.xacro'/>
+<xacro:include filename='$(find rehab)/urdf/wrist.urdf.xacro'/>
+<xacro:include filename='$(find rehab)/urdf/hand.urdf.xacro'/>
+
+<!-- Material colors -->
+<material name='blue'>
+  <color rgba='0 0 0.8 1'/>
+</material>
+
+<material name='black'>
+  <color rgba='0 0 0 1'/>
+</material>
+
+<material name='white'>
+  <color rgba='1 1 1 1'/>
+</material>
+
+<material name='grey'>
+  <color rgba='0.5 0.5 0.5 1'/>
+</material>
+
+
+<!-- Shoulder links and joints -->
+
+<link name='base_link'>
+  <!-- <visual> -->
+    <!-- <geometry> -->
+
+    <!-- </geometry> -->
+  <!-- </visual> -->
+</link>
+
+<xacro:sh_link name='1'></xacro:sh_link>
+<xacro:sh_link name='2'></xacro:sh_link>
+<xacro:sh_link name='3'></xacro:sh_link>
+<xacro:sh_link name='4'></xacro:sh_link>
+<xacro:sh_link name='5'></xacro:sh_link>
+<xacro:sh_link name='6'></xacro:sh_link>
+<xacro:sh_link name='7'></xacro:sh_link>
+<xacro:sh_link name='8'></xacro:sh_link>
+<xacro:sh_link name='9'></xacro:sh_link>
+<!-- Interface to human shoulder -->
+<xacro:sh_link name='10'></xacro:sh_link>
+<xacro:sh_link name='11'></xacro:sh_link>
+
+
+<joint name='base_to_shoulder1' type='fixed'>
+  <parent link='base_link'/>
+  <child link='shoulder1'/>
+  <origin rpy='0 0 0' xyz='0 0 0'/>
+</joint>
+
+<xacro:sh_joint parent='1' child='2' type='prismatic'></xacro:sh_joint>
+<xacro:sh_joint parent='2' child='3' type='prismatic'></xacro:sh_joint>
+<xacro:sh_joint parent='3' child='4'></xacro:sh_joint>
+<xacro:sh_joint parent='4' child='5' type='continuous'></xacro:sh_joint>
+<xacro:sh_joint parent='5' child='6'></xacro:sh_joint>
+<xacro:sh_joint parent='6' child='7' type='continuous'></xacro:sh_joint>
+<xacro:sh_joint parent='7' child='8'></xacro:sh_joint>
+<xacro:sh_joint parent='8' child='9' type='prismatic'></xacro:sh_joint>
+<xacro:sh_joint parent='9' child='10' type='continuous'></xacro:sh_joint>
+<xacro:sh_joint parent='10' child='11'></xacro:sh_joint>
+
+<!-- Elbow links and joints -->
+
+<xacro:el_link name='1'></xacro:el_link>
+<xacro:el_link name='2'></xacro:el_link>
+<xacro:el_link name='3'></xacro:el_link>
+<!-- Interface to human elbow -->
+<xacro:el_link name='4'></xacro:el_link>
+<xacro:el_link name='5'></xacro:el_link>
+
+<joint name='sh11_el1' type='continuous'>
+  <parent link='shoulder11'/>
+  <child link='elbow1'/>
+  <origin rpy='0 0 0' xyz='0 0 0'/>
+</joint>
+
+<xacro:el_joint parent='1' child='2'></xacro:el_joint>
+<xacro:el_joint parent='2' child='3' type='prismatic'></xacro:el_joint>
+<xacro:el_joint parent='3' child='4' type='continuous'></xacro:el_joint>
+<xacro:el_joint parent='4' child='5'></xacro:el_joint>
+
+<!-- Wrist and hand links and joints -->
+
+<xacro:wr_link name='1'></xacro:wr_link>
+<xacro:wr_link name='2'></xacro:wr_link>
+<xacro:wr_link name='3'></xacro:wr_link>
+<xacro:wr_link name='4'></xacro:wr_link>
+<xacro:wr_link name='5'></xacro:wr_link>
+<!-- Hand end effector -->
+<xacro:wr_link name='6'></xacro:wr_link>
+
+<joint name='el5_wr1' type='continuous'>
+  <parent link='elbow5'/>
+  <child link='wrist1'/>
+  <origin rpy='0 0 0' xyz='0 0 0'/>
+</joint>
+
+<xacro:wr_joint parent='1' child='2'></xacro:wr_joint>
+<xacro:wr_joint parent='2' child='3' type='continuous'></xacro:wr_joint>
+<xacro:wr_spher_joint parent='3' child='4'/>
+<xacro:wr_joint parent='4' child='5' type='prismatic'></xacro:wr_joint>
+<!-- Hand joint -->
+<xacro:wr_joint parent='5' child='6' type='continuous'></xacro:wr_joint>
+
+</robot>
