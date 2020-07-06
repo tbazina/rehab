@@ -1,28 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <robot xmlns:xacro='http://www.ros.org/wiki/xacro'>
 
-<xacro:macro name='sh_link' params='name *shape material:=blue'>
+<xacro:macro name='sh_link' params='name *shape roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 material:=blue'>
   <link name='shoulder${name}'>
     <visual>
       <geometry>
         <xacro:insert_block name='shape'/>
       </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
       <material name='${material}'/>
     </visual>
     <collision>
       <geometry>
         <xacro:insert_block name='shape'/>
       </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
     </collision>
   </link>
 </xacro:macro>
 
-<xacro:macro name='sh_joint' params='parent child type:=fixed'>
+<xacro:macro name='sh_joint' params='parent child type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
   <joint name='sh${parent}_sh${child}' type='${type}'>
     <parent link='shoulder${parent}'/>
     <child link='shoulder${child}'/>
-    <origin rpy='0 0 0' xyz='0 0 0'/>
-    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
   </joint>
 </xacro:macro>
 

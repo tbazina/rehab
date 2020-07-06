@@ -6,6 +6,30 @@
 <xacro:include filename='$(find rehab)/urdf/wrist.urdf.xacro'/>
 <xacro:include filename='$(find rehab)/urdf/hand.urdf.xacro'/>
 
+<!-- Link dimensions -->
+<xacro:property name='baselen' value='0.8'/>
+<xacro:property name='basethick' value='0.05'/>
+<xacro:property name='sh1len' value='0.25'/>
+<!-- First motor dimensions -->
+<xacro:property name='mot1rad' value='0.1'/>
+<xacro:property name='mot1len' value='0.2'/>
+<!-- Links for second motor -->
+<xacro:property name='conn2len' value='0.45'/>
+<xacro:property name='conn3len' value='0.5'/>
+<!-- Second motor dimensions -->
+<xacro:property name='mot2rad' value='0.1'/>
+<xacro:property name='mot2len' value='0.2'/>
+<!-- Second prismatic dimensions -->
+<xacro:property name='prism3len' value='0.25'/>
+<!-- Link for third motor -->
+<xacro:property name='conn4len' value='0.55'/>
+<!-- Third motor dimensions -->
+<xacro:property name='mot3rad' value='0.08'/>
+<xacro:property name='mot3len' value='0.18'/>
+<!-- Shoulder interface dimensions -->
+<xacro:property name='shintrad' value='0.2'/>
+<xacro:property name='shintthick' value='0.05'/>
+
 <!-- Material colors -->
 <material name='blue'>
   <color rgba='0 0 0.8 1'/>
@@ -27,85 +51,150 @@
 <!-- Shoulder links and joints -->
 
 <link name='base_link'>
-  <!-- <visual> -->
-    <!-- <geometry> -->
-
-    <!-- </geometry> -->
-  <!-- </visual> -->
+  <visual>
+    <geometry>
+      <box size='${baselen} 0.3 ${basethick}'/>
+    </geometry>
+    <origin rpy='0 0 0' xyz='-${baselen/2} 0 ${basethick/2}'/>
+    <material name='blue'></material>
+  </visual>
+  <collision>
+    <geometry>
+      <box size='0.3 ${baselen} 0.05'/>
+    </geometry>
+    <origin rpy='0 0 0' xyz='-${baselen/2} 0 ${basethick/2}'/>
+  </collision>
 </link>
 
-<xacro:sh_link name='1'></xacro:sh_link>
-<xacro:sh_link name='2'></xacro:sh_link>
-<xacro:sh_link name='3'></xacro:sh_link>
-<xacro:sh_link name='4'></xacro:sh_link>
-<xacro:sh_link name='5'></xacro:sh_link>
-<xacro:sh_link name='6'></xacro:sh_link>
-<xacro:sh_link name='7'></xacro:sh_link>
-<xacro:sh_link name='8'></xacro:sh_link>
-<xacro:sh_link name='9'></xacro:sh_link>
+<!-- Link for pismatic joint -->
+<xacro:sh_link name='1' z='-${basethick/2}' material='grey'>
+  <box size='${sh1len} ${sh1len} ${basethick}'/>
+</xacro:sh_link>
+
+<!-- Link for pismatic joint -->
+<xacro:sh_link name='2' z='-${basethick/2}' material='grey'>
+  <box size='${sh1len} ${sh1len} ${basethick}'/>
+</xacro:sh_link>
+
+<!-- Motor for first revolute joint -->
+<xacro:sh_link name='3' z='-${mot1len/2}' material='black'>
+  <cylinder radius='${mot1rad}' length='${mot1len}'/>
+</xacro:sh_link>
+<!-- Links for second revolute joint -->
+<xacro:sh_link name='4' z='-${basethick/2}' y='-${conn2len/2-mot1rad*1.1}'>
+  <box size='0.3 ${conn2len} ${basethick}'/>
+</xacro:sh_link>
+<xacro:sh_link name='5' z='-${conn3len/2}'>
+  <box size='0.3 ${basethick} ${conn3len}'/>
+</xacro:sh_link>
+<!-- Motor for second revolute joint -->
+<xacro:sh_link name='6' roll='${pi/2}' y='-${mot2len/2}' material='black'>
+  <cylinder radius='${mot2rad}' length='${mot2len}'/>
+</xacro:sh_link>
+<!-- Third prismatic connection -->
+<xacro:sh_link name='7' y='${basethick/2}' material='grey'>
+  <box size='${prism3len} ${basethick} ${prism3len}'/>
+</xacro:sh_link>
+<xacro:sh_link name='8' z='-${conn4len/2-mot2rad*1.1}' y='${basethick/2}'>
+  <box size='0.3 ${basethick} ${conn4len}'/>
+</xacro:sh_link>
+<!-- Motor for third revolute joint -->
+<xacro:sh_link name='9' z='${mot3len/2}' material='black'>
+  <cylinder radius='${mot3rad}' length='${mot3len}'/>
+</xacro:sh_link>
 <!-- Interface to human shoulder -->
-<xacro:sh_link name='10'></xacro:sh_link>
-<xacro:sh_link name='11'></xacro:sh_link>
+<xacro:sh_link name='10' y='${shintrad}' z='${shintthick/2}' material='grey'>
+  <cylinder radius='${shintrad}' length='${shintthick}'/>
+</xacro:sh_link>
+<!-- <xacro:sh_link name='8'></xacro:sh_link> -->
+<!-- <xacro:sh_link name='9'></xacro:sh_link> -->
+<!-- <xacro:sh_link name='11'></xacro:sh_link> -->
 
 
-<joint name='base_to_shoulder1' type='fixed'>
+<!-- First prismatic passive joint -->
+<joint name='base_to_shoulder1' type='prismatic'>
   <parent link='base_link'/>
   <child link='shoulder1'/>
-  <origin rpy='0 0 0' xyz='0 0 0'/>
+  <origin rpy='0 0 0' xyz='-${sh1len/2} 0 0'/>
+  <limit effort='50' lower='-0.1' upper='0.1' velocity='5.0'/>
+  <axis xyz='0 1 0'/>
 </joint>
 
-<xacro:sh_joint parent='1' child='2' type='prismatic'></xacro:sh_joint>
-<xacro:sh_joint parent='2' child='3' type='prismatic'></xacro:sh_joint>
-<xacro:sh_joint parent='3' child='4'></xacro:sh_joint>
-<xacro:sh_joint parent='4' child='5' type='continuous'></xacro:sh_joint>
-<xacro:sh_joint parent='5' child='6'></xacro:sh_joint>
-<xacro:sh_joint parent='6' child='7' type='continuous'></xacro:sh_joint>
-<xacro:sh_joint parent='7' child='8'></xacro:sh_joint>
-<xacro:sh_joint parent='8' child='9' type='prismatic'></xacro:sh_joint>
-<xacro:sh_joint parent='9' child='10' type='continuous'></xacro:sh_joint>
-<xacro:sh_joint parent='10' child='11'></xacro:sh_joint>
+<!-- Second prismatic passive joint -->
+<xacro:sh_joint parent='1' child='2' type='prismatic' z='-${basethick}' axisx='1'>
+</xacro:sh_joint>
 
-<!-- Elbow links and joints -->
+<!-- Fixed joint between prismatic and revolute joint -->
+<xacro:sh_joint parent='2' child='3' z='-${basethick}'>
+</xacro:sh_joint>
 
-<xacro:el_link name='1'></xacro:el_link>
-<xacro:el_link name='2'></xacro:el_link>
-<xacro:el_link name='3'></xacro:el_link>
-<!-- Interface to human elbow -->
-<xacro:el_link name='4'></xacro:el_link>
-<xacro:el_link name='5'></xacro:el_link>
+<!-- First revolute active joint -->
+<xacro:sh_joint parent='3' child='4' type='continuous' z='-${mot1len}' axisz='1'>
+</xacro:sh_joint>
+<xacro:sh_joint parent='4' child='5' y='-${conn2len-mot1rad*1.1+basethick/2}'>
+</xacro:sh_joint>
+<xacro:sh_joint parent='5' child='6' y='-${basethick/2}' z='-${conn3len-mot2rad*1.1}'>
+</xacro:sh_joint>
+<!-- Second revolute active joint -->
+<xacro:sh_joint parent='6' child='7' type='continuous' y='${basethick}' axisy='1'>
+</xacro:sh_joint>
+<!-- Third prismatic passive joint -->
+<xacro:sh_joint parent='7' child='8' type='prismatic' y='${basethick}' axisz='1'>
+</xacro:sh_joint>
+<xacro:sh_joint parent='8' child='9' z='-${conn4len-mot2rad*1.1}' y='-${mot3rad}'>
+</xacro:sh_joint>
+<!-- Shoulder interface fixed connection -->
+<xacro:sh_joint parent='8' child='10' z='-${conn4len-mot2rad*1.1}' y='${basethick/2}'>
+</xacro:sh_joint>
 
-<joint name='sh11_el1' type='continuous'>
-  <parent link='shoulder11'/>
-  <child link='elbow1'/>
-  <origin rpy='0 0 0' xyz='0 0 0'/>
-</joint>
 
-<xacro:el_joint parent='1' child='2'></xacro:el_joint>
-<xacro:el_joint parent='2' child='3' type='prismatic'></xacro:el_joint>
-<xacro:el_joint parent='3' child='4' type='continuous'></xacro:el_joint>
-<xacro:el_joint parent='4' child='5'></xacro:el_joint>
+<!-- <xacro:sh_joint parent='6' child='7' type='continuous'></xacro:sh_joint> -->
+<!-- <xacro:sh_joint parent='7' child='8'></xacro:sh_joint> -->
+<!-- <xacro:sh_joint parent='8' child='9' type='prismatic'></xacro:sh_joint> -->
+<!-- <xacro:sh_joint parent='9' child='10' type='continuous'></xacro:sh_joint> -->
+<!-- <xacro:sh_joint parent='10' child='11'></xacro:sh_joint> -->
 
-<!-- Wrist and hand links and joints -->
+<!-- [> Elbow links and joints <] -->
 
-<xacro:wr_link name='1'></xacro:wr_link>
-<xacro:wr_link name='2'></xacro:wr_link>
-<xacro:wr_link name='3'></xacro:wr_link>
-<xacro:wr_link name='4'></xacro:wr_link>
-<xacro:wr_link name='5'></xacro:wr_link>
-<!-- Hand end effector -->
-<xacro:wr_link name='6'></xacro:wr_link>
+<!-- <xacro:el_link name='1'></xacro:el_link> -->
+<!-- <xacro:el_link name='2'></xacro:el_link> -->
+<!-- <xacro:el_link name='3'></xacro:el_link> -->
+<!-- [> Interface to human elbow <] -->
+<!-- <xacro:el_link name='4'></xacro:el_link> -->
+<!-- <xacro:el_link name='5'></xacro:el_link> -->
 
-<joint name='el5_wr1' type='continuous'>
-  <parent link='elbow5'/>
-  <child link='wrist1'/>
-  <origin rpy='0 0 0' xyz='0 0 0'/>
-</joint>
+<!-- <joint name='sh11_el1' type='continuous'> -->
+  <!-- <parent link='shoulder11'/> -->
+  <!-- <child link='elbow1'/> -->
+  <!-- <origin rpy='0 0 0' xyz='0 0 0'/> -->
+<!-- </joint> -->
 
-<xacro:wr_joint parent='1' child='2'></xacro:wr_joint>
-<xacro:wr_joint parent='2' child='3' type='continuous'></xacro:wr_joint>
-<xacro:wr_spher_joint parent='3' child='4'/>
-<xacro:wr_joint parent='4' child='5' type='prismatic'></xacro:wr_joint>
-<!-- Hand joint -->
-<xacro:wr_joint parent='5' child='6' type='continuous'></xacro:wr_joint>
+<!-- <xacro:el_joint parent='1' child='2'></xacro:el_joint> -->
+<!-- <xacro:el_joint parent='2' child='3' type='prismatic'></xacro:el_joint> -->
+<!-- <xacro:el_joint parent='3' child='4' type='continuous'></xacro:el_joint> -->
+<!-- <xacro:el_joint parent='4' child='5'></xacro:el_joint> -->
+
+<!-- [> Wrist and hand links and joints <] -->
+
+<!-- <xacro:wr_link name='1'></xacro:wr_link> -->
+<!-- <xacro:wr_link name='2'></xacro:wr_link> -->
+<!-- <xacro:wr_link name='3'></xacro:wr_link> -->
+<!-- <xacro:wr_link name='4'></xacro:wr_link> -->
+<!-- <xacro:wr_link name='5'></xacro:wr_link> -->
+<!-- [> Hand end effector <] -->
+<!-- <xacro:wr_link name='6'></xacro:wr_link> -->
+
+<!-- <joint name='el5_wr1' type='continuous'> -->
+  <!-- <parent link='elbow5'/> -->
+  <!-- <child link='wrist1'/> -->
+  <!-- <origin rpy='0 0 0' xyz='0 0 0'/> -->
+<!-- </joint> -->
+
+<!-- <xacro:wr_joint parent='1' child='2'></xacro:wr_joint> -->
+<!-- <xacro:wr_joint parent='2' child='3' type='continuous'></xacro:wr_joint> -->
+<!-- <xacro:wr_spher_joint parent='3' child='4'/> -->
+<!-- <xacro:wr_joint parent='4' child='5' type='prismatic'></xacro:wr_joint> -->
+<!-- [> Hand joint <] -->
+<!-- <xacro:wr_joint parent='5' child='6' type='continuous'></xacro:wr_joint> -->
 
 </robot>
