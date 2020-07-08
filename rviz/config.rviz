@@ -54,7 +54,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -74,6 +74,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        shoulder10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         shoulder2:
           Alpha: 1
           Show Axes: false
@@ -85,6 +95,31 @@ Visualization Manager:
           Show Trail: false
           Value: true
         shoulder4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder9:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -104,11 +139,25 @@ Visualization Manager:
           Value: true
         shoulder1:
           Value: true
+        shoulder10:
+          Value: true
+        shoulder11:
+          Value: true
         shoulder2:
           Value: true
         shoulder3:
           Value: true
         shoulder4:
+          Value: true
+        shoulder5:
+          Value: true
+        shoulder6:
+          Value: true
+        shoulder7:
+          Value: true
+        shoulder8:
+          Value: true
+        shoulder9:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -121,7 +170,15 @@ Visualization Manager:
             shoulder2:
               shoulder3:
                 shoulder4:
-                  {}
+                  shoulder5:
+                    shoulder6:
+                      shoulder7:
+                        shoulder8:
+                          shoulder9:
+                            shoulder10:
+                              {}
+                            shoulder11:
+                              {}
       Update Interval: 0
       Value: true
     - Class: rviz/Axes
@@ -159,7 +216,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.133469343185425
+      Distance: 3.8953378200531006
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -174,10 +231,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: -0.0102021973580122
+      Pitch: 0.7897976040840149
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.5503969192504883
+      Yaw: 0.3103967010974884
     Saved: ~
 Window Geometry:
   Displays:

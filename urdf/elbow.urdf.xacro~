@@ -1,22 +1,63 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <robot xmlns:xacro='http://www.ros.org/wiki/xacro'>
 
-<xacro:macro name='el_link' params='name'>
+<xacro:macro name='el_link' params='name *shape reflectx:=1 roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 material:=blue'>
   <link name='elbow${name}'>
-    <!-- <visual> -->
-      <!-- <geometry> -->
-
-      <!-- </geometry> -->
-    <!-- </visual> -->
+    <visual>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x*reflectx} ${y} ${z}'/>
+      <material name='${material}'/>
+    </visual>
+    <collision>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    </collision>
   </link>
 </xacro:macro>
 
-<xacro:macro name='el_joint' params='parent child type:=fixed'>
+<xacro:macro name='el_joint' params='parent child type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
   <joint name='el${parent}_el${child}' type='${type}'>
     <parent link='elbow${parent}'/>
     <child link='elbow${child}'/>
-    <origin rpy='0 0 0' xyz='0 0 0'/>
-    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
+  </joint>
+</xacro:macro>
+
+<xacro:macro name='el_refl_joint' params='parent child mimic type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
+  <joint name='el${parent}_el${child}' type='${type}'>
+    <parent link='elbow${parent}'/>
+    <child link='elbow${child}'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
+    <mimic joint='${mimic}'/>
+  </joint>
+</xacro:macro>
+
+<xacro:macro name='el_cust_joint' params='parent child name type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
+  <joint name='${name}' type='${type}'>
+    <parent link='${parent}'/>
+    <child link='${child}'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
+  </joint>
+</xacro:macro>
+
+<xacro:macro name='el_cust_refl_joint' params='parent child name mimic type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
+  <joint name='${name}' type='${type}'>
+    <parent link='${parent}'/>
+    <child link='${child}'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
+    <mimic joint='${mimic}'/>
   </joint>
 </xacro:macro>
 
