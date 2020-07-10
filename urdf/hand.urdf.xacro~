@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot xmlns:xacro='http://www.ros.org/wiki/xacro'>
+
+<xacro:macro name='hn_link' params='name *shape roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 material:=blue'>
+  <link name='hand${name}'>
+    <visual>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+      <material name='${material}'/>
+    </visual>
+    <collision>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    </collision>
+  </link>
+</xacro:macro>
+
+<xacro:macro name="generate_hn_links" params="qty rad len">
+  <xacro:hn_link name='${qty}' pitch='${pi/2}' x='-${len/2}' y='${rad*2}'>
+    <cylinder radius='${rad}' length='${len}'/>
+  </xacro:hn_link>
+  <xacro:if value="${qty-1}">
+    <xacro:generate_hn_links qty="${qty-1}" rad='${rad}' len='${len}'/>
+  </xacro:if>
+</xacro:macro>
+
+<xacro:macro name='hn_mimic_joint' params='parent child mimic type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
+  <joint name='${parent}_hn${child}' type='${type}'>
+    <parent link='${parent}'/>
+    <child link='hand${child}'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='0.0' upper='0.05' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
+    <mimic joint='${mimic}'/>
+  </joint>
+</xacro:macro>
+
+<xacro:macro name='hn_cust_joint' params='parent child name type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
+  <joint name='${name}' type='${type}'>
+    <parent link='${parent}'/>
+    <child link='${child}'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='0.0' upper='0.05' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
+  </joint>
+</xacro:macro>
+
+<xacro:macro name="generate_hn_mimic_joints" params="qty mimic parent transl">
+  <xacro:hn_mimic_joint parent='${parent}' child='${qty}' mimic='${mimic}'
+    type='prismatic' roll='${pi/3*(qty-1)}' y='${transl}' axisy='1'/>
+  <xacro:if value="${qty-2}">
+    <xacro:generate_hn_mimic_joints qty="${qty-1}" mimic='${mimic}' parent='${parent}'
+      transl='${transl}'/>
+  </xacro:if>
+</xacro:macro>
+
+<xacro:macro name='hand_interaction' params='rad len parent transl'>
+  <xacro:generate_hn_links qty='6' rad='${rad}' len='${len}'/>
+  <xacro:hn_cust_joint parent='${parent}' child='hand1' name='hand_joint'
+    type='prismatic' y='${transl}' axisy='1'/>
+  <xacro:generate_hn_mimic_joints qty='6' mimic='hand_joint' parent='${parent}'
+    transl='${transl}'/>
+</xacro:macro>
+
+</robot>

@@ -8,6 +8,7 @@ Panels:
         - /Status1
         - /Grid1
         - /RobotModel1
+        - /TF1
       Splitter Ratio: 0.5
     Tree Height: 725
   - Class: rviz/Selection
@@ -54,7 +55,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.699999988079071
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -65,6 +66,89 @@ Visualization Manager:
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
         base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        dummy_spher1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        dummy_spher2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        elbow1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hand1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hand2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hand3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hand4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hand5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hand6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -120,6 +204,76 @@ Visualization Manager:
           Show Trail: false
           Value: true
         shoulder9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist12:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist13:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist14:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist9:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -137,6 +291,40 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
+        dummy_spher1:
+          Value: true
+        dummy_spher2:
+          Value: true
+        elbow1:
+          Value: true
+        elbow2:
+          Value: true
+        elbow3:
+          Value: true
+        elbow4:
+          Value: true
+        elbow5:
+          Value: true
+        elbow6:
+          Value: true
+        elbow7:
+          Value: true
+        elbow8:
+          Value: true
+        elbow9:
+          Value: true
+        hand1:
+          Value: true
+        hand2:
+          Value: true
+        hand3:
+          Value: true
+        hand4:
+          Value: true
+        hand5:
+          Value: true
+        hand6:
+          Value: true
         shoulder1:
           Value: true
         shoulder10:
@@ -159,11 +347,39 @@ Visualization Manager:
           Value: true
         shoulder9:
           Value: true
-      Marker Scale: 1
+        wrist1:
+          Value: true
+        wrist10:
+          Value: true
+        wrist11:
+          Value: true
+        wrist12:
+          Value: true
+        wrist13:
+          Value: true
+        wrist14:
+          Value: true
+        wrist2:
+          Value: true
+        wrist3:
+          Value: true
+        wrist4:
+          Value: true
+        wrist5:
+          Value: true
+        wrist6:
+          Value: true
+        wrist7:
+          Value: true
+        wrist8:
+          Value: true
+        wrist9:
+          Value: true
+      Marker Scale: 0.20000000298023224
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: true
+      Show Names: false
       Tree:
         base_link:
           shoulder1:
@@ -178,7 +394,49 @@ Visualization Manager:
                             shoulder10:
                               {}
                             shoulder11:
-                              {}
+                              elbow1:
+                                elbow3:
+                                  elbow6:
+                                    elbow8:
+                                      wrist1:
+                                        wrist2:
+                                          {}
+                                        wrist3:
+                                          wrist4:
+                                            wrist5:
+                                              {}
+                                            wrist6:
+                                              wrist7:
+                                                dummy_spher1:
+                                                  dummy_spher2:
+                                                    wrist8:
+                                                      wrist9:
+                                                        wrist10:
+                                                          wrist11:
+                                                            wrist12:
+                                                              wrist13:
+                                                                hand1:
+                                                                  {}
+                                                                hand2:
+                                                                  {}
+                                                                hand3:
+                                                                  {}
+                                                                hand4:
+                                                                  {}
+                                                                hand5:
+                                                                  {}
+                                                                hand6:
+                                                                  {}
+                                                                wrist14:
+                                                                  {}
+                                    elbow9:
+                                      {}
+                                elbow5:
+                                  {}
+                              elbow2:
+                                elbow4:
+                                  elbow7:
+                                    {}
       Update Interval: 0
       Value: true
     - Class: rviz/Axes
@@ -216,25 +474,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.8953378200531006
+      Distance: 1.2993720769882202
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.11331932991743088
-        Y: -0.2019692063331604
-        Z: 0.2310684323310852
+        X: 0.5987773537635803
+        Y: -0.6835160255432129
+        Z: 0.009075827896595001
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7897976040840149
+      Pitch: 0.1347978413105011
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.3103967010974884
+      Yaw: 1.4353963136672974
     Saved: ~
 Window Geometry:
   Displays:

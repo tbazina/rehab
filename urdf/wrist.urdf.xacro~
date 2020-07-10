@@ -1,44 +1,105 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <robot xmlns:xacro='http://www.ros.org/wiki/xacro'>
 
-<xacro:macro name='wr_link' params='name'>
+<xacro:macro name='wr_link' params='name *shape reflectx:=1 roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 material:=blue'>
   <link name='wrist${name}'>
-    <!-- <visual> -->
-      <!-- <geometry> -->
-
-      <!-- </geometry> -->
-    <!-- </visual> -->
+    <visual>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x*reflectx} ${y} ${z}'/>
+      <material name='${material}'/>
+    </visual>
+    <collision>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    </collision>
   </link>
 </xacro:macro>
 
-<xacro:macro name='wr_joint' params='parent child type:=fixed'>
+<xacro:macro name='wr_joint' params='parent child type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
   <joint name='wr${parent}_wr${child}' type='${type}'>
     <parent link='wrist${parent}'/>
     <child link='wrist${child}'/>
-    <origin rpy='0 0 0' xyz='0 0 0'/>
-    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
+  </joint>
+</xacro:macro>
+
+<xacro:macro name='wr_cust_joint' params='parent child name type:=fixed roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 axisx:=0 axisy:=0 axisz:=0'>
+  <joint name='${name}' type='${type}'>
+    <parent link='${parent}'/>
+    <child link='${child}'/>
+    <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='${axisx} ${axisy} ${axisz}'/>
   </joint>
 </xacro:macro>
 
 <xacro:macro name='wr_spher_joint' params='parent child'>
+  <link name='dummy_spher1'>
+  </link>
+
   <joint name='wr${parent}_wr${child}_rotx' type='revolute'>
     <parent link='wrist${parent}'/>
-    <child link='wrist${child}'/>
+    <child link='dummy_spher1'/>
     <origin rpy='0 0 0' xyz='0 0 0'/>
-    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='1 0 0'/>
   </joint>
+
+  <link name='dummy_spher2'>
+  </link>
+
   <joint name='wr${parent}_wr${child}_roty' type='revolute'>
-    <parent link='wrist${parent}'/>
-    <child link='wrist${child}'/>
+    <parent link='dummy_spher1'/>
+    <child link='dummy_spher2'/>
     <origin rpy='0 0 0' xyz='0 0 0'/>
-    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='0 1 0'/>
   </joint>
+
   <joint name='wr${parent}_wr${child}_rotz' type='revolute'>
-    <parent link='wrist${parent}'/>
+    <parent link='dummy_spher2'/>
     <child link='wrist${child}'/>
     <origin rpy='0 0 0' xyz='0 0 0'/>
-    <limit effort='300.0' lower='-0.5' upper='0.5' velocity='5.0'/>
+    <limit effort='50.0' lower='-0.1' upper='0.1' velocity='5.0'/>
+    <axis xyz='0 0 1'/>
   </joint>
+</xacro:macro>
+
+<xacro:macro name='hn_link' params='name *shape roll:=0 pitch:=0 yaw:=0 x:=0 y:=0 z:=0 material:=blue'>
+  <link name='hand${name}'>
+    <visual>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+      <material name='${material}'/>
+    </visual>
+    <collision>
+      <geometry>
+        <xacro:insert_block name='shape'/>
+      </geometry>
+      <origin rpy='${roll} ${pitch} ${yaw}' xyz='${x} ${y} ${z}'/>
+    </collision>
+  </link>
+</xacro:macro>
+
+<xacro:macro name="generate_hn_links" params="qty rad len">
+  <xacro:hn_link name='${qty}' pitch='${pi/2}' x='-${len/2}' y='${rad*2}'>
+    <cylinder radius='${rad}' length='${len}'/>
+  </xacro:hn_link>
+  <xacro:if value="${qty}">
+    <xacro:generate_hn_links qty="${qty-1}" rad='${rad}' len='${len}'/>
+  </xacro:if>
+</xacro:macro>
+
+<xacro:macro name='hand_interaction' params='rad len'>
+  <xacro:generate_hn_links qty='6' rad='${rad}' len='${len}'/>
 </xacro:macro>
 
 </robot>

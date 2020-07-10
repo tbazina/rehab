@@ -51,11 +51,53 @@
 <xacro:property name='prism4width' value='0.05'/>
 <xacro:property name='prism4thick' value='0.025'/>
 <!-- Elbow interface dimensions -->
-<xacro:property name='elintrad' value='0.16'/>
+<xacro:property name='elintrad' value='0.165'/>
 <xacro:property name='elintthick' value='0.03'/>
 <!-- Fifth motor dimensions -->
 <xacro:property name='mot5rad' value='0.04'/>
 <xacro:property name='mot5len' value='0.1'/>
+
+<!-- Wrist and hand dimensions -->
+<!-- Wrist flexion/extension connecting link dimensions -->
+<xacro:property name='wrcon1len' value='0.18'/>
+<xacro:property name='wrcon1width' value='0.08'/>
+<xacro:property name='wrcon1thick' value='0.04'/>
+<!-- Sixth motor dimensions -->
+<xacro:property name='mot6rad' value='0.03'/>
+<xacro:property name='mot6len' value='0.1'/>
+<!-- Wrist abduction/adduction connecting links dimensions -->
+<xacro:property name='wrcon2len' value='0.18'/>
+<xacro:property name='wrcon2width' value='0.08'/>
+<xacro:property name='wrcon2thick' value='0.04'/>
+<xacro:property name='wrcon3len' value='0.19'/>
+<xacro:property name='wrcon3width' value='0.08'/>
+<xacro:property name='wrcon3thick' value='0.04'/>
+<!-- Seventh motor dimensions -->
+<xacro:property name='mot7rad' value='0.03'/>
+<xacro:property name='mot7len' value='0.1'/>
+<!-- Compliant spherical joint dimensions -->
+<xacro:property name='spherbaserad' value='0.03'/>
+<xacro:property name='spherbaselen' value='0.03'/>
+<xacro:property name='spherjntrad' value='0.012'/>
+<xacro:property name='spherjntlen' value='0.02'/>
+<!-- Connecting links for fifth prismatic joint -->
+<xacro:property name='wrcon4thick' value='0.02'/>
+<xacro:property name='wrcon4len' value='0.08'/>
+<!-- Fifth prismatic dimensions -->
+<xacro:property name='prism5len' value='0.08'/>
+<xacro:property name='prism5width' value='0.05'/>
+<xacro:property name='prism5thick' value='0.02'/>
+<!-- Connecting links for eight motor dimensions -->
+<xacro:property name='wrcon5thick' value='0.02'/>
+<xacro:property name='wrcon5len' value='0.19'/>
+<xacro:property name='wrcon5width' value='0.08'/>
+<!-- Eight motor dimensions -->
+<xacro:property name='mot8rad' value='0.025'/>
+<xacro:property name='mot8len' value='0.1'/>
+<!-- Hand grips dimensions -->
+<xacro:property name='hngriprad' value='0.005'/>
+<xacro:property name='hngriplen' value='0.15'/>
+
 
 <!-- Material colors -->
 <material name='red'>
@@ -222,15 +264,9 @@
   <cylinder radius='${elintrad}' length='${elintthick}'/>
 </xacro:el_link>
 <!-- Motor for fifth revolute joint -->
-<xacro:el_link name='9' material='black'>
+<xacro:el_link name='9' material='black' z='${mot5len/2}'>
   <cylinder radius='${mot5rad}' length='${mot5len}'/>
 </xacro:el_link>
-
-<!-- <xacro:el_link name='2'></xacro:el_link> -->
-<!-- <xacro:el_link name='3'></xacro:el_link> -->
-<!-- [> Interface to human elbow <] -->
-<!-- <xacro:el_link name='4'></xacro:el_link> -->
-<!-- <xacro:el_link name='5'></xacro:el_link> -->
 
 <!-- Shoulder to elbow revolute joint -->
 <xacro:el_cust_joint name='sh11_to_el1_rot' type='continuous'
@@ -258,35 +294,107 @@
 <xacro:el_joint parent='6' child='8' z='-${prism4len/2}'>
 </xacro:el_joint>
 <!-- Fifth motor fixed connection -->
-<xacro:el_joint parent='8' child='9' x='${elintrad+mot5rad/2}' z='0'>
+<xacro:el_joint parent='6' child='9' x='${elintrad+mot5rad}' z='-${prism4len/2+elintthick}'>
 </xacro:el_joint>
 
-<!-- <xacro:el_joint parent='1' child='2'></xacro:el_joint> -->
-<!-- <xacro:el_joint parent='2' child='3' type='prismatic'></xacro:el_joint> -->
-<!-- <xacro:el_joint parent='3' child='4' type='continuous'></xacro:el_joint> -->
-<!-- <xacro:el_joint parent='4' child='5'></xacro:el_joint> -->
+<!-- Wrist and hand links and joints -->
+<xacro:wr_link name='1' z='-${wrcon1len/2}' x='-${elintrad-wrcon1thick}'>
+  <box size='${wrcon1thick} ${wrcon1width} ${wrcon1len}'/>
+</xacro:wr_link>
+<!-- Motor for sixth revolute joint -->
+<xacro:wr_link name='2' material='black' pitch='${pi/2}' x='-${mot6len/2}'>
+  <cylinder radius='${mot6rad}' length='${mot6len}'/>
+</xacro:wr_link>
+<!-- Connecting links for seventh revolute joint -->
+<xacro:wr_link name='3' x='${wrcon2thick/2}' y='-${wrcon2len/2*0.8}'>
+  <box size='${wrcon2thick} ${wrcon2len} ${wrcon2width}'/>
+</xacro:wr_link>
+<xacro:wr_link name='4' y='-${wrcon3thick/2}' x='${wrcon3len/2}'>
+  <box size='${wrcon3len} ${wrcon3thick} ${wrcon3width}'/>
+</xacro:wr_link>
+<!-- Motor for seventh revolute joint -->
+<xacro:wr_link name='5' material='black' roll='${pi/2}' y='-${mot7len/2}'>
+  <cylinder radius='${mot7rad}' length='${mot7len}'/>
+</xacro:wr_link>
+<!-- Links for spherical joint -->
+<xacro:wr_link name='6' material='white' y='${spherbaserad}'>
+  <cylinder radius='${spherbaserad}' length='${spherbaselen}'/>
+</xacro:wr_link>
+<xacro:wr_link name='7' material='white' z='${spherjntlen/2}'>
+  <cylinder radius='${spherjntrad}' length='${spherjntlen}'/>
+</xacro:wr_link>
+<xacro:wr_link name='8' material='white' z='-${spherjntlen/2}'>
+  <cylinder radius='${spherjntrad}' length='${spherjntlen}'/>
+</xacro:wr_link>
+<xacro:wr_link name='9' material='white'>
+  <cylinder radius='${spherbaserad}' length='${spherbaselen}'/>
+</xacro:wr_link>
+<!-- Connecting links for prismatic joint -->
+<xacro:wr_link name='10'>
+  <box size='${spherbaserad*2.2} ${spherbaserad*2.2} ${wrcon4thick}'/>
+</xacro:wr_link>
+<xacro:wr_link name='11'>
+  <box size='${wrcon4thick} ${spherbaserad*2.2} ${wrcon4len}'/>
+</xacro:wr_link>
+<!-- Fifth prismatic link -->
+<xacro:wr_link name='12' material='grey'>
+  <box size='${prism5thick} ${prism5width} ${prism5len}'/>
+</xacro:wr_link>
+<!-- Connecting links for eight motor -->
+<xacro:wr_link name='13' x='${wrcon5thick/2}'>
+  <box size='${wrcon5thick} ${wrcon5len} ${wrcon5width}'/>
+</xacro:wr_link>
+<!-- Motor for eight revolute joint -->
+<xacro:wr_link name='14' material='black' pitch='${pi/2}' x='${mot8len/2}'>
+  <cylinder radius='${mot8rad}' length='${mot8len}'/>
+</xacro:wr_link>
+<!-- Hand interaction device -->
 
-<!-- [> Wrist and hand links and joints <] -->
 
-<!-- <xacro:wr_link name='1'></xacro:wr_link> -->
-<!-- <xacro:wr_link name='2'></xacro:wr_link> -->
-<!-- <xacro:wr_link name='3'></xacro:wr_link> -->
-<!-- <xacro:wr_link name='4'></xacro:wr_link> -->
-<!-- <xacro:wr_link name='5'></xacro:wr_link> -->
-<!-- [> Hand end effector <] -->
-<!-- <xacro:wr_link name='6'></xacro:wr_link> -->
-
-<!-- <joint name='el5_wr1' type='continuous'> -->
-  <!-- <parent link='elbow5'/> -->
-  <!-- <child link='wrist1'/> -->
-  <!-- <origin rpy='0 0 0' xyz='0 0 0'/> -->
-<!-- </joint> -->
-
-<!-- <xacro:wr_joint parent='1' child='2'></xacro:wr_joint> -->
-<!-- <xacro:wr_joint parent='2' child='3' type='continuous'></xacro:wr_joint> -->
-<!-- <xacro:wr_spher_joint parent='3' child='4'/> -->
-<!-- <xacro:wr_joint parent='4' child='5' type='prismatic'></xacro:wr_joint> -->
-<!-- [> Hand joint <] -->
-<!-- <xacro:wr_joint parent='5' child='6' type='continuous'></xacro:wr_joint> -->
+<!-- Elbow to wrist revolute joint -->
+<xacro:wr_cust_joint name='el8_to_wr1_rot' type='continuous' z='-${elintthick}'
+  parent='elbow8' child='wrist1' axisz='1'>
+</xacro:wr_cust_joint>
+<!-- Sixth motor fixed connection -->
+<xacro:wr_joint parent='1' child='2' x='-${elintrad-wrcon1thick/2}'
+  z='-${wrcon1len*0.9-mot6rad}'>
+</xacro:wr_joint>
+<!-- Wrist flexion/extension (sixth) revolute joint -->
+<xacro:wr_joint parent='1' child='3' type='continuous' x='-${elintrad-wrcon1thick*3/2}'
+  z='-${wrcon1len*0.9-mot6rad}' axisx='1'>
+</xacro:wr_joint>
+<xacro:wr_joint parent='3' child='4' y='-${wrcon2len/2*(0.8+1)}'>
+</xacro:wr_joint>
+<!-- Seventh motor fixed connection -->
+<xacro:wr_joint parent='4' child='5' x='${wrcon3len*0.9-mot7rad}'
+  y='-${wrcon3thick}'>
+</xacro:wr_joint>
+<!-- Spherical joint as compliant mechanism -->
+<xacro:wr_joint parent='4' child='6' type='continuous' x='${wrcon3len*0.9-mot7rad}'
+  axisy='1'>
+</xacro:wr_joint>
+<xacro:wr_joint parent='6' child='7' y='${spherbaserad}' z='-${spherbaselen/2+spherjntlen}'>
+</xacro:wr_joint>
+<xacro:wr_spher_joint parent='7' child='8'>
+</xacro:wr_spher_joint>
+<xacro:wr_joint parent='8' child='9' z='-${spherbaselen/2+spherjntlen}'>
+</xacro:wr_joint>
+<!-- Fifth prismatic joint and connecting elements -->
+<xacro:wr_joint parent='9' child='10' z='-${spherbaselen/2+wrcon4thick/2}'>
+</xacro:wr_joint>
+<xacro:wr_joint parent='10' child='11' x='${spherbaserad*2.2/2+wrcon4thick/2}'
+  z='-${wrcon4len/2-wrcon4thick/2}'>
+</xacro:wr_joint>
+<xacro:wr_joint parent='11' child='12' type='prismatic' x='${wrcon4thick/2+prism5thick/2}'
+  z='-${wrcon4len/2}' axisz='1'>
+</xacro:wr_joint>
+<!-- Eight revolute joint connection and motor fixed links -->
+<xacro:wr_joint parent='12' child='13' x='${prism5thick/2}' y='${wrcon5len/2*0.7}'>
+</xacro:wr_joint>
+<xacro:wr_joint parent='13' child='14' x='${wrcon5thick}' y='${wrcon5len/2*0.9-mot8rad}'>
+</xacro:wr_joint>
+<!-- Eight revolute joint hand interaction -->
+<xacro:hand_interaction rad='${hngriprad}' len='${hngriplen}' parent='wrist13'
+  transl='${wrcon5len/2*0.9-mot8rad}'/>
 
 </robot>
