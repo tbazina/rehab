@@ -19,28 +19,28 @@
 <xacro:property name='mot1len' value='0.2'/>
 <!-- Links for second motor -->
 <xacro:property name='conn2len' value='0.45'/>
-<xacro:property name='conn3len' value='0.5'/>
+<xacro:property name='conn3len' value='0.4'/>
 <!-- Second motor dimensions -->
 <xacro:property name='mot2rad' value='0.1'/>
 <xacro:property name='mot2len' value='0.2'/>
 <!-- Third prismatic dimensions -->
-<xacro:property name='prism3len' value='0.25'/>
+<xacro:property name='prism3len' value='0.2'/>
 <!-- Link for third motor -->
-<xacro:property name='conn4len' value='0.55'/>
+<xacro:property name='conn4len' value='0.4'/>
 <!-- Third motor dimensions -->
 <xacro:property name='mot3rad' value='0.08'/>
-<xacro:property name='mot3len' value='0.18'/>
+<xacro:property name='mot3len' value='0.12'/>
 <!-- Shoulder interface dimensions -->
-<xacro:property name='shintrad' value='0.2'/>
+<xacro:property name='shintrad' value='0.15'/>
 <xacro:property name='shintthick' value='0.05'/>
 
 <!-- Elbow dimensions -->
 <!-- Symmetric elbow connecting links dimensions -->
-<xacro:property name='elcon1len' value='0.35'/>
+<xacro:property name='elcon1len' value='0.20'/>
 <xacro:property name='elcon1width' value='0.1'/>
 <xacro:property name='elcon1thick' value='0.04'/>
 <!-- Symmetric elbow to forearm connecting links dimensions -->
-<xacro:property name='elcon2len' value='0.35'/>
+<xacro:property name='elcon2len' value='0.15'/>
 <xacro:property name='elcon2width' value='0.08'/>
 <xacro:property name='elcon2thick' value='0.04'/>
 <!-- Fourth motor dimensions -->
@@ -51,7 +51,7 @@
 <xacro:property name='prism4width' value='0.05'/>
 <xacro:property name='prism4thick' value='0.025'/>
 <!-- Elbow interface dimensions -->
-<xacro:property name='elintrad' value='0.165'/>
+<xacro:property name='elintrad' value='0.12'/>
 <xacro:property name='elintthick' value='0.03'/>
 <!-- Fifth motor dimensions -->
 <xacro:property name='mot5rad' value='0.04'/>
