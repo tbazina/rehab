@@ -2,7 +2,7 @@
 
   <arg name="model" default="$(find rehab)/urdf/UpperExtremity/upper_extremity.urdf"/>
   <arg name="gui" default="true" />
-  <arg name="rvizconfig" default="$(find rehab)/rviz/config.rviz" />
+  <arg name="rvizconfig" default="$(find rehab)/rviz/config_upper_extremity.rviz" />
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 

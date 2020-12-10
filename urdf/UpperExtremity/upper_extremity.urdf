@@ -1,1 +1,986 @@
-<?xml version="1.0" encoding="utf-8"?><robot name="UpperExtremityModel"><joint name="ground_joint" type="fixed"><origin rpy="0 -0 0" xyz="0 0 0"/><parent link="base_link"/><child link="ground_link"/><axis xyz="1 0 0"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/></joint><joint name="thorax_joint" type="fixed"><origin rpy="0 -0 0" xyz="0 0 0"/><parent link="ground_link"/><child link="thorax_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/></joint><joint name="clavicle_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.006324999965727329 0.006929993629455566 0.025465000420808792"/><parent link="thorax_link"/><child link="clavicle_link"/><axis xyz="0 1 0"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="clavphant_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.014329999685287476 0.020070016384124756 0.13553500175476074"/><parent link="clavicle_link"/><child link="clavphant_link"/><axis xyz="0 1 0"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="scapula_joint" type="revolute"><origin rpy="0 -0 0" xyz="0 0 0"/><parent link="clavphant_link"/><child link="scapula_link"/><axis xyz="0 1 0"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="scapphant_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.009549998678267002 -0.0339999794960022 0.009000003337860107"/><parent link="scapula_link"/><child link="scapphant_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="humphant_joint" type="revolute"><origin rpy="0 -0 0" xyz="0 -5.960464477539063e-08 0"/><parent link="scapphant_link"/><child link="humphant_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="humphant1_joint" type="revolute"><origin rpy="0 -0 0" xyz="0 0 0"/><parent link="humphant_link"/><child link="humphant1_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="humerus_joint" type="revolute"><origin rpy="0 -0 0" xyz="0 0 0"/><parent link="humphant1_link"/><child link="humerus_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="ulna_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.006099999882280827 -0.29040002822875977 -0.012299999594688416"/><parent link="humerus_link"/><child link="ulna_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="radius_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.0004000002518296242 -0.011502981185913086 0.019998997449874878"/><parent link="ulna_link"/><child link="radius_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="lunate_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.017999999225139618 -0.24200010299682617 0.025000005960464478"/><parent link="radius_link"/><child link="lunate_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="scaphoid_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.012344999238848686 -0.004463911056518555 -0.0012540072202682495"/><parent link="lunate_link"/><child link="scaphoid_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="pisiform_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.013388000428676605 -0.009886026382446289 -0.010592997074127197"/><parent link="lunate_link"/><child link="pisiform_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="triquetrum_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.010784000158309937 -0.007498979568481445 -0.0012889951467514038"/><parent link="lunate_link"/><child link="triquetrum_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="capitate_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.003992000594735146 -0.015053987503051758 0.0023269951343536377"/><parent link="lunate_link"/><child link="capitate_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="trapezium_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.015293000265955925 -0.004569053649902344 -0.010307997465133667"/><parent link="capitate_link"/><child link="trapezium_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="firstmc1_joint" type="revolute"><origin rpy="0 -0 0" xyz="0 0 0"/><parent link="trapezium_link"/><child link="firstmc1_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="firstmc_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.007200000807642937 -0.005399942398071289 -0.002499997615814209"/><parent link="firstmc1_link"/><child link="firstmc_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="proximal_thumb_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.016499999910593033 -0.02920013666152954 -0.012700006365776062"/><parent link="firstmc_link"/><child link="proximal_thumb_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="distal_thumb_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.014000002294778824 -0.02590000629425049 -0.010099992156028748"/><parent link="proximal_thumb_link"/><child link="distal_thumb_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="trapezoid_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.009142998605966568 -0.00406193733215332 -0.002463996410369873"/><parent link="capitate_link"/><child link="trapezoid_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="hamate_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.010968999937176704 -0.0024950504302978516 -0.0007500052452087402"/><parent link="capitate_link"/><child link="hamate_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="secondmc_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.014685001224279404 -0.03762006759643555 0.005032002925872803"/><parent link="capitate_link"/><child link="secondmc_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="2proxph_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.0035009998828172684 -0.028243064880371094 0.0036199986934661865"/><parent link="secondmc_link"/><child link="2proxph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="2midph_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.007517000660300255 -0.04127299785614014 0.007326006889343262"/><parent link="2proxph_link"/><child link="2midph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="2distph_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.003332998603582382 -0.024888038635253906 0.0012200027704238892"/><parent link="2midph_link"/><child link="2distph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="thirdmc_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.0004770001396536827 -0.039238929748535156 0.007376998662948608"/><parent link="capitate_link"/><child link="thirdmc_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="3proxph_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.00023999996483325958 -0.02628999948501587 0.0017780065536499023"/><parent link="thirdmc_link"/><child link="3proxph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="3midph_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.0016499999910593033 -0.044210970401763916 0.006229996681213379"/><parent link="3proxph_link"/><child link="3midph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="3distph_joint" type="revolute"><origin rpy="0 -0 0" xyz="0.001365000382065773 -0.029047071933746338 0.001954004168510437"/><parent link="3midph_link"/><child link="3distph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="fourthmc_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.012045999988913536 -0.040518999099731445 0.0035129934549331665"/><parent link="capitate_link"/><child link="fourthmc_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="4proxph_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.001829999964684248 -0.02368903160095215 -0.0001730024814605713"/><parent link="fourthmc_link"/><child link="4proxph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="4midph_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.003528000321239233 -0.040255069732666016 0.0013449937105178833"/><parent link="4proxph_link"/><child link="4midph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="4distph_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.0023170001804828644 -0.024788975715637207 0.0005629956722259521"/><parent link="4midph_link"/><child link="4distph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="fifthmc_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.0218959990888834 -0.0346829891204834 -0.004217997193336487"/><parent link="capitate_link"/><child link="fifthmc_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="5proxph_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.0015970002859830856 -0.02143096923828125 -0.0014960020780563354"/><parent link="fifthmc_link"/><child link="5proxph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="5midph_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.005279000848531723 -0.03556305170059204 -0.0028789937496185303"/><parent link="5proxph_link"/><child link="5midph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><joint name="5distph_joint" type="revolute"><origin rpy="0 -0 0" xyz="-0.002870999276638031 -0.02067697048187256 -0.0022429972887039185"/><parent link="5midph_link"/><child link="5distph_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><link name="base_link"/><link name="ground_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial></link><link name="thorax_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0 0 0"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_thorax.dae" scale="1 1 1"/></geometry></visual></link><link name="clavicle_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.006324999965727329 -0.006929993629455566 -0.02546500228345394"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_clavicle.dae" scale="1 1 1"/></geometry></visual></link><link name="clavphant_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial></link><link name="scapula_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.008004999719560146 -0.027000010013580322 -0.16099999845027924"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_scapula.dae" scale="1 1 1"/></geometry></visual></link><link name="scapphant_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial></link><link name="humphant_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial></link><link name="humphant1_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial></link><link name="humerus_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.01755499839782715 0.00700002908706665 -0.17000000178813934"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_humerus.dae" scale="1 1 1"/></geometry></visual></link><link name="ulna_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.011454998515546322 0.2974000573158264 -0.15770000219345093"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_ulna.dae" scale="1 1 1"/></geometry></visual></link><link name="radius_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.011054998263716698 0.3089030981063843 -0.1776989996433258"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_radius.dae" scale="1 1 1"/></geometry></visual></link><link name="lunate_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.00694500096142292 0.5509030818939209 -0.20269900560379028"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_lunate.dae" scale="1 1 1"/></geometry></visual></link><link name="scaphoid_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.019290000200271606 0.5553669929504395 -0.20144499838352203"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_scaphoid.dae" scale="1 1 1"/></geometry></visual></link><link name="pisiform_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.006442999467253685 0.5607891082763672 -0.19210600852966309"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_pisiform.dae" scale="1 1 1"/></geometry></visual></link><link name="triquetrum_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.0038389991968870163 0.5584020614624023 -0.20141001045703888"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_triquetrum.dae" scale="1 1 1"/></geometry></visual></link><link name="capitate_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.010937001556158066 0.5659570693969727 -0.20502600073814392"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_capitate.dae" scale="1 1 1"/></geometry></visual></link><link name="trapezium_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.02623000182211399 0.570526123046875 -0.19471800327301025"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_trapezium.dae" scale="1 1 1"/></geometry></visual></link><link name="firstmc1_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial></link><link name="firstmc_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.03343000262975693 0.5759260654449463 -0.19221800565719604"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_1mc.dae" scale="1 1 1"/></geometry></visual></link><link name="proximal_thumb_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.04993000254034996 0.6051262021064758 -0.17951799929141998"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_thumbprox.dae" scale="1 1 1"/></geometry></visual></link><link name="distal_thumb_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.06393000483512878 0.6310262084007263 -0.16941799223423004"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_thumbdist.dae" scale="1 1 1"/></geometry></visual></link><link name="trapezoid_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.020080000162124634 0.570019006729126 -0.20256200432777405"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_trapezoid.dae" scale="1 1 1"/></geometry></visual></link><link name="hamate_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="3.199838101863861e-05 0.5684521198272705 -0.20427599549293518"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_hamate.dae" scale="1 1 1"/></geometry></visual></link><link name="secondmc_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.02562200278043747 0.6035771369934082 -0.21005800366401672"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2mc.dae" scale="1 1 1"/></geometry></visual></link><link name="2proxph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.029123002663254738 0.6318202018737793 -0.2136780023574829"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2proxph.dae" scale="1 1 1"/></geometry></visual></link><link name="2midph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.03664000332355499 0.6730931997299194 -0.22100399434566498"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2midph.dae" scale="1 1 1"/></geometry></visual></link><link name="2distph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.039973001927137375 0.6979812383651733 -0.22222399711608887"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2distph.dae" scale="1 1 1"/></geometry></visual></link><link name="thirdmc_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.011414001695811749 0.6051959991455078 -0.21240299940109253"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3mc.dae" scale="1 1 1"/></geometry></visual></link><link name="3proxph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.011654001660645008 0.6314859986305237 -0.21418099105358124"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3proxph.dae" scale="1 1 1"/></geometry></visual></link><link name="3midph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.013304001651704311 0.6756970286369324 -0.22041098773479462"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3midph.dae" scale="1 1 1"/></geometry></visual></link><link name="3distph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="-0.014669002033770084 0.7047441005706787 -0.22236499190330505"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3distph.dae" scale="1 1 1"/></geometry></visual></link><link name="fourthmc_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.0011089984327554703 0.6064760684967041 -0.2085389941930771"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4mc.dae" scale="1 1 1"/></geometry></visual></link><link name="4proxph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.0029389983974397182 0.6301651000976562 -0.20836599171161652"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4proxph.dae" scale="1 1 1"/></geometry></visual></link><link name="4midph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.006466998718678951 0.6704201698303223 -0.2097109854221344"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4midph.dae" scale="1 1 1"/></geometry></visual></link><link name="4distph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.008783998899161816 0.6952091455459595 -0.21027398109436035"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4distph.dae" scale="1 1 1"/></geometry></visual></link><link name="fifthmc_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.010958997532725334 0.600640058517456 -0.20080800354480743"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5mc.dae" scale="1 1 1"/></geometry></visual></link><link name="5proxph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.01255599781870842 0.6220710277557373 -0.1993120014667511"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5proxph.dae" scale="1 1 1"/></geometry></visual></link><link name="5midph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.017834998667240143 0.6576340794563293 -0.19643299281597137"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5midph.dae" scale="1 1 1"/></geometry></visual></link><link name="5distph_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="0 -0 0" xyz="0.020705997943878174 0.6783110499382019 -0.19418999552726746"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5distph.dae" scale="1 1 1"/></geometry></visual></link><gazebo><plugin filename="libgeneric_controller_plugin.so" name="generic_controller"><controller joint_name="ground_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="thorax_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="clavicle_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="clavphant_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="scapula_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="scapphant_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="humphant_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="humphant1_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="humerus_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="ulna_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="radius_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="lunate_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="scaphoid_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="pisiform_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="triquetrum_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="capitate_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="trapezium_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="firstmc1_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="firstmc_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="proximal_thumb_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="distal_thumb_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="trapezoid_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="hamate_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="secondmc_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="2proxph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="2midph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="2distph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="thirdmc_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="3proxph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="3midph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="3distph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="fourthmc_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="4proxph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="4midph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="4distph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="fifthmc_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="5proxph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="5midph_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="5distph_joint"><type>position</type><pid>100 1 1</pid></controller></plugin></gazebo></robot>
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="UpperExtremityModel">
+  <joint name="ground_joint" type="fixed">
+    <origin rpy="1.570796327 -0 0" xyz="0 0 0"/>
+    <parent link="ground"/>
+    <child link="ground_link"/>
+    <axis xyz="1 0 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="thorax_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 0 0"/>
+    <parent link="ground_link"/>
+    <child link="thorax_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="clavicle_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.006324999965727329 0.006929993629455566 0.025465000420808792"/>
+    <parent link="thorax_link"/>
+    <child link="clavicle_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="clavphant_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.014329999685287476 0.020070016384124756 0.13553500175476074"/>
+    <parent link="clavicle_link"/>
+    <child link="clavphant_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="scapula_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 0 0"/>
+    <parent link="clavphant_link"/>
+    <child link="scapula_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="scapphant_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.009549998678267002 -0.0339999794960022 0.009000003337860107"/>
+    <parent link="scapula_link"/>
+    <child link="scapphant_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="humphant_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 -5.960464477539063e-08 0"/>
+    <parent link="scapphant_link"/>
+    <child link="humphant_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="humphant1_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 0 0"/>
+    <parent link="humphant_link"/>
+    <child link="humphant1_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="humerus_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 0 0"/>
+    <parent link="humphant1_link"/>
+    <child link="humerus_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="ulna_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.006099999882280827 -0.29040002822875977 -0.012299999594688416"/>
+    <parent link="humerus_link"/>
+    <child link="ulna_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="radius_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.0004000002518296242 -0.011502981185913086 0.019998997449874878"/>
+    <parent link="ulna_link"/>
+    <child link="radius_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="lunate_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.017999999225139618 -0.24200010299682617 0.025000005960464478"/>
+    <parent link="radius_link"/>
+    <child link="lunate_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="scaphoid_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.012344999238848686 -0.004463911056518555 -0.0012540072202682495"/>
+    <parent link="lunate_link"/>
+    <child link="scaphoid_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="pisiform_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.013388000428676605 -0.009886026382446289 -0.010592997074127197"/>
+    <parent link="lunate_link"/>
+    <child link="pisiform_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="triquetrum_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.010784000158309937 -0.007498979568481445 -0.0012889951467514038"/>
+    <parent link="lunate_link"/>
+    <child link="triquetrum_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="capitate_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.003992000594735146 -0.015053987503051758 0.0023269951343536377"/>
+    <parent link="lunate_link"/>
+    <child link="capitate_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="trapezium_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.015293000265955925 -0.004569053649902344 -0.010307997465133667"/>
+    <parent link="capitate_link"/>
+    <child link="trapezium_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="firstmc1_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 0 0"/>
+    <parent link="trapezium_link"/>
+    <child link="firstmc1_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="firstmc_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.007200000807642937 -0.005399942398071289 -0.002499997615814209"/>
+    <parent link="firstmc1_link"/>
+    <child link="firstmc_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="proximal_thumb_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.016499999910593033 -0.02920013666152954 -0.012700006365776062"/>
+    <parent link="firstmc_link"/>
+    <child link="proximal_thumb_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="distal_thumb_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.014000002294778824 -0.02590000629425049 -0.010099992156028748"/>
+    <parent link="proximal_thumb_link"/>
+    <child link="distal_thumb_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="trapezoid_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.009142998605966568 -0.00406193733215332 -0.002463996410369873"/>
+    <parent link="capitate_link"/>
+    <child link="trapezoid_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="hamate_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.010968999937176704 -0.0024950504302978516 -0.0007500052452087402"/>
+    <parent link="capitate_link"/>
+    <child link="hamate_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="secondmc_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.014685001224279404 -0.03762006759643555 0.005032002925872803"/>
+    <parent link="capitate_link"/>
+    <child link="secondmc_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="2proxph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.0035009998828172684 -0.028243064880371094 0.0036199986934661865"/>
+    <parent link="secondmc_link"/>
+    <child link="2proxph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="2midph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.007517000660300255 -0.04127299785614014 0.007326006889343262"/>
+    <parent link="2proxph_link"/>
+    <child link="2midph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="2distph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.003332998603582382 -0.024888038635253906 0.0012200027704238892"/>
+    <parent link="2midph_link"/>
+    <child link="2distph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="thirdmc_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.0004770001396536827 -0.039238929748535156 0.007376998662948608"/>
+    <parent link="capitate_link"/>
+    <child link="thirdmc_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="3proxph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.00023999996483325958 -0.02628999948501587 0.0017780065536499023"/>
+    <parent link="thirdmc_link"/>
+    <child link="3proxph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="3midph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.0016499999910593033 -0.044210970401763916 0.006229996681213379"/>
+    <parent link="3proxph_link"/>
+    <child link="3midph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="3distph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.001365000382065773 -0.029047071933746338 0.001954004168510437"/>
+    <parent link="3midph_link"/>
+    <child link="3distph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="fourthmc_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.012045999988913536 -0.040518999099731445 0.0035129934549331665"/>
+    <parent link="capitate_link"/>
+    <child link="fourthmc_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="4proxph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.001829999964684248 -0.02368903160095215 -0.0001730024814605713"/>
+    <parent link="fourthmc_link"/>
+    <child link="4proxph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="4midph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.003528000321239233 -0.040255069732666016 0.0013449937105178833"/>
+    <parent link="4proxph_link"/>
+    <child link="4midph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="4distph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.0023170001804828644 -0.024788975715637207 0.0005629956722259521"/>
+    <parent link="4midph_link"/>
+    <child link="4distph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="fifthmc_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.0218959990888834 -0.0346829891204834 -0.004217997193336487"/>
+    <parent link="capitate_link"/>
+    <child link="fifthmc_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="5proxph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.0015970002859830856 -0.02143096923828125 -0.0014960020780563354"/>
+    <parent link="fifthmc_link"/>
+    <child link="5proxph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="5midph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.005279000848531723 -0.03556305170059204 -0.0028789937496185303"/>
+    <parent link="5proxph_link"/>
+    <child link="5midph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="5distph_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.002870999276638031 -0.02067697048187256 -0.0022429972887039185"/>
+    <parent link="5midph_link"/>
+    <child link="5distph_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <link name="ground"/>
+  <link name="ground_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="thorax_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_thorax.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="clavicle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="2.384185791015625e-07 -1.3877786153453232e-17 -6.066172235169156e-25" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_clavicle.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="clavphant_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="scapula_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_scapula.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="scapphant_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="humphant_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="humphant1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="humerus_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_humerus.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ulna_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_ulna.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="radius_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_radius.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="lunate_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_lunate.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="scaphoid_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_scaphoid.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pisiform_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_pisiform.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="triquetrum_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_triquetrum.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="capitate_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_capitate.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="trapezium_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_trapezium.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="firstmc1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="firstmc_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_1mc.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="proximal_thumb_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_thumbprox.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="distal_thumb_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_thumbdist.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="trapezoid_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_trapezoid.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="hamate_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_hamate.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="secondmc_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2mc.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="2proxph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2proxph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="2midph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2midph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="2distph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_2distph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thirdmc_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3mc.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="3proxph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3proxph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="3midph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3midph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="3distph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_3distph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="fourthmc_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4mc.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="4proxph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4proxph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="4midph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4midph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="4distph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_4distph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="fifthmc_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5mc.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="5proxph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5proxph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="5midph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5midph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="5distph_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/UpperExtremity/meshes/VIS_5distph.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <gazebo>
+    <plugin filename="libgeneric_controller_plugin.so" name="generic_controller">
+      <controller joint_name="ground_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="thorax_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="clavicle_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="clavphant_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="scapula_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="scapphant_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="humphant_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="humphant1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="humerus_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ulna_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="radius_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="lunate_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="scaphoid_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="pisiform_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="triquetrum_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="capitate_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="trapezium_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="firstmc1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="firstmc_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="proximal_thumb_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="distal_thumb_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="trapezoid_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="hamate_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="secondmc_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="2proxph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="2midph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="2distph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="thirdmc_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="3proxph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="3midph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="3distph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="fourthmc_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="4proxph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="4midph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="4distph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="fifthmc_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="5proxph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="5midph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="5distph_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+    </plugin>
+  </gazebo>
+</robot>

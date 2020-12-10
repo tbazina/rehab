@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="model" default="$(find rehab)/urdf/rehab.urdf.xacro"/>
+  <arg name="model" default="$(find rehab)/urdf/UpperExtremity/upper_extremity.urdf"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find rehab)/rviz/config.rviz" />
 
