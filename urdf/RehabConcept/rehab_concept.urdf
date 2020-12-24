@@ -1,1 +1,476 @@
-<?xml version="1.0" encoding="utf-8"?><robot name="RehabConcept"><joint name="BaseLink_joint" type="fixed"><origin rpy="1.570796327 -0 0" xyz="0 0 0"/><parent link="BaseLink"/><child link="BaseLink_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/></joint><joint name="Prism1Base_joint" type="fixed"><origin rpy="0 -0 0" xyz="0.36654898524284363 0.3124290108680725 0.0005189999938011169"/><parent link="BaseLink_link"/><child link="Prism1Base_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/></joint><joint name="Prism1MidSlider_joint" type="prismatic"><origin rpy="0 -0 0" xyz="0 0 0.012490999884903431"/><parent link="Prism1Base_link"/><child link="Prism1MidSlider_link"/><axis xyz="0 1 0"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-90.0" upper="90.0" velocity="1.0"/></joint><joint name="Prism1Connector_joint" type="prismatic"><origin rpy="0 -0 0" xyz="-0.0011729896068572998 0 0"/><parent link="Prism1MidSlider_link"/><child link="Prism1Connector_link"/><axis xyz="1 0 0"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-90.0" upper="90.0" velocity="1.0"/></joint><joint name="Act1_joint" type="fixed"><origin rpy="0 -0 0" xyz="0 -0.06608504056930542 0"/><parent link="Prism1Connector_link"/><child link="Act1_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/></joint><joint name="ShoulderLink1_joint" type="revolute"><origin rpy="0 -0 0" xyz="0 -0.05040693283081055 0"/><parent link="Act1_link"/><child link="ShoulderLink1_link"/><axis xyz="0 0 1"/><calibration falling="0.0" reference_position="0.0" rising="0.0"/><dynamics damping="1.0"/><limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/></joint><link name="BaseLink"/><link name="BaseLink_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="-1.5707963705062866 -0 0" xyz="0 0 0"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_BaseLink.dae" scale="1 1 1"/></geometry></visual></link><link name="Prism1Base_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="-1.5707963705062866 -0 0" xyz="0 -2.9802322387695312e-08 3.3527612686157227e-07"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism1Base.dae" scale="1 1 1"/></geometry></visual></link><link name="Prism1MidSlider_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="-1.5707963705062866 -0 0" xyz="0 -2.9802322387695312e-08 6.370246410369873e-07"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism1MidSlider.dae" scale="1 1 1"/></geometry></visual></link><link name="Prism1Connector_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="-1.5707963705062866 -0 0" xyz="-4.507601261138916e-07 -2.9802322387695312e-08 6.370246410369873e-07"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism1Connector.dae" scale="1 1 1"/></geometry></visual></link><link name="Act1_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="-1.5707963705062866 -0 0" xyz="-4.507601261138916e-07 1.4901161193847656e-08 6.370246410369873e-07"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act1.dae" scale="1 1 1"/></geometry></visual></link><link name="ShoulderLink1_link"><inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="1.0"/><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/></inertial><visual><origin rpy="-1.5707963705062866 -0 0" xyz="-4.5262277126312256e-07 3.5762786865234375e-07 6.370246410369873e-07"/><geometry><mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ShoulderLink1.dae" scale="1 1 1"/></geometry></visual></link><gazebo><plugin filename="libgeneric_controller_plugin.so" name="generic_controller"><controller joint_name="BaseLink_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="Prism1Base_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="Prism1MidSlider_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="Prism1Connector_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="Act1_joint"><type>position</type><pid>100 1 1</pid></controller><controller joint_name="ShoulderLink1_joint"><type>position</type><pid>100 1 1</pid></controller></plugin></gazebo></robot>
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="RehabConcept">
+  <joint name="BaseLink_joint" type="fixed">
+    <origin rpy="1.570796327 -0 0" xyz="0 0 0"/>
+    <parent link="BaseLink"/>
+    <child link="BaseLink_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Prism1Base_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0.36654898524284363 0.3124290108680725 0.0005189999938011169"/>
+    <parent link="BaseLink_link"/>
+    <child link="Prism1Base_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Prism1MidSlider_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="0 0 0.012490999884903431"/>
+    <parent link="Prism1Base_link"/>
+    <child link="Prism1MidSlider_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.05000000074505806" upper="0.05000000074505806" velocity="1.0"/>
+  </joint>
+  <joint name="Prism1Connector_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="-0.0011729896068572998 0 0"/>
+    <parent link="Prism1MidSlider_link"/>
+    <child link="Prism1Connector_link"/>
+    <axis xyz="1 0 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.05000000074505806" upper="0.05000000074505806" velocity="1.0"/>
+  </joint>
+  <joint name="Act1_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.06608504056930542 0"/>
+    <parent link="Prism1Connector_link"/>
+    <child link="Act1_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="ShoulderLink1_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 -0.05040693283081055 0"/>
+    <parent link="Act1_link"/>
+    <child link="ShoulderLink1_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-2.0943951023931953" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="ShoulderLink2_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 0.01687788963317871 0.14730499684810638"/>
+    <parent link="ShoulderLink1_link"/>
+    <child link="ShoulderLink2_link"/>
+    <axis xyz="1 0 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-2.0943951023931953" upper="0.5235987755982988" velocity="1.0"/>
+  </joint>
+  <joint name="Act2_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="-0.06065359711647034 0 0"/>
+    <parent link="ShoulderLink2_link"/>
+    <child link="Act2_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Act3_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.15047705173492432 0.03126099705696106"/>
+    <parent link="ShoulderLink2_link"/>
+    <child link="Act3_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Prism2Base_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 -0.15047705173492432 -0.036590397357940674"/>
+    <parent link="ShoulderLink2_link"/>
+    <child link="Prism2Base_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.0471975511965976" upper="3.141592653589793" velocity="1.0"/>
+  </joint>
+  <joint name="ShoulderLink3_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="0 0.005881309509277344 0"/>
+    <parent link="Prism2Base_link"/>
+    <child link="ShoulderLink3_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.10000000149011612" upper="0.30000001192092896" velocity="1.0"/>
+  </joint>
+  <joint name="Act4_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.16287004947662354 0.005409032106399536"/>
+    <parent link="ShoulderLink3_link"/>
+    <child link="Act4_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="ElbowLink1_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 -0.17770802974700928 -0.09135209769010544"/>
+    <parent link="ShoulderLink3_link"/>
+    <child link="ElbowLink1_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="1.0"/>
+  </joint>
+  <joint name="ShoulderInterface_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 0 0"/>
+    <parent link="ElbowLink1_link"/>
+    <child link="ShoulderInterface_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="ElbowWristLink_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-2.7418136596679688e-06 -0.12219798564910889 0.055660001933574677"/>
+    <parent link="ElbowLink1_link"/>
+    <child link="ElbowWristLink_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.17453292519943295" upper="3.141592653589793" velocity="1.0"/>
+  </joint>
+  <joint name="Act5_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 0 0.01441279798746109"/>
+    <parent link="ElbowWristLink_link"/>
+    <child link="Act5_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Prism3Base_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="-0.06398391723632812 -0.16407698392868042 -0.02864900231361389"/>
+    <parent link="ElbowWristLink_link"/>
+    <child link="Prism3Base_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Prism3MidSlider_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="0 -0.0016984939575195312 0"/>
+    <parent link="Prism3Base_link"/>
+    <child link="Prism3MidSlider_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.05000000074505806" upper="0.05000000074505806" velocity="1.0"/>
+  </joint>
+  <link name="BaseLink"/>
+  <link name="BaseLink_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_BaseLink.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism1Base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0 0" xyz="0 -2.9802322387695312e-08 3.3527612686157227e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism1Base.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism1MidSlider_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="0 -2.9802322387695312e-08 6.332993507385254e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism1MidSlider.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism1Connector_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-4.507601261138916e-07 -2.9802322387695312e-08 6.332993507385254e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism1Connector.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-4.4889748096466064e-07 1.4901161193847656e-08 6.370246410369873e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ShoulderLink1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 5.551115784870273e-17 -2.3396202387834865e-24" xyz="-4.507601261138916e-07 3.5762786865234375e-07 6.51925802230835e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ShoulderLink1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ShoulderLink2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.570796251296997 5.551115784870273e-17 -2.3396202387834865e-24" xyz="-4.507601261138916e-07 3.8743019104003906e-07 6.258487701416016e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ShoulderLink2.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 5.551116446614763e-17 -2.3913188298528244e-24" xyz="-4.172325134277344e-07 3.8743019104003906e-07 6.556510925292969e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act2.dae" scale="0.2379111349582672 0.2379111349582672 0.2379111349582672"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act3_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.570796251296997 5.551116446614763e-17 -2.3396204359987128e-24" xyz="-4.544854164123535e-07 4.3213367462158203e-07 6.258487701416016e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act3.dae" scale="0.2379111349582672 0.2379111349582672 0.2379111349582672"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism2Base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.570796251296997 5.551115784870273e-17 -2.3396202387834865e-24" xyz="-4.731118679046631e-07 4.3213367462158203e-07 5.960464477539062e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism2Base.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ShoulderLink3_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.570796251296997 5.551115784870273e-17 -2.1974481765704822e-24" xyz="-4.7124922275543213e-07 4.023313522338867e-07 5.960464477539062e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ShoulderLink3.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act4_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 5.551115784870273e-17 -2.3913188298528244e-24" xyz="-5.122274160385132e-07 4.6193599700927734e-07 6.258487701416016e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act4.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ElbowLink1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-4.991888999938965e-07 4.917383193969727e-07 6.183981895446777e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ElbowLink1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ShoulderInterface_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 5.551115784870273e-17 -2.391318632637598e-24" xyz="-4.973262548446655e-07 4.917383193969727e-07 6.183981895446777e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ShoulderInterface.dae" scale="0.824152946472168 0.824152946472168 0.8999999761581421"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ElbowWristLink_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.047768354415894e-07 4.76837158203125e-07 6.258487701416016e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ElbowWristLink.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act5_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.047768354415894e-07 4.76837158203125e-07 6.48200511932373e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act5.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism3Base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.364418029785156e-07 4.76837158203125e-07 6.258487701416016e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism3Base.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism3MidSlider_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.364418029785156e-07 5.960464477539062e-07 6.258487701416016e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism3MidSlider.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <gazebo>
+    <plugin filename="libgeneric_controller_plugin.so" name="generic_controller">
+      <controller joint_name="BaseLink_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism1Base_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism1MidSlider_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism1Connector_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ShoulderLink1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ShoulderLink2_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act2_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act3_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism2Base_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ShoulderLink3_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act4_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ElbowLink1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ShoulderInterface_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ElbowWristLink_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act5_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism3Base_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism3MidSlider_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+    </plugin>
+  </gazebo>
+</robot>
