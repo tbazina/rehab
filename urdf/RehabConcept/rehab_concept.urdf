@@ -162,6 +162,150 @@
     <dynamics damping="1.0"/>
     <limit effort="100.0" lower="-0.05000000074505806" upper="0.05000000074505806" velocity="1.0"/>
   </joint>
+  <joint name="WristSlider2_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0.09463348984718323 0.018518686294555664 0"/>
+    <parent link="Prism3MidSlider_link"/>
+    <child link="WristSlider2_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Act6_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="-0.056956589221954346 -0.0025862455368041992 0"/>
+    <parent link="WristSlider2_link"/>
+    <child link="Act6_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="WristLink1_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 -0.01816105842590332 0"/>
+    <parent link="WristSlider2_link"/>
+    <child link="WristLink1_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="WristRail1_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 0.015488743782043457 0"/>
+    <parent link="WristLink1_link"/>
+    <child link="WristRail1_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="WristRail2_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.015488862991333008 0"/>
+    <parent link="WristLink1_link"/>
+    <child link="WristRail2_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="ElbowInterface_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 0 0"/>
+    <parent link="WristLink1_link"/>
+    <child link="ElbowInterface_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="WristLink2_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="-0.055825501680374146 -0.10307097434997559 0.007611200213432312"/>
+    <parent link="WristLink1_link"/>
+    <child link="WristLink2_link"/>
+    <axis xyz="1 0 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="1.0"/>
+  </joint>
+  <joint name="Act7_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="-0.0030038952827453613 0 0"/>
+    <parent link="WristLink2_link"/>
+    <child link="Act7_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="ElasticHingePart1_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0.06232398748397827 -0.0008130073547363281 0.08572039008140564"/>
+    <parent link="WristLink2_link"/>
+    <child link="ElasticHingePart1_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.5235987755982988" upper="1.3962634015954636" velocity="1.0"/>
+  </joint>
+  <joint name="Act8_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 0 0.010814502835273743"/>
+    <parent link="ElasticHingePart1_link"/>
+    <child link="Act8_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="ElasticHingePart2_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 -0.03731536865234375 0"/>
+    <parent link="ElasticHingePart1_link"/>
+    <child link="ElasticHingePart2_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.5235987755982988" upper="0.5235987755982988" velocity="1.0"/>
+  </joint>
+  <joint name="Prism4Base_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.03698563575744629 0"/>
+    <parent link="ElasticHingePart2_link"/>
+    <child link="Prism4Base_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="Prism4MidSlider_joint" type="revolute">
+    <origin rpy="0 -0 0" xyz="0 -0.009239494800567627 0"/>
+    <parent link="Prism4Base_link"/>
+    <child link="Prism4MidSlider_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.00034906584259663615" upper="0.00034906584259663615" velocity="1.0"/>
+  </joint>
+  <joint name="WristLink3_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0.012020885944366455 -5.960464477539063e-08 0"/>
+    <parent link="Prism4MidSlider_link"/>
+    <child link="WristLink3_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="HandInterfaceBase_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="-0.012044697999954224 -0.004274606704711914 -0.10489299893379211"/>
+    <parent link="WristLink3_link"/>
+    <child link="HandInterfaceBase_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="WristSlider1_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0.09463348984718323 -0.017802953720092773 0"/>
+    <parent link="Prism3MidSlider_link"/>
+    <child link="WristSlider1_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
   <link name="BaseLink"/>
   <link name="BaseLink_link">
     <inertial>
@@ -397,6 +541,214 @@
       </geometry>
     </visual>
   </link>
+  <link name="WristSlider2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.289912223815918e-07 5.960464477539062e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristSlider2.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act6_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.401670932769775e-07 5.960464477539062e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act6.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristLink1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.313195288181305e-07 7.748603820800781e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristLink1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristRail1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.164183676242828e-07 7.152557373046875e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristRail1.dae" scale="0.9575729966163635 0.9575729966163635 0.9575729966163635"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristRail2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.164183676242828e-07 8.344650268554688e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristRail2.dae" scale="0.9575730562210083 0.9575730562210083 0.9575730562210083"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ElbowInterface_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.313195288181305e-07 7.748603820800781e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ElbowInterface.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristLink2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.289912223815918e-07 7.748603820800781e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristLink2.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act7_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 1.570796251296997 0" xyz="-5.252659320831299e-07 7.748603820800781e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act7.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ElasticHingePart1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.178153514862061e-07 7.152557373046875e-07 6.854534149169922e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ElasticHingePart1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Act8_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.178153514862061e-07 7.152557373046875e-07 0.0004794299602508545"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Act8.dae" scale="1.04426908493042 1.04426908493042 1.04426908493042"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ElasticHingePart2_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.951151251792908e-07 7.152557373046875e-07 7.748603820800781e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_ElasticHingePart2.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism4Base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.252659320831299e-07 6.556510925292969e-07 1.1324882507324219e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism4Base.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism4MidSlider_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.252659320831299e-07 7.152557373046875e-07 1.1324882507324219e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism4MidSlider.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristLink3_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.103647708892822e-07 1.1324882507324219e-06 1.1324882507324219e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristLink3.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandInterfaceBase_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.122274160385132e-07 1.1324882507324219e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_HandInterfaceBase.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristSlider1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.289912223815918e-07 4.76837158203125e-07 6.407499313354492e-07"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristSlider1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
   <gazebo>
     <plugin filename="libgeneric_controller_plugin.so" name="generic_controller">
       <controller joint_name="BaseLink_joint">
@@ -468,6 +820,70 @@
         <pid>100 1 1</pid>
       </controller>
       <controller joint_name="Prism3MidSlider_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="WristSlider2_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act6_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="WristLink1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="WristRail1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="WristRail2_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ElbowInterface_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="WristLink2_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act7_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ElasticHingePart1_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Act8_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="ElasticHingePart2_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism4Base_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="Prism4MidSlider_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="WristLink3_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="HandInterfaceBase_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="WristSlider1_joint">
         <type>position</type>
         <pid>100 1 1</pid>
       </controller>

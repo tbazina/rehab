@@ -24,7 +24,7 @@
      located precisely inside cursor.
 
 ## URDF Export from Blender
-1. Rotate model (Euler coordinates of root link) -> y-axis points upoward
-2. Export URDF
+1. Rotate model (Euler coordinates of BaseLink) -> y-axis points upoward
+2. Export URDF (Absolute Filepaths)
 3. Indent XML in Gvim  :'<,'>!xmllint --format -
 3. Manually edit URDF and rotate BaseLink_joint by 1.570796327 (roll).
