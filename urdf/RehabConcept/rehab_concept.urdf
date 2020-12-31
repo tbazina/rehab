@@ -270,14 +270,14 @@
     <dynamics damping="1.0"/>
     <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
   </joint>
-  <joint name="Prism4MidSlider_joint" type="revolute">
+  <joint name="Prism4MidSlider_joint" type="prismatic">
     <origin rpy="0 -0 0" xyz="0 -0.009239494800567627 0"/>
     <parent link="Prism4Base_link"/>
     <child link="Prism4MidSlider_link"/>
     <axis xyz="0 1 0"/>
     <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
     <dynamics damping="1.0"/>
-    <limit effort="100.0" lower="-0.00034906584259663615" upper="0.00034906584259663615" velocity="1.0"/>
+    <limit effort="100.0" lower="-0.02500000037252903" upper="0.02500000037252903" velocity="1.0"/>
   </joint>
   <joint name="WristLink3_joint" type="fixed">
     <origin rpy="0 -0 0" xyz="0.012020885944366455 -5.960464477539063e-08 0"/>
@@ -289,9 +289,99 @@
     <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
   </joint>
   <joint name="HandInterfaceBase_joint" type="fixed">
-    <origin rpy="0 -0 0" xyz="-0.012044697999954224 -0.004274606704711914 -0.10489299893379211"/>
+    <origin rpy="0 -0 0" xyz="-0.01126149296760559 -0.004274606704711914 -0.10489299893379211"/>
     <parent link="WristLink3_link"/>
     <child link="HandInterfaceBase_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="SpringsBack_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="-0.01538550853729248 0.0192795991897583 0"/>
+    <parent link="HandInterfaceBase_link"/>
+    <child link="SpringsBack_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="-0.009999999776482582" upper="0.0" velocity="1.0"/>
+  </joint>
+  <joint name="HandInterfaceBack_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0.01538550853729248 -0.012692689895629883 0"/>
+    <parent link="SpringsBack_link"/>
+    <child link="HandInterfaceBack_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="SpringIndex_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="0.019673287868499756 -0.0037446022033691406 0"/>
+    <parent link="HandInterfaceBase_link"/>
+    <child link="SpringIndex_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="0.0" upper="0.009999999776482582" velocity="1.0"/>
+  </joint>
+  <joint name="HandInterfaceIndex_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.010886132717132568 0"/>
+    <parent link="SpringIndex_link"/>
+    <child link="HandInterfaceIndex_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="SpringMiddle_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="0.003566145896911621 -0.0030896663665771484 0"/>
+    <parent link="HandInterfaceBase_link"/>
+    <child link="SpringMiddle_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="0.0" upper="0.009999999776482582" velocity="1.0"/>
+  </joint>
+  <joint name="HandInterfaceMiddle_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.010810434818267822 0"/>
+    <parent link="SpringMiddle_link"/>
+    <child link="HandInterfaceMiddle_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="SpringRing_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="-0.011842310428619385 -0.002404451370239258 0"/>
+    <parent link="HandInterfaceBase_link"/>
+    <child link="SpringRing_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="0.0" upper="0.009999999776482582" velocity="1.0"/>
+  </joint>
+  <joint name="HandInterfaceRing_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.010808050632476807 0"/>
+    <parent link="SpringRing_link"/>
+    <child link="HandInterfaceRing_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="SpringLittle_joint" type="prismatic">
+    <origin rpy="0 -0 0" xyz="-0.025188297033309937 -0.0017123222351074219 0"/>
+    <parent link="HandInterfaceBase_link"/>
+    <child link="SpringLittle_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="0.0" upper="0.009999999776482582" velocity="1.0"/>
+  </joint>
+  <joint name="HandInterfaceLittle_joint" type="fixed">
+    <origin rpy="0 -0 0" xyz="0 -0.01087808609008789 0"/>
+    <parent link="SpringLittle_link"/>
+    <child link="HandInterfaceLittle_link"/>
     <axis xyz="0 0 1"/>
     <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
     <dynamics damping="1.0"/>
@@ -704,7 +794,7 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.252659320831299e-07 7.152557373046875e-07 1.1324882507324219e-06"/>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.252659320831299e-07 7.748603820800781e-07 1.1324882507324219e-06"/>
       <geometry>
         <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_Prism4MidSlider.dae" scale="1 1 1"/>
       </geometry>
@@ -717,7 +807,7 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.103647708892822e-07 1.1324882507324219e-06 1.1324882507324219e-06"/>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.103647708892822e-07 1.0728836059570312e-06 1.1324882507324219e-06"/>
       <geometry>
         <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_WristLink3.dae" scale="1 1 1"/>
       </geometry>
@@ -730,9 +820,139 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.122274160385132e-07 1.1324882507324219e-06 1.1026859283447266e-06"/>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.168840289115906e-07 1.0728836059570312e-06 1.1026859283447266e-06"/>
       <geometry>
         <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_HandInterfaceBase.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="SpringsBack_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.075708031654358e-07 1.0728836059570312e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_SpringsBack.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandInterfaceBack_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.168840289115906e-07 1.0728836059570312e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_HandInterfaceBack.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="SpringIndex_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.066394805908203e-07 1.0132789611816406e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_SpringIndex.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandInterfaceIndex_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.066394805908203e-07 1.1324882507324219e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_HandInterfaceIndex.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="SpringMiddle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.122274160385132e-07 1.0132789611816406e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_SpringMiddle.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandInterfaceMiddle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.122274160385132e-07 1.1324882507324219e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_HandInterfaceMiddle.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="SpringRing_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.066394805908203e-07 1.0132789611816406e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_SpringRing.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandInterfaceRing_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.066394805908203e-07 1.1324882507324219e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_HandInterfaceRing.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="SpringLittle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.187466740608215e-07 1.0728836059570312e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_SpringLittle.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandInterfaceLittle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="-5.187466740608215e-07 1.0728836059570312e-06 1.1026859283447266e-06"/>
+      <geometry>
+        <mesh filename="file:///home/tomislav/ros/catkin_tutor/src/rehab/urdf/RehabConcept/meshes/VIS_HandInterfaceLittle.dae" scale="1 1 1"/>
       </geometry>
     </visual>
   </link>
@@ -880,6 +1100,46 @@
         <pid>100 1 1</pid>
       </controller>
       <controller joint_name="HandInterfaceBase_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="SpringsBack_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="HandInterfaceBack_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="SpringIndex_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="HandInterfaceIndex_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="SpringMiddle_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="HandInterfaceMiddle_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="SpringRing_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="HandInterfaceRing_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="SpringLittle_joint">
+        <type>position</type>
+        <pid>100 1 1</pid>
+      </controller>
+      <controller joint_name="HandInterfaceLittle_joint">
         <type>position</type>
         <pid>100 1 1</pid>
       </controller>
