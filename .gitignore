@@ -187,3 +187,6 @@ dmypy.json
 
 # Large files
 kinematics/RehabConcept_Bones.svg
+
+# VSCode
+.vscode

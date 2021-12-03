@@ -1,0 +1,971 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+	<model name="ForearmRehab">
+		<pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+		<link name="BaseLink">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_BaseLink">
+				<pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_BaseLink.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ElbowWristLink">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.09929899871349335 -0.03790299966931343 0.13185299932956696 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_ElbowWristLink">
+				<pose>-4.3213367462158203e-07 -3.5762786865234375e-07 -1.4901161193847656e-08 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_ElbowWristLink.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Act1">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.09929899871349335 -0.05231599975377321 0.13185299932956696 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Act1">
+				<pose>-4.3213367462158203e-07 -1.043081283569336e-07 1.4901161193847656e-08 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Act1.dae</uri>
+						<scale>1.4840679168701172 1.4840679168701172 1.4840679168701172</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Prism1Base">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.26337599754333496 -0.009253999218344688 0.06786900013685226 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Prism1Base">
+				<pose>-4.76837158203125e-07 -4.172325134277344e-07 6.705522537231445e-08 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Prism1Base.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Prism1MidSlider">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.265073997550644 -0.009253999218344688 0.06786900013685226 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Prism1MidSlider">
+				<pose>-2.9802322387695312e-08 -3.5762786865234375e-07 -6.705522537231445e-08 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Prism1MidSlider.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="WristSlider1">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.2828769978368655 -0.009253999218344688 0.1625019982457161 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristSlider1">
+				<pose>-2.9802322387695312e-08 -3.5762786865234375e-07 4.172325134277344e-07 -2.117582368135751e-22 -0.0 -3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_WristSlider1.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="WristSlider2">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.24655599670950323 -0.009253999218344688 0.1625019982457161 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristSlider2">
+				<pose>-7.152557373046875e-07 -3.5762786865234375e-07 4.172325134277344e-07 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_WristSlider2.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Act2">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.24914199660997838 -0.009253999218344688 0.1055459976196289 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Act2">
+				<pose>-4.470348358154297e-07 -3.5762786865234375e-07 -1.7136335372924805e-07 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Act2.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="WristLink1">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.2647169973934069 -0.009253999218344688 0.1625019982457161 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristLink1">
+				<pose>-9.238719940185547e-07 -3.5762786865234375e-07 4.172325134277344e-07 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_WristLink1.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="WristRail1">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.24922799749765545 -0.009253999218344688 0.1625019982457161 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristRail1">
+				<pose>-6.705522537231445e-07 -3.5762786865234375e-07 4.76837158203125e-07 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_WristRail1.dae</uri>
+						<scale>0.9575729966163635 0.9575729966163635 0.9575729966163635</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="WristRail2">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.28020499704871327 -0.009253999218344688 0.1625019982457161 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristRail2">
+				<pose>-1.1920928955078125e-07 -3.5762786865234375e-07 4.172325134277344e-07 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_WristRail2.dae</uri>
+						<scale>0.9575730562210083 0.9575730562210083 0.9575730562210083</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ForearmInterface">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.2647169973934069 -0.009253999218344688 0.1625019982457161 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_ForearmInterface">
+				<pose>-2.9802322387695312e-08 -3.5762786865234375e-07 -5.364418029785156e-07 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_ForearmInterface.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Wristlink2">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.3677879940951243 -0.016864999197423458 0.10667699947953224 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristLink2">
+				<pose>-9.238719940185547e-07 -5.21540641784668e-07 -5.960464477539063e-08 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_WristLink2.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ElasticHingePart1">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.36860099411569536 -0.10258600022643805 0.1690009981393814 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_ElasticHingePart1">
+				<pose>-8.642673492431641e-07 8.940696716308594e-08 4.470348358154297e-08 -1.262177448353619e-29 -0.0 2.117582368135751e-22</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_ElasticHingePart1.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Act4">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.36860099411569536 -0.11387899983674288 0.1690009981393814 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Act4">
+				<pose>-9.834766387939453e-07 -2.384185791015625e-07 -4.470348358154297e-08 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Act4.dae</uri>
+						<scale>1.04426908493042 1.04426908493042 1.04426908493042</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ElasticHingePart2">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.40591599396429956 -0.10258600022643805 0.1690009981393814 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_ElasticHingePart2">
+				<pose>-6.258487701416016e-07 0.0 -1.341104507446289e-07 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_ElasticHingePart2.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Prism2Base">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.4429009926971048 -0.10258600022643805 0.1690009981393814 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Prism2Base">
+				<pose>0.0 -3.5762786865234375e-07 1.4901161193847656e-08 -2.117582368135751e-22 -0.0 -3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Prism2Base.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Prism2MidSlider">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.4521409922745079 -0.10258600022643805 0.1690009981393814 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Prism2MidSlider">
+				<pose>-5.662441253662109e-07 -3.5762786865234375e-07 7.450580596923828e-08 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Prism2MidSlider.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="HandLink">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.4521409922745079 -0.10258600022643805 0.18102199770510197 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_HandLink">
+				<pose>-8.046627044677734e-07 -3.5762786865234375e-07 1.4901161193847656e-08 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_HandLink.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="Act3">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.3677879940951243 -0.016864999197423458 0.10367299942299724 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_Act3">
+				<pose>-9.238719940185547e-07 -5.21540641784668e-07 4.470348358154297e-08 0.0 -0.0 3.5527141023169746e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_Act3.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<joint name="ElbowWristLink_joint" type="revolute">
+			<parent>BaseLink</parent>
+			<child>ElbowWristLink</child>
+			<axis>
+				<xyz>0.0 1.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-1.5707963267948966</lower>
+					<upper>0.0</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Act1_joint" type="fixed">
+			<parent>ElbowWristLink</parent>
+			<child>Act1</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Prism1Base_joint" type="fixed">
+			<parent>ElbowWristLink</parent>
+			<child>Prism1Base</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Prism1MidSlider_joint" type="prismatic">
+			<parent>Prism1Base</parent>
+			<child>Prism1MidSlider</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.00800000037997961</lower>
+					<upper>0.00800000037997961</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="WristSlider1_joint" type="fixed">
+			<parent>Prism1MidSlider</parent>
+			<child>WristSlider1</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="WristSlider2_joint" type="fixed">
+			<parent>Prism1MidSlider</parent>
+			<child>WristSlider2</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Act2_joint" type="fixed">
+			<parent>WristSlider2</parent>
+			<child>Act2</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="WristLink1_joint" type="revolute">
+			<parent>WristSlider2</parent>
+			<child>WristLink1</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-1.9198621771937625</lower>
+					<upper>1.9198621771937625</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="WristRail1_joint" type="fixed">
+			<parent>WristLink1</parent>
+			<child>WristRail1</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="WristRail2_joint" type="fixed">
+			<parent>WristLink1</parent>
+			<child>WristRail2</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ForearmInterface_joint" type="fixed">
+			<parent>WristLink1</parent>
+			<child>ForearmInterface</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Wristlink2_joint" type="revolute">
+			<parent>WristLink1</parent>
+			<child>Wristlink2</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.9599310885968813</lower>
+					<upper>2.0943951023931953</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ElasticHingePart1_joint" type="revolute">
+			<parent>Wristlink2</parent>
+			<child>ElasticHingePart1</child>
+			<axis>
+				<xyz>0.0 1.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-1.0471975511965976</lower>
+					<upper>0.5235987755982988</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Act4_joint" type="fixed">
+			<parent>ElasticHingePart1</parent>
+			<child>Act4</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ElasticHingePart2_joint" type="revolute">
+			<parent>ElasticHingePart1</parent>
+			<child>ElasticHingePart2</child>
+			<axis>
+				<xyz>0.0 1.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.08726646259971647</lower>
+					<upper>0.08726646259971647</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Prism2Base_joint" type="fixed">
+			<parent>ElasticHingePart2</parent>
+			<child>Prism2Base</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Prism2MidSlider_joint" type="prismatic">
+			<parent>Prism2Base</parent>
+			<child>Prism2MidSlider</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.019999999552965164</lower>
+					<upper>0.019999999552965164</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="HandLink_joint" type="fixed">
+			<parent>Prism2MidSlider</parent>
+			<child>HandLink</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="Act3_joint" type="fixed">
+			<parent>Wristlink2</parent>
+			<child>Act3</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<plugin filename="libgeneric_controller_plugin.so" name="ForearmRehab_controller">
+			<controller joint_name="ElbowWristLink_joint">
+				<type>position</type>
+				<pid>1.0 0.0 0.0</pid>
+			</controller>
+			<controller joint_name="WristLink1_joint">
+				<type>position</type>
+				<pid>1.0 0.0 0.0</pid>
+			</controller>
+			<controller joint_name="Wristlink2_joint">
+				<type>position</type>
+				<pid>1.0 0.0 0.0</pid>
+			</controller>
+			<controller joint_name="ElasticHingePart1_joint">
+				<type>position</type>
+				<pid>1.0 0.0 0.0</pid>
+			</controller>
+		</plugin>
+	</model>
+</sdf>
