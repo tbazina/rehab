@@ -461,7 +461,7 @@
 				<pose>0 0 0 0 0 0</pose>
 			</inertial>
 			<visual name="VIS_Prism2MidSlider">
-				<pose>-5.662441253662109e-07 -3.5762786865234375e-07 7.450580596923828e-08 0.0 -0.0 0.0</pose>
+				<pose>-5.662441253662109e-07 -3.5762786865234375e-07 1.4901161193847656e-08 0.0 -0.0 0.0</pose>
 				<geometry>
 					<mesh>
 						<uri>model://ForearmRehab/meshes/visual/VIS_Prism2MidSlider.dae</uri>
@@ -487,10 +487,36 @@
 				<pose>0 0 0 0 0 0</pose>
 			</inertial>
 			<visual name="VIS_HandLink">
-				<pose>-8.046627044677734e-07 -3.5762786865234375e-07 1.4901161193847656e-08 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<pose>-8.046627044677734e-07 -3.5762786865234375e-07 -4.470348358154297e-08 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
 				<geometry>
 					<mesh>
 						<uri>model://ForearmRehab/meshes/visual/VIS_HandLink.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="HandInterface">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.45641499222256243 0.0023069987073540688 0.16976099740713835 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_HandInterfaceBase">
+				<pose>-2.086162567138672e-07 -3.8743019104003906e-07 -5.066394805908203e-07 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehab/meshes/visual/VIS_HandInterfaceBase.dae</uri>
 						<scale>1.0 1.0 1.0</scale>
 					</mesh>
 				</geometry>
@@ -910,6 +936,27 @@
 		<joint name="HandLink_joint" type="fixed">
 			<parent>Prism2MidSlider</parent>
 			<child>HandLink</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="HandInterface_joint" type="fixed">
+			<parent>HandLink</parent>
+			<child>HandInterface</child>
 			<axis>
 				<xyz>0.0 0.0 1.0</xyz>
 				<dynamics>

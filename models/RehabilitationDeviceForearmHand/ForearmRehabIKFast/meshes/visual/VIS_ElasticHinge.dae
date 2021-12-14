@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.80.75 commit date:2019-07-24, commit time:14:22, hash:507ffee6e1f4</authoring_tool>
+    </contributor>
+    <created>2021-12-13T23:45:50</created>
+    <modified>2021-12-13T23:45:50</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="PrismSLider-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.123707 0.123707 0.123707 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Links-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.07143554 0.2187292 0.4759979 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Interface-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.4910158 0.2807077 0.01057868 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Flexible-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.1979144 0.4531023 0.2193887 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Actuators-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0 0 0 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="PrismBase_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.8 0.8 0.8 1</color>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">0.5</float>
+            </reflectivity>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images/>
+  <library_materials>
+    <material id="PrismSLider-material" name="PrismSLider">
+      <instance_effect url="#PrismSLider-effect"/>
+    </material>
+    <material id="Links-material" name="Links">
+      <instance_effect url="#Links-effect"/>
+    </material>
+    <material id="Interface-material" name="Interface">
+      <instance_effect url="#Interface-effect"/>
+    </material>
+    <material id="Flexible-material" name="Flexible">
+      <instance_effect url="#Flexible-effect"/>
+    </material>
+    <material id="Actuators-material" name="Actuators">
+      <instance_effect url="#Actuators-effect"/>
+    </material>
+    <material id="PrismBase_001-material" name="PrismBase.001">
+      <instance_effect url="#PrismBase_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cube_003-mesh" name="Cube.003">
+      <mesh>
+        <source id="Cube_003-mesh-positions">
+          <float_array id="Cube_003-mesh-positions-array" count="126">-0.004764318 -0.01145756 -0.004357516 -0.003206491 0.01145768 -0.0031659 -0.003206491 -0.01145756 -0.0031659 0.002206265 -0.01145762 -0.0016644 0.002206265 0.01145762 -0.0016644 0.003206491 -0.01145756 -0.0031659 0.003206491 0.01145768 -0.0031659 0.004764318 -0.01145756 -0.004357516 0.004764318 0.01145768 -0.004357516 0.006727278 -0.0114575 -0.005122601 0.006727278 0.01145768 -0.005122601 0.008903264 -0.0114575 -0.005386173 0.008903264 0.01145774 -0.005386233 0.008903264 0.0114575 -0.008791327 0.008903264 -0.01145774 -0.008791327 -0.008903145 0.0114575 -0.008791327 -0.008903145 -0.01145774 -0.008791327 0 0.0114575 -0.008791327 0 -0.01145774 -0.008791327 0.004451632 0.0114575 -0.008791327 -0.004451513 -0.01145774 -0.008791327 -0.008903145 0.0114575 -0.005386233 -0.004451513 0.0114575 -0.008791327 0.004451632 -0.01145774 -0.008791327 -0.004764318 0.01145768 -0.004357516 -0.006727278 -0.0114575 -0.005122601 -0.006727278 0.01145768 -0.005122601 -0.008903264 -0.0114575 -0.005386173 -1.71443e-4 0.01145762 0 -0.002204358 0.01145762 -0.001655101 -0.001062452 0.01145762 -2.21743e-4 -0.001806557 0.01145762 -8.27556e-4 -0.002204358 -0.01145762 -0.001655101 -1.71455e-4 -0.01145762 0 -0.001806557 -0.01145762 -8.27552e-4 -0.001062452 -0.01145762 -2.21739e-4 1.71454e-4 -0.01145762 0 0.001062452 -0.01145762 -2.21739e-4 0.001806557 -0.01145762 -8.27552e-4 1.71443e-4 0.01145762 0 0.001806557 0.01145762 -8.27556e-4 0.001062452 0.01145762 -2.21743e-4</float_array>
+          <technique_common>
+            <accessor source="#Cube_003-mesh-positions-array" count="42" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_003-mesh-normals">
+          <float_array id="Cube_003-mesh-normals-array" count="237">-0.6075559 6.07084e-7 0.794277 -0.8333489 6.34863e-7 0.5527476 0 1.62568e-7 1 0.8322597 4.95757e-7 0.5543861 0.6075564 6.90404e-7 0.7942766 0.3631383 6.6765e-7 0.9317352 1 0 2.7351e-7 0.1202727 8.18064e-7 0.992741 -8.55911e-7 0 -1 2.85304e-7 0 -1 0 0 -1 8.55911e-7 0 -1 -1 4.8737e-6 -2.73507e-7 -0.1202709 8.93982e-7 0.9927411 -0.3631386 7.34712e-7 0.9317352 0 -1 -1.34203e-5 -0.9012789 5.94346e-7 0.4332394 -0.6313637 4.75679e-7 0.775487 -0.2414969 2.87718e-7 0.9704017 0.2414969 2.76987e-7 0.9704017 0.6313634 4.41398e-7 0.7754871 0.9023504 5.10612e-7 0.4310033 0 1 -5.52433e-5 -0.6075563 6.51546e-7 0.7942767 -0.8333482 5.65098e-7 0.5527485 0 1.62568e-7 1 0.8322604 6.15976e-7 0.5543851 0.6075548 4.85668e-7 0.7942779 0.3631389 7.15874e-7 0.9317351 1 1.31964e-7 1.36753e-6 0.120271 6.60921e-7 0.9927412 -8.55911e-7 0 -1 5.34861e-7 0 -1 8.55911e-7 0 -1 -1 0 -3.20003e-5 -0.1202729 6.97169e-7 0.9927409 -0.3631368 5.82343e-7 0.9317359 -1.87547e-5 -1 7.03878e-5 0 -1 4.38676e-5 0 -1 4.40519e-5 -2.63943e-5 -1 1.56107e-5 -4.18444e-7 -1 5.92526e-5 -2.78138e-5 -1 4.23081e-5 0 -1 5.88071e-5 1.78325e-5 -1 6.97208e-5 2.68906e-5 -1 4.19017e-5 0 -1 3.06562e-5 2.63945e-5 -1 1.56109e-5 6.41599e-7 -1 -1.43392e-5 0 -1 -1.54026e-5 -2.96516e-7 -1 -7.05145e-6 0 -1 -2.54961e-5 3.24244e-7 -1 -8.88215e-6 -4.42926e-7 -1 -1.21333e-5 0 -1 -1.35171e-5 -0.9012788 5.50604e-7 0.4332398 -0.6313634 4.62079e-7 0.7754871 -0.241497 2.89144e-7 0.9704017 0.2414969 2.78262e-7 0.9704016 0.6313633 4.34315e-7 0.7754873 0.902351 5.56322e-7 0.431002 4.42919e-7 1 9.7066e-6 -3.24241e-7 1 1.42114e-5 0 1 1.28208e-5 2.96494e-7 1 1.234e-5 -6.41756e-7 1 1.4339e-5 0 1 1.30839e-5 0 1 1.34145e-5 -2.90457e-7 1 1.20899e-5 2.45034e-5 1 -1.56107e-5 -2.90429e-7 1 -2.90429e-5 -2.46801e-5 1 -1.44545e-5 -9.15969e-5 1 0 2.48514e-5 1 -3.92063e-5 -1.64464e-5 1 -6.4974e-5 0 1 -4.12873e-5 -2.5011e-5 1 -3.98678e-5 0 1 -4.17481e-5 4.18441e-7 1 -5.4575e-5</float_array>
+          <technique_common>
+            <accessor source="#Cube_003-mesh-normals-array" count="79" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube_003-mesh-vertices">
+          <input semantic="POSITION" source="#Cube_003-mesh-positions"/>
+        </vertices>
+        <triangles material="Flexible-material" count="80">
+          <input semantic="VERTEX" source="#Cube_003-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube_003-mesh-normals" offset="1"/>
+          <p>0 0 1 0 24 0 2 1 29 1 1 1 28 2 36 2 39 2 4 3 5 3 6 3 6 4 7 4 8 4 8 5 9 5 10 5 13 6 11 6 14 6 10 7 11 7 12 7 17 8 20 8 22 8 16 9 22 9 20 9 17 10 23 10 18 10 13 11 23 11 19 11 15 12 27 12 21 12 25 13 21 13 27 13 25 14 24 14 26 14 3 15 33 15 32 15 32 16 31 16 29 16 34 17 30 17 31 17 35 18 28 18 30 18 37 19 39 19 36 19 38 20 41 20 37 20 3 21 40 21 38 21 10 22 13 22 19 22 0 23 2 23 1 23 2 24 32 24 29 24 28 25 33 25 36 25 4 26 3 26 5 26 6 27 5 27 7 27 8 28 7 28 9 28 13 29 12 29 11 29 10 30 9 30 11 30 17 31 18 31 20 31 16 32 15 32 22 32 17 10 19 10 23 10 13 33 14 33 23 33 15 34 16 34 27 34 25 35 26 35 21 35 25 36 0 36 24 36 25 37 27 37 16 37 20 38 18 38 0 38 18 39 23 39 7 39 0 40 18 40 2 40 25 41 16 41 20 41 0 42 25 42 20 42 23 43 14 43 9 43 14 44 11 44 9 44 9 45 7 45 23 45 2 46 18 46 5 46 5 47 18 47 7 47 3 48 38 48 37 48 5 49 3 49 32 49 3 50 37 50 36 50 33 51 3 51 36 51 33 52 35 52 32 52 35 53 34 53 32 53 32 54 2 54 5 54 32 55 34 55 31 55 34 56 35 56 30 56 35 57 33 57 28 57 37 58 41 58 39 58 38 59 40 59 41 59 3 60 4 60 40 60 29 61 31 61 30 61 30 62 28 62 29 62 28 63 39 63 29 63 39 64 41 64 4 64 41 65 40 65 4 65 1 66 29 66 4 66 29 67 39 67 4 67 4 68 6 68 1 68 24 69 1 69 17 69 1 70 6 70 17 70 6 71 8 71 17 71 15 72 21 72 26 72 26 73 24 73 22 73 10 74 12 74 13 74 24 75 17 75 22 75 8 76 10 76 19 76 17 77 8 77 19 77 22 78 15 78 26 78</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="VIS_ElasticHinge" name="VIS_ElasticHinge" type="NODE">
+        <instance_geometry url="#Cube_003-mesh" name="VIS_ElasticHinge">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="PrismSLider-material" target="#PrismSLider-material"/>
+              <instance_material symbol="Links-material" target="#Links-material"/>
+              <instance_material symbol="Interface-material" target="#Interface-material"/>
+              <instance_material symbol="Flexible-material" target="#Flexible-material"/>
+              <instance_material symbol="Actuators-material" target="#Actuators-material"/>
+              <instance_material symbol="PrismBase_001-material" target="#PrismBase_001-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

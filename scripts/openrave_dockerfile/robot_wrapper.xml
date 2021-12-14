@@ -1,0 +1,12 @@
+<robot file="ForearmRehabIKFast.dae">
+  <Manipulator name="ForearmRehabIKFast">
+    <base>DummyBase</base>
+    <effector>HandInterface</effector>
+    <!--
+    <joints>ElbowWristLink_joint WristLink1_joint WristLink2_joint HandLink_joint Prism2MidSlider_joint ElasticHinge_joint</joints>
+    <closingdirection>-1 0 1 -1 1 1</closingdirection>
+    -->
+    <translation>0 0 0</translation>
+    <rotationaxis>0 0 0 0</rotationaxis>
+  </Manipulator>
+</robot>

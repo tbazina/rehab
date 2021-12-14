@@ -1,0 +1,321 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+	<model name="ForearmRehabActive">
+		<pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+		<link name="DummyBase">
+			<gravity>false</gravity>
+			<self_collide>false</self_collide>
+			<pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+		</link>
+		<link name="BaseLink">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_BaseLink">
+				<pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehabActive/meshes/visual/VIS_BaseLink.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ElbowWristLink">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.09929899871349335 -0.03790299966931343 0.13185299932956696 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_ElbowWristLink">
+				<pose>4.3213367462158203e-07 3.5762786865234375e-07 -1.4901161193847656e-08 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehabActive/meshes/visual/VIS_ElbowWristLink.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="WristLink1">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.2647169977426529 -0.009253999218344688 0.16250299848616123 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristLink1">
+				<pose>0.0 3.725290298461914e-07 -4.76837158203125e-07 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehabActive/meshes/visual/VIS_WristLink1.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="WristLink2">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.36778799444437027 -0.016864999197423458 0.10667699761688709 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_WristLink2">
+				<pose>0.0 0.0 0.0 2.117582368135751e-22 -0.0 3.552713678800501e-15</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehabActive/meshes/visual/VIS_WristLink2.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ElasticHingePart1">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.3686009944649413 -0.10258500184863806 0.16900099627673626 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_ElasticHingePart1">
+				<pose>0.0 0.0 0.0 -1.262177448353619e-29 -0.0 2.117582368135751e-22</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehabActive/meshes/visual/VIS_ElasticHingePart1.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="HandInterface">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.4526229948969558 0.0023079970851540565 0.1982989963144064 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_HandInterface">
+				<pose>-3.2782554626464844e-07 -4.172325134277344e-07 -4.6193599700927734e-07 0.0 -0.0 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://ForearmRehabActive/meshes/visual/VIS_HandInterface.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<joint name="BaseLink_joint" type="fixed">
+			<parent>DummyBase</parent>
+			<child>BaseLink</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ElbowWristLink_joint" type="revolute">
+			<parent>BaseLink</parent>
+			<child>ElbowWristLink</child>
+			<axis>
+				<xyz>0.0 1.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-1.5707963267948966</lower>
+					<upper>0.0</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="WristLink1_joint" type="revolute">
+			<parent>ElbowWristLink</parent>
+			<child>WristLink1</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-1.9198621771937625</lower>
+					<upper>1.9198621771937625</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="WristLink2_joint" type="revolute">
+			<parent>WristLink1</parent>
+			<child>WristLink2</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.9599310885968813</lower>
+					<upper>2.0943951023931953</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ElasticHingePart1_joint" type="revolute">
+			<parent>WristLink2</parent>
+			<child>ElasticHingePart1</child>
+			<axis>
+				<xyz>0.0 1.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-1.0471975511965976</lower>
+					<upper>0.5235987755982988</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="HandInterface_joint" type="fixed">
+			<parent>ElasticHingePart1</parent>
+			<child>HandInterface</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+	</model>
+</sdf>

@@ -1,0 +1,210 @@
+<?xml version="1.0" ?>
+<robot name="ForearmRehabIKFast">
+  <joint name="BaseAct_joint" type="fixed">
+    <parent link="DummyBase"/>
+    <child link="BaseAct"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="BaseLink_joint" type="revolute">
+    <parent link="BaseAct"/>
+    <child link="BaseLink"/>
+    <origin xyz="0    0    0.045" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.3490658503988659" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="ElbowWristLink_joint" type="revolute">
+    <parent link="BaseLink"/>
+    <child link="ElbowWristLink"/>
+    <origin xyz="0.00041 -0.06147  0.08671" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="Prism1MidSlider_joint" type="fixed">
+    <parent link="ElbowWristLink"/>
+    <child link="Prism1MidSlider"/>
+    <origin xyz="0.16577  0.02864 -0.06398" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="WristLink1_joint" type="revolute">
+    <parent link="Prism1MidSlider"/>
+    <child link="WristLink1"/>
+    <origin xyz="-0.00035  0       0.09463" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.9198621771937625" upper="1.9198621771937625" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="WristLink2_joint" type="revolute">
+    <parent link="WristLink1"/>
+    <child link="WristLink2"/>
+    <origin xyz="0.10307 -0.00761 -0.05582" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.9599310885968813" upper="2.0943951023931953" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="HandLink_joint" type="revolute">
+    <parent link="WristLink2"/>
+    <child link="HandLink"/>
+    <origin xyz="0.00081 -0.06598  0.06232" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0471975511965976" upper="0.5235987755982988" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="Prism2MidSlider_joint" type="fixed">
+    <parent link="HandLink"/>
+    <child link="Prism2MidSlider"/>
+    <origin xyz="0.08354 0      0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="ElasticHinge_joint" type="revolute">
+    <parent link="Prism2MidSlider"/>
+    <child link="ElasticHinge"/>
+    <origin xyz="0      0.09015 0.02942" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.08726646259971647" upper="0.08726646259971647" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="HandInterface_joint" type="fixed">
+    <parent link="ElasticHinge"/>
+    <child link="HandInterface"/>
+    <origin xyz="6.000e-05  0.000e+00 -3.861e-02" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <link name="DummyBase">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="BaseAct">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_BaseAct">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_BaseAct.dae" scale="1.8924493789672852 1.8924492597579956 0.4086342453956604"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="BaseLink">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_BaseLink">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_BaseLink.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ElbowWristLink">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_ElbowWristLink">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_ElbowWristLink.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism1MidSlider">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_Prism1MidSlider">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_Prism1MidSlider.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristLink1">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_WristLink1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_WristLink1.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="WristLink2">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_WristLink2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_WristLink2.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandLink">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_HandLink">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_HandLink.dae" scale="1.1748089790344238 1.0 1.6057640314102173"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Prism2MidSlider">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_Prism2MidSlider">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_Prism2MidSlider.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ElasticHinge">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_ElasticHinge">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_ElasticHinge.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="HandInterface">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual name="VIS_HandInterface">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rehab/models/RehabilitationDeviceForearmHand/ForearmRehabIKFast/meshes/visual/VIS_HandInterface.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
