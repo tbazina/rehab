@@ -1,0 +1,1258 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+	<model name="Hand9DOF">
+		<pose>0.0 0.0 0.0 0.0 -1.5707963705062866 0.0</pose>
+		<link name="Wrist">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_wrist">
+				<pose>0.0 0.0 0.0 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_wrist.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="IndexCMC">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.013055000454187393 -0.019176999107003212 -0.00018200000340584666 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_2mc">
+				<pose>-1.0988230769726215e-07 3.725290298461914e-09 -1.6081712317372876e-07 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_2mc.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="IndexMCP_AA">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.022178000770509243 -0.0809169989079237 0.010978999533108436 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+		</link>
+		<link name="IndexMCP_FE">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.022178000770509243 -0.0809169989079237 0.010978999533108436 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_2proxph">
+				<pose>6.621689419006316e-09 -1.1920928955078125e-07 -1.1195747662284816e-09 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_2proxph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="IndexPIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.02969500096514821 -0.12219000048935413 0.018304999437532388 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_2midph">
+				<pose>1.5381818485593612e-08 -1.4901161193847656e-07 -2.3835120543935773e-08 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_2midph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="IndexDIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.033028000965714455 -0.1470780000090599 0.019524999413988553 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_2distph">
+				<pose>1.7152355979987988e-08 -8.940696716308594e-08 -4.9570347826488614e-09 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_2distph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="MiddleCMC">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.003857000032439828 -0.015337999910116196 0.002463999902829528 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_3mc">
+				<pose>-3.287100298621226e-07 4.423782229423523e-07 -3.501189382859593e-07 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_3mc.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="MiddleMCP_AA">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.004709000058937818 -0.08058300241827965 0.011482000118121505 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+		</link>
+		<link name="MiddleMCP_FE">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.004709000058937818 -0.08058300241827965 0.011482000118121505 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_3proxph">
+				<pose>3.7897471827363916e-09 1.4901161193847656e-07 -1.454564113601009e-08 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_3proxph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="MiddlePIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.006359000049997121 -0.12479400262236595 0.017712000058963895 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_3midph">
+				<pose>-2.0894990626629806e-08 1.1920928955078125e-07 -3.304752382859988e-08 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_3midph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="MiddleDIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.007724000082816929 -0.15384100191295147 0.019666000036522746 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_3distph">
+				<pose>-1.5454579838092286e-08 8.940696716308594e-08 -1.4318016106074083e-08 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_3distph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="RingCMC">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.006366000045090914 -0.017550000920891762 0.0015780000248923898 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_4mc">
+				<pose>-1.1910253339131316e-10 1.471489667892456e-07 -4.397156203594932e-07 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_4mc.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="RingMCP_AA">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.00988400005735457 -0.07926200143992901 0.005667000194080174 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+		</link>
+		<link name="RingMCP_FE">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.00988400005735457 -0.07926200143992901 0.005667000194080174 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_4proxph">
+				<pose>1.434799612454185e-09 2.9802322387695312e-08 -1.4716059482111632e-08 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_4proxph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="RingPIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.013412000145763159 -0.11951700039207935 0.007012000191025436 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_4midph">
+				<pose>2.264577858568373e-09 -8.940696716308594e-08 -2.196733639436843e-08 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_4midph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="RingDIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.01572900009341538 -0.1443060003221035 0.007575000170618296 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_4distph">
+				<pose>-9.885120277886017e-09 0.0 -2.6333216496254863e-08 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_4distph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="LittleCMC">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.013151000253856182 -0.017550000920891762 0.0015780000248923898 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_5mc">
+				<pose>-1.1910253339131316e-10 1.471489667892456e-07 -4.402278932502668e-07 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_5mc.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="LittleMCP_AA">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.019501000177115202 -0.07116799987852573 -0.003386999829672277 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+		</link>
+		<link name="LittleMCP_FE">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.019501000177115202 -0.07116799987852573 -0.003386999829672277 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_5proxph">
+				<pose>2.1183568232885364e-09 2.9802322387695312e-08 -5.663236102293467e-09 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_5proxph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="LittlePIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.02478000009432435 -0.1067309994250536 -0.006265999865718186 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_5midph">
+				<pose>2.8412747710149233e-08 0.0 -7.458771378310303e-09 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_5midph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="LittleDIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>-0.027651000069454312 -0.12740799970924854 -0.008508999948389828 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_5distph">
+				<pose>-1.0533459438022419e-08 0.0 -3.950238358640945e-09 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_5distph.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="trapezium">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.019279999658465385 -0.01962199993431568 -0.007980999536812305 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_trapezium">
+				<pose>-1.8007399660291412e-07 1.1362135410308838e-07 -3.7759269844173105e-07 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_trapezium.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ThumbTMC_FE">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.019279999658465385 -0.01962199993431568 -0.007980999536812305 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+		</link>
+		<link name="ThumbTMC_AA">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.02516599977388978 -0.021548999939113855 -0.012679999694228172 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_1mc">
+				<pose>-9.053316984974913e-10 2.60770320892334e-08 3.733480191669969e-11 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_1mc.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ThumbMCP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.04298500018194318 -0.05422299960628152 -0.023180999793112278 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_thumbprox">
+				<pose>1.7501169402578398e-09 5.960464477539063e-08 1.3826320088838884e-09 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_thumbprox.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="ThumbIP">
+			<gravity>true</gravity>
+			<self_collide>true</self_collide>
+			<pose>0.05698500061407685 -0.08012300031259656 -0.03328099939972162 0.0 -0.0 0.0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+				<pose>0 0 0 0 0 0</pose>
+			</inertial>
+			<visual name="VIS_thumbdist">
+				<pose>2.512646313235223e-09 -5.960464477539063e-08 -6.873623004111096e-09 -0.0 1.570796251296997 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://Hand9DOF/meshes/visual/VIS_thumbdist.dae</uri>
+						<scale>1.0 1.0 1.0</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<joint name="IndexCMC_joint" type="revolute">
+			<parent>Wrist</parent>
+			<child>IndexCMC</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>0.08726646259971647</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="IndexMCP_AA_joint" type="revolute">
+			<parent>IndexCMC</parent>
+			<child>IndexMCP_AA</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="IndexMCP_FE_joint" type="revolute">
+			<parent>IndexMCP_AA</parent>
+			<child>IndexMCP_FE</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.17453292519943295</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="IndexPIP_joint" type="revolute">
+			<parent>IndexMCP_FE</parent>
+			<child>IndexPIP</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>2.0943951023931953</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="IndexDIP_joint" type="revolute">
+			<parent>IndexPIP</parent>
+			<child>IndexDIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="MiddleCMC_joint" type="revolute">
+			<parent>Wrist</parent>
+			<child>MiddleCMC</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>0.08726646259971647</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="MiddleMCP_AA_joint" type="revolute">
+			<parent>MiddleCMC</parent>
+			<child>MiddleMCP_AA</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="MiddleMCP_FE_joint" type="revolute">
+			<parent>MiddleMCP_AA</parent>
+			<child>MiddleMCP_FE</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.17453292519943295</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="MiddlePIP_joint" type="revolute">
+			<parent>MiddleMCP_FE</parent>
+			<child>MiddlePIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>1.9198621771937625</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="MiddleDIP_joint" type="revolute">
+			<parent>MiddlePIP</parent>
+			<child>MiddleDIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="RingCMC_joint" type="revolute">
+			<parent>Wrist</parent>
+			<child>RingCMC</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>0.17453292519943295</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="RingMCP_AA_joint" type="revolute">
+			<parent>RingCMC</parent>
+			<child>RingMCP_AA</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="RingMCP_FE_joint" type="revolute">
+			<parent>RingMCP_AA</parent>
+			<child>RingMCP_FE</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.17453292519943295</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="RingPIP_joint" type="revolute">
+			<parent>RingMCP_FE</parent>
+			<child>RingPIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>2.0943951023931953</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="RingDIP_joint" type="revolute">
+			<parent>RingPIP</parent>
+			<child>RingDIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="LittleCMC_joint" type="revolute">
+			<parent>Wrist</parent>
+			<child>LittleCMC</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="LittleMCP_AA_joint" type="revolute">
+			<parent>LittleCMC</parent>
+			<child>LittleMCP_AA</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="LittleMCP_FE_joint" type="revolute">
+			<parent>LittleMCP_AA</parent>
+			<child>LittleMCP_FE</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.17453292519943295</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="LittlePIP_joint" type="revolute">
+			<parent>LittleMCP_FE</parent>
+			<child>LittlePIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>2.356194490192345</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="LittleDIP_joint" type="revolute">
+			<parent>LittlePIP</parent>
+			<child>LittleDIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="trapezium_joint" type="fixed">
+			<parent>Wrist</parent>
+			<child>trapezium</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ThumbTMC_FE_joint" type="revolute">
+			<parent>trapezium</parent>
+			<child>ThumbTMC_FE</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.7853981633974483</lower>
+					<upper>0.5235987755982988</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ThumbTMC_AA_joint" type="revolute">
+			<parent>ThumbTMC_FE</parent>
+			<child>ThumbTMC_AA</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.4363323129985824</lower>
+					<upper>0.4363323129985824</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ThumbMCP_joint" type="revolute">
+			<parent>ThumbTMC_AA</parent>
+			<child>ThumbMCP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>0.0</lower>
+					<upper>1.1344640137963142</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="ThumbIP_joint" type="revolute">
+			<parent>ThumbMCP</parent>
+			<child>ThumbIP</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.17453292519943295</lower>
+					<upper>1.4835298641951802</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+	</model>
+</sdf>
