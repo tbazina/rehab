@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+
+import hand_device_tf.nodes.index_tf_publisher
+
+hand_device_tf.nodes.index_tf_publisher.publish_index_tf()

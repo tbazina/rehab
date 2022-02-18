@@ -54,7 +54,7 @@
 				</geometry>
 			</visual>
 		</link>
-		<link name="IndexMCP_AA">
+		<link name="IndexMCP_FE">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>0.022178000770509243 -0.0809169989079237 0.010978999533108436 0.0 -0.0 0.0</pose>
@@ -71,7 +71,7 @@
 				<pose>0 0 0 0 0 0</pose>
 			</inertial>
 		</link>
-		<link name="IndexMCP_FE">
+		<link name="IndexMCP_AA">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>0.022178000770509243 -0.0809169989079237 0.010978999533108436 0.0 -0.0 0.0</pose>
@@ -175,7 +175,7 @@
 				</geometry>
 			</visual>
 		</link>
-		<link name="MiddleMCP_AA">
+		<link name="MiddleMCP_FE">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>0.004709000058937818 -0.08058300241827965 0.011482000118121505 0.0 -0.0 0.0</pose>
@@ -192,7 +192,7 @@
 				<pose>0 0 0 0 0 0</pose>
 			</inertial>
 		</link>
-		<link name="MiddleMCP_FE">
+		<link name="MiddleMCP_AA">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>0.004709000058937818 -0.08058300241827965 0.011482000118121505 0.0 -0.0 0.0</pose>
@@ -296,7 +296,7 @@
 				</geometry>
 			</visual>
 		</link>
-		<link name="RingMCP_AA">
+		<link name="RingMCP_FE">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>-0.00988400005735457 -0.07926200143992901 0.005667000194080174 0.0 -0.0 0.0</pose>
@@ -313,7 +313,7 @@
 				<pose>0 0 0 0 0 0</pose>
 			</inertial>
 		</link>
-		<link name="RingMCP_FE">
+		<link name="RingMCP_AA">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>-0.00988400005735457 -0.07926200143992901 0.005667000194080174 0.0 -0.0 0.0</pose>
@@ -417,7 +417,7 @@
 				</geometry>
 			</visual>
 		</link>
-		<link name="LittleMCP_AA">
+		<link name="LittleMCP_FE">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>-0.019501000177115202 -0.07116799987852573 -0.003386999829672277 0.0 -0.0 0.0</pose>
@@ -434,7 +434,7 @@
 				<pose>0 0 0 0 0 0</pose>
 			</inertial>
 		</link>
-		<link name="LittleMCP_FE">
+		<link name="LittleMCP_AA">
 			<gravity>true</gravity>
 			<self_collide>true</self_collide>
 			<pose>-0.019501000177115202 -0.07116799987852573 -0.003386999829672277 0.0 -0.0 0.0</pose>
@@ -637,7 +637,7 @@
 			<parent>Wrist</parent>
 			<child>IndexCMC</child>
 			<axis>
-				<xyz>0.973 0.124 -0.194</xyz>
+				<xyz>0.988 0.153 0.008</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -658,36 +658,11 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="IndexMCP_AA_joint" type="revolute">
-			<parent>IndexCMC</parent>
-			<child>IndexMCP_AA</child>
-			<axis>
-				<xyz>-0.058 0.086 0.995</xyz>
-				<dynamics>
-					<damping>0.0</damping>
-					<friction>0.0</friction>
-					<spring_reference>0.0</spring_reference>
-					<spring_stiffness>0.0</spring_stiffness>
-				</dynamics>
-				<limit>
-					<lower>-0.2617993877991494</lower>
-					<upper>0.2617993877991494</upper>
-				</limit>
-			</axis>
-			<physics>
-				<ode>
-					<cfm_damping>false</cfm_damping>
-					<implicit_spring_damper>false</implicit_spring_damper>
-					<cfm>0.0</cfm>
-					<erp>0.20000000298023224</erp>
-				</ode>
-			</physics>
-		</joint>
 		<joint name="IndexMCP_FE_joint" type="revolute">
-			<parent>IndexMCP_AA</parent>
+			<parent>IndexCMC</parent>
 			<child>IndexMCP_FE</child>
 			<axis>
-				<xyz>0.999 0.046 0.022</xyz>
+				<xyz>0.988 0.153 0.008</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -708,11 +683,36 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="IndexPIP_joint" type="revolute">
+		<joint name="IndexMCP_AA_joint" type="revolute">
 			<parent>IndexMCP_FE</parent>
+			<child>IndexMCP_AA</child>
+			<axis>
+				<xyz>-0.030 0.141 0.990</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="IndexPIP_joint" type="revolute">
+			<parent>IndexMCP_AA</parent>
 			<child>IndexPIP</child>
 			<axis>
-				<xyz>0.992 0.104 -0.066</xyz>
+				<xyz>0.988 0.153 0.008</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -737,7 +737,7 @@
 			<parent>IndexPIP</parent>
 			<child>IndexDIP</child>
 			<axis>
-				<xyz>0.997 0.073 -0.026</xyz>
+				<xyz>0.988 0.153 0.008</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -762,7 +762,7 @@
 			<parent>Wrist</parent>
 			<child>MiddleCMC</child>
 			<axis>
-				<xyz>1.000 0.006 -0.003</xyz>
+				<xyz>0.980 0.052 0.194</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -783,36 +783,11 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="MiddleMCP_AA_joint" type="revolute">
-			<parent>MiddleCMC</parent>
-			<child>MiddleMCP_AA</child>
-			<axis>
-				<xyz>0.059 0.056 0.997</xyz>
-				<dynamics>
-					<damping>0.0</damping>
-					<friction>0.0</friction>
-					<spring_reference>0.0</spring_reference>
-					<spring_stiffness>0.0</spring_stiffness>
-				</dynamics>
-				<limit>
-					<lower>-0.2617993877991494</lower>
-					<upper>0.2617993877991494</upper>
-				</limit>
-			</axis>
-			<physics>
-				<ode>
-					<cfm_damping>false</cfm_damping>
-					<implicit_spring_damper>false</implicit_spring_damper>
-					<cfm>0.0</cfm>
-					<erp>0.20000000298023224</erp>
-				</ode>
-			</physics>
-		</joint>
 		<joint name="MiddleMCP_FE_joint" type="revolute">
-			<parent>MiddleMCP_AA</parent>
+			<parent>MiddleCMC</parent>
 			<child>MiddleMCP_FE</child>
 			<axis>
-				<xyz>0.997 -0.077 0.026</xyz>
+				<xyz>0.980 0.052 0.194</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -833,11 +808,36 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="MiddlePIP_joint" type="revolute">
+		<joint name="MiddleMCP_AA_joint" type="revolute">
 			<parent>MiddleMCP_FE</parent>
+			<child>MiddleMCP_AA</child>
+			<axis>
+				<xyz>-0.198 0.082 0.977</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="MiddlePIP_joint" type="revolute">
+			<parent>MiddleMCP_AA</parent>
 			<child>MiddlePIP</child>
 			<axis>
-				<xyz>0.998 0.064 0.026</xyz>
+				<xyz>0.980 0.052 0.194</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -862,7 +862,7 @@
 			<parent>MiddlePIP</parent>
 			<child>MiddleDIP</child>
 			<axis>
-				<xyz>0.991 0.129 0.029</xyz>
+				<xyz>0.980 0.052 0.194</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -887,7 +887,7 @@
 			<parent>Wrist</parent>
 			<child>RingCMC</child>
 			<axis>
-				<xyz>0.984 -0.068 0.164</xyz>
+				<xyz>0.949 -0.070 0.309</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -908,36 +908,11 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="RingMCP_AA_joint" type="revolute">
-			<parent>RingCMC</parent>
-			<child>RingMCP_AA</child>
-			<axis>
-				<xyz>-0.386 0.034 0.922</xyz>
-				<dynamics>
-					<damping>0.0</damping>
-					<friction>0.0</friction>
-					<spring_reference>0.0</spring_reference>
-					<spring_stiffness>0.0</spring_stiffness>
-				</dynamics>
-				<limit>
-					<lower>-0.2617993877991494</lower>
-					<upper>0.2617993877991494</upper>
-				</limit>
-			</axis>
-			<physics>
-				<ode>
-					<cfm_damping>false</cfm_damping>
-					<implicit_spring_damper>false</implicit_spring_damper>
-					<cfm>0.0</cfm>
-					<erp>0.20000000298023224</erp>
-				</ode>
-			</physics>
-		</joint>
 		<joint name="RingMCP_FE_joint" type="revolute">
-			<parent>RingMCP_AA</parent>
+			<parent>RingCMC</parent>
 			<child>RingMCP_FE</child>
 			<axis>
-				<xyz>0.966 -0.083 0.243</xyz>
+				<xyz>0.949 -0.070 0.309</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -958,11 +933,36 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="RingPIP_joint" type="revolute">
+		<joint name="RingMCP_AA_joint" type="revolute">
 			<parent>RingMCP_FE</parent>
+			<child>RingMCP_AA</child>
+			<axis>
+				<xyz>-0.305 0.063 0.950</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="RingPIP_joint" type="revolute">
+			<parent>RingMCP_AA</parent>
 			<child>RingPIP</child>
 			<axis>
-				<xyz>0.981 -0.063 0.183</xyz>
+				<xyz>0.949 -0.070 0.309</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -987,7 +987,7 @@
 			<parent>RingPIP</parent>
 			<child>RingDIP</child>
 			<axis>
-				<xyz>0.973 -0.039 0.226</xyz>
+				<xyz>0.949 -0.070 0.309</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -1012,7 +1012,7 @@
 			<parent>Wrist</parent>
 			<child>LittleCMC</child>
 			<axis>
-				<xyz>0.959 -0.172 0.224</xyz>
+				<xyz>0.898 -0.157 0.412</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -1033,36 +1033,11 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="LittleMCP_AA_joint" type="revolute">
-			<parent>LittleCMC</parent>
-			<child>LittleMCP_AA</child>
-			<axis>
-				<xyz>-0.620 0.021 0.784</xyz>
-				<dynamics>
-					<damping>0.0</damping>
-					<friction>0.0</friction>
-					<spring_reference>0.0</spring_reference>
-					<spring_stiffness>0.0</spring_stiffness>
-				</dynamics>
-				<limit>
-					<lower>-0.2617993877991494</lower>
-					<upper>0.2617993877991494</upper>
-				</limit>
-			</axis>
-			<physics>
-				<ode>
-					<cfm_damping>false</cfm_damping>
-					<implicit_spring_damper>false</implicit_spring_damper>
-					<cfm>0.0</cfm>
-					<erp>0.20000000298023224</erp>
-				</ode>
-			</physics>
-		</joint>
 		<joint name="LittleMCP_FE_joint" type="revolute">
-			<parent>LittleMCP_AA</parent>
+			<parent>LittleCMC</parent>
 			<child>LittleMCP_FE</child>
 			<axis>
-				<xyz>0.978 -0.064 0.198</xyz>
+				<xyz>0.898 -0.157 0.412</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -1083,11 +1058,36 @@
 				</ode>
 			</physics>
 		</joint>
-		<joint name="LittlePIP_joint" type="revolute">
+		<joint name="LittleMCP_AA_joint" type="revolute">
 			<parent>LittleMCP_FE</parent>
+			<child>LittleMCP_AA</child>
+			<axis>
+				<xyz>-0.422 -0.037 0.906</xyz>
+				<dynamics>
+					<damping>0.0</damping>
+					<friction>0.0</friction>
+					<spring_reference>0.0</spring_reference>
+					<spring_stiffness>0.0</spring_stiffness>
+				</dynamics>
+				<limit>
+					<lower>-0.2617993877991494</lower>
+					<upper>0.2617993877991494</upper>
+				</limit>
+			</axis>
+			<physics>
+				<ode>
+					<cfm_damping>false</cfm_damping>
+					<implicit_spring_damper>false</implicit_spring_damper>
+					<cfm>0.0</cfm>
+					<erp>0.20000000298023224</erp>
+				</ode>
+			</physics>
+		</joint>
+		<joint name="LittlePIP_joint" type="revolute">
+			<parent>LittleMCP_AA</parent>
 			<child>LittlePIP</child>
 			<axis>
-				<xyz>0.894 -0.254 0.368</xyz>
+				<xyz>0.898 -0.157 0.412</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -1112,7 +1112,7 @@
 			<parent>LittlePIP</parent>
 			<child>LittleDIP</child>
 			<axis>
-				<xyz>0.897 -0.171 0.408</xyz>
+				<xyz>0.898 -0.157 0.412</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -1158,7 +1158,7 @@
 			<parent>trapezium</parent>
 			<child>ThumbTMC_FE</child>
 			<axis>
-				<xyz>0.049 0.665 -0.745</xyz>
+				<xyz>0.028 0.407 -0.913</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -1208,7 +1208,7 @@
 			<parent>ThumbTMC_AA</parent>
 			<child>ThumbMCP</child>
 			<axis>
-				<xyz>0.092 0.204 -0.975</xyz>
+				<xyz>0.028 0.407 -0.913</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>
@@ -1233,7 +1233,7 @@
 			<parent>ThumbMCP</parent>
 			<child>ThumbIP</child>
 			<axis>
-				<xyz>0.051 0.480 -0.876</xyz>
+				<xyz>0.028 0.407 -0.913</xyz>
 				<dynamics>
 					<damping>0.0</damping>
 					<friction>0.0</friction>

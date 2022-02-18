@@ -4,140 +4,140 @@
     <parent link="Wrist"/>
     <child link="IndexCMC"/>
     <origin xyz="0.00018 -0.01917  0.01305" rpy="3.14159 -1.57079  3.14159"/>
-    <axis xyz="0.973  0.124 -0.194"/>
+    <axis xyz="0.988 0.153 0.008"/>
     <limit lower="0.0" upper="0.08726646259971647" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="IndexMCP_AA_joint" type="revolute">
-    <parent link="IndexCMC"/>
-    <child link="IndexMCP_AA"/>
-    <origin xyz="0.00912 -0.06174  0.01116" rpy="0 0 0"/>
-    <axis xyz="-0.058  0.086  0.995"/>
-    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
-  </joint>
   <joint name="IndexMCP_FE_joint" type="revolute">
-    <parent link="IndexMCP_AA"/>
+    <parent link="IndexCMC"/>
     <child link="IndexMCP_FE"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="0.999 0.046 0.022"/>
+    <origin xyz="0.00912 -0.06174  0.01116" rpy="0 0 0"/>
+    <axis xyz="0.988 0.153 0.008"/>
     <limit lower="-0.17453292519943295" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="IndexPIP_joint" type="revolute">
+  <joint name="IndexMCP_AA_joint" type="revolute">
     <parent link="IndexMCP_FE"/>
+    <child link="IndexMCP_AA"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="-0.03     0.14099  0.99"/>
+    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="IndexPIP_joint" type="revolute">
+    <parent link="IndexMCP_AA"/>
     <child link="IndexPIP"/>
     <origin xyz="0.00751 -0.04127  0.00732" rpy="0 0 0"/>
-    <axis xyz="0.992  0.104 -0.066"/>
+    <axis xyz="0.988 0.153 0.008"/>
     <limit lower="0.0" upper="2.0943951023931953" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="IndexDIP_joint" type="revolute">
     <parent link="IndexPIP"/>
     <child link="IndexDIP"/>
     <origin xyz="0.00333 -0.02488  0.00122" rpy="0 0 0"/>
-    <axis xyz="0.997    0.07299 -0.026"/>
+    <axis xyz="0.988 0.153 0.008"/>
     <limit lower="0.0" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="MiddleCMC_joint" type="revolute">
     <parent link="Wrist"/>
     <child link="MiddleCMC"/>
     <origin xyz="-0.00246 -0.01533  0.00385" rpy="3.14159 -1.57079  3.14159"/>
-    <axis xyz="1     0.006 -0.003"/>
+    <axis xyz="0.98  0.052 0.194"/>
     <limit lower="0.0" upper="0.08726646259971647" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="MiddleMCP_AA_joint" type="revolute">
-    <parent link="MiddleCMC"/>
-    <child link="MiddleMCP_AA"/>
-    <origin xyz="0.00085 -0.06524  0.00901" rpy="0 0 0"/>
-    <axis xyz="0.059 0.056 0.997"/>
-    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
-  </joint>
   <joint name="MiddleMCP_FE_joint" type="revolute">
-    <parent link="MiddleMCP_AA"/>
+    <parent link="MiddleCMC"/>
     <child link="MiddleMCP_FE"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="0.997 -0.077  0.026"/>
+    <origin xyz="0.00085 -0.06524  0.00901" rpy="0 0 0"/>
+    <axis xyz="0.98  0.052 0.194"/>
     <limit lower="-0.17453292519943295" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="MiddlePIP_joint" type="revolute">
+  <joint name="MiddleMCP_AA_joint" type="revolute">
     <parent link="MiddleMCP_FE"/>
+    <child link="MiddleMCP_AA"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="-0.198  0.082  0.977"/>
+    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="MiddlePIP_joint" type="revolute">
+    <parent link="MiddleMCP_AA"/>
     <child link="MiddlePIP"/>
     <origin xyz="0.00165 -0.04421  0.00623" rpy="0 0 0"/>
-    <axis xyz="0.998 0.064 0.026"/>
+    <axis xyz="0.98  0.052 0.194"/>
     <limit lower="0.0" upper="1.9198621771937625" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="MiddleDIP_joint" type="revolute">
     <parent link="MiddlePIP"/>
     <child link="MiddleDIP"/>
     <origin xyz="0.00136 -0.02904  0.00195" rpy="0 0 0"/>
-    <axis xyz="0.991 0.129 0.029"/>
+    <axis xyz="0.98  0.052 0.194"/>
     <limit lower="0.0" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="RingCMC_joint" type="revolute">
     <parent link="Wrist"/>
     <child link="RingCMC"/>
     <origin xyz="-0.00157 -0.01755 -0.00636" rpy="3.14159 -1.57079  3.14159"/>
-    <axis xyz="0.984 -0.068  0.164"/>
+    <axis xyz="0.949 -0.07   0.309"/>
     <limit lower="0.0" upper="0.17453292519943295" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="RingMCP_AA_joint" type="revolute">
-    <parent link="RingCMC"/>
-    <child link="RingMCP_AA"/>
-    <origin xyz="-0.00351 -0.06171  0.00408" rpy="0 0 0"/>
-    <axis xyz="-0.386  0.034  0.922"/>
-    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
-  </joint>
   <joint name="RingMCP_FE_joint" type="revolute">
-    <parent link="RingMCP_AA"/>
+    <parent link="RingCMC"/>
     <child link="RingMCP_FE"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="0.966 -0.083  0.243"/>
+    <origin xyz="-0.00351 -0.06171  0.00408" rpy="0 0 0"/>
+    <axis xyz="0.949 -0.07   0.309"/>
     <limit lower="-0.17453292519943295" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="RingPIP_joint" type="revolute">
+  <joint name="RingMCP_AA_joint" type="revolute">
     <parent link="RingMCP_FE"/>
+    <child link="RingMCP_AA"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="-0.305  0.063  0.95"/>
+    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="RingPIP_joint" type="revolute">
+    <parent link="RingMCP_AA"/>
     <child link="RingPIP"/>
     <origin xyz="-0.00352 -0.04025  0.00134" rpy="0 0 0"/>
-    <axis xyz="0.981 -0.063  0.183"/>
+    <axis xyz="0.949 -0.07   0.309"/>
     <limit lower="0.0" upper="2.0943951023931953" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="RingDIP_joint" type="revolute">
     <parent link="RingPIP"/>
     <child link="RingDIP"/>
     <origin xyz="-0.00231 -0.02478  0.00056" rpy="0 0 0"/>
-    <axis xyz="0.973 -0.039  0.226"/>
+    <axis xyz="0.949 -0.07   0.309"/>
     <limit lower="0.0" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="LittleCMC_joint" type="revolute">
     <parent link="Wrist"/>
     <child link="LittleCMC"/>
     <origin xyz="-0.00157 -0.01755 -0.01315" rpy="3.14159 -1.57079  3.14159"/>
-    <axis xyz="0.959 -0.172  0.224"/>
+    <axis xyz="0.898 -0.157  0.412"/>
     <limit lower="0.0" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="LittleMCP_AA_joint" type="revolute">
-    <parent link="LittleCMC"/>
-    <child link="LittleMCP_AA"/>
-    <origin xyz="-0.00635 -0.05361 -0.00496" rpy="0 0 0"/>
-    <axis xyz="-0.62   0.021  0.784"/>
-    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
-  </joint>
   <joint name="LittleMCP_FE_joint" type="revolute">
-    <parent link="LittleMCP_AA"/>
+    <parent link="LittleCMC"/>
     <child link="LittleMCP_FE"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="0.978 -0.064  0.198"/>
+    <origin xyz="-0.00635 -0.05361 -0.00496" rpy="0 0 0"/>
+    <axis xyz="0.898 -0.157  0.412"/>
     <limit lower="-0.17453292519943295" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
-  <joint name="LittlePIP_joint" type="revolute">
+  <joint name="LittleMCP_AA_joint" type="revolute">
     <parent link="LittleMCP_FE"/>
+    <child link="LittleMCP_AA"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="-0.422 -0.037  0.906"/>
+    <limit lower="-0.2617993877991494" upper="0.2617993877991494" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="LittlePIP_joint" type="revolute">
+    <parent link="LittleMCP_AA"/>
     <child link="LittlePIP"/>
     <origin xyz="-0.00527 -0.03556 -0.00287" rpy="0 0 0"/>
-    <axis xyz="0.894 -0.254  0.368"/>
+    <axis xyz="0.898 -0.157  0.412"/>
     <limit lower="0.0" upper="2.356194490192345" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="LittleDIP_joint" type="revolute">
     <parent link="LittlePIP"/>
     <child link="LittleDIP"/>
     <origin xyz="-0.00287 -0.02067 -0.00224" rpy="0 0 0"/>
-    <axis xyz="0.897 -0.171  0.408"/>
+    <axis xyz="0.898 -0.157  0.412"/>
     <limit lower="0.0" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="trapezium_joint" type="fixed">
@@ -151,7 +151,7 @@
     <parent link="trapezium"/>
     <child link="ThumbTMC_FE"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="0.049  0.665 -0.745"/>
+    <axis xyz="0.028  0.407 -0.913"/>
     <limit lower="-0.7853981633974483" upper="0.5235987755982988" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="ThumbTMC_AA_joint" type="revolute">
@@ -165,14 +165,14 @@
     <parent link="ThumbTMC_AA"/>
     <child link="ThumbMCP"/>
     <origin xyz="0.01781 -0.03267 -0.0105" rpy="0 0 0"/>
-    <axis xyz="0.092  0.204 -0.975"/>
+    <axis xyz="0.028  0.407 -0.913"/>
     <limit lower="0.0" upper="1.1344640137963142" effort="0.0" velocity="0.0"/>
   </joint>
   <joint name="ThumbIP_joint" type="revolute">
     <parent link="ThumbMCP"/>
     <child link="ThumbIP"/>
     <origin xyz="0.014  -0.0259 -0.0101" rpy="0 0 0"/>
-    <axis xyz="0.051  0.48  -0.876"/>
+    <axis xyz="0.028  0.407 -0.913"/>
     <limit lower="-0.17453292519943295" upper="1.4835298641951802" effort="0.0" velocity="0.0"/>
   </joint>
   <link name="Wrist">
@@ -201,14 +201,14 @@
       </geometry>
     </visual>
   </link>
-  <link name="IndexMCP_AA">
+  <link name="IndexMCP_FE">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <link name="IndexMCP_FE">
+  <link name="IndexMCP_AA">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -260,14 +260,14 @@
       </geometry>
     </visual>
   </link>
-  <link name="MiddleMCP_AA">
+  <link name="MiddleMCP_FE">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <link name="MiddleMCP_FE">
+  <link name="MiddleMCP_AA">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -319,14 +319,14 @@
       </geometry>
     </visual>
   </link>
-  <link name="RingMCP_AA">
+  <link name="RingMCP_FE">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <link name="RingMCP_FE">
+  <link name="RingMCP_AA">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -378,14 +378,14 @@
       </geometry>
     </visual>
   </link>
-  <link name="LittleMCP_AA">
+  <link name="LittleMCP_FE">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <link name="LittleMCP_FE">
+  <link name="LittleMCP_AA">
     <inertial>
       <mass value="1.0"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>

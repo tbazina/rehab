@@ -1,18 +1,50 @@
 <launch>
 
-  <!-- Load dependent joints parameters -->
-  <rosparam command="load" file="$(find rehab)/config/hand9dof_dependent_joints.yaml"/>
-  
   <arg name="model" default="$(find rehab)/urdf/Hand9DOF/hand9dof.urdf"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find rehab)/rviz/config_hand.rviz" />
+  <arg name="grasp" default="circular"/>
+  <arg name="experiment" default="False"/>
 
+  <!-- Load dependent joints parameters for grasping type -->
+  <rosparam command="load" file="$(find rehab)/config/hand9dof_dependent_joints_$(arg grasp).yaml"/>
+
+  <!-- Load robot description -->
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+  
+  <!-- Publish desired device frames as a static transforms -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="IndexCMC_revolute"
+    args="0 0 0.012 0.155074672964338 1.41719302017161 1.56279624145911 IndexCMC R_IndexCMC" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="IndexMCP_universal"
+    args="0 0 0.008 0.155074672964338 1.41719302017161 1.56279624145911 IndexMCP_FE U_IndexMCP" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="IndexPIP_revolute"
+    args="0 0 0.005 0.155074672964338 1.41719302017161 1.56279624145911 IndexPIP R_IndexPIP" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="IndexDIP_revolute"
+    args="0 0 0.003 0.155074672964338 1.41719302017161 1.56279624145911 IndexDIP R_IndexDIP" /> -->
+
+  <!-- Publish index approximation frames as a static transforms -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="IndexCMC_approx"
+    args="0 0 0.0 0.155074672964338 1.41719302017161 1.56279624145911 IndexCMC A_IndexCMC" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="IndexMCP_approx"
+    args="0 0 0.0 0.155074672964338 1.41719302017161 1.56279624145911 IndexMCP_FE A_IndexMCP" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="IndexPIP_approx"
+    args="0 0 0.0 0.155074672964338 1.41719302017161 1.56279624145911 IndexPIP A_IndexPIP" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="IndexDIP_approx"
+    args="0 0 0.0 0.155074672964338 1.41719302017161 1.56279624145911 IndexDIP A_IndexDIP" />
 
   <node if="$(arg gui)" name="joint_state_publisher"
     pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
   <node unless="$(arg gui)" name="joint_state_publisher"
     pkg="joint_state_publisher" type="joint_state_publisher" />
+  
+  <!-- Load index finger experiment -->
+  <group if="$(arg experiment)">
+    <!-- Listen to joint_states_experiment for index finger grid joint_states -->
+    <rosparam param="source_list">['/joint_states_experiment']</rosparam>
+    <!-- Publish all grid joint_states and transforms -->
+    <node pkg="rehab" type="hand_device_tf_publisher" 
+      name="hand_device_tf_publisher" />
+  </group>
   <node name="robot_state_publisher" pkg="robot_state_publisher"
     type="robot_state_publisher" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"
