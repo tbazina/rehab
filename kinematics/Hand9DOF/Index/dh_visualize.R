@@ -8,15 +8,24 @@ library(ggplot2)
 library(plotly)
 library(RColorBrewer)
 library(ggsci)
+library(scales)
+library(processx)
 
 ## Loading data
 dh <-
-  read_csv('DH_index_circular.csv') %>%
-  mutate(
-    grasp = 'circular'
+  read_csv('DH_modified_index_circular.csv') %>%
+  mutate(grasp = 'circular', beta = 'real') %>% 
+  full_join(
+    y = read_csv('DH_modified_index_prismatic.csv') %>% 
+      mutate(grasp = 'prismatic', beta = 'real')
   ) %>% 
   full_join(
-    y = read_csv('DH_index_prismatic.csv') %>% mutate(grasp = 'prismatic')
+    y = read_csv('DH_modified_index_circular_no_beta.csv') %>% 
+      mutate(grasp = 'circular', beta = 'zero')
+  ) %>% 
+  full_join(
+    y = read_csv('DH_modified_index_prismatic_no_beta.csv') %>% 
+      mutate(grasp = 'prismatic', beta = 'zero')
   ) %>% 
   mutate(
     z = -z,
@@ -31,6 +40,7 @@ dh <-
 
 dh_lines <- dh %>% 
   filter(grasp == 'circular') %>%
+  filter(beta == 'real') %>%
   # filter(grasp == 'prismatic') %>%
   filter(th_cmc_fe == 0) %>%
   filter(th_mcp_aa == 0) %>%
@@ -43,57 +53,81 @@ dh_lines <- dh %>%
 # 3D workspace scatter plot
 fig <- dh %>% 
   filter(grasp == 'circular') %>%
+  filter(beta == 'real') %>%
   # filter(grasp == 'prismatic') %>%
   filter(th_cmc_fe == 0) %>%
+  # filter(joint == 5) %>% 
   mutate(
-    joint = (joint+1.5)^-1*10,
+    # joint = (joint+1.5)^-1*10,
+    joint = case_when(
+      joint == 0 ~ 'CMC',
+      joint == 1 ~ 'CMC',
+      joint == 2 ~ 'MCP',
+      joint == 3 ~ 'MCP',
+      joint == 4 ~ 'PIP',
+      joint == 5 ~ 'DIP',
+      joint == 6 ~ 'TIP',
+      T ~ 'WRONG'
+    ),
+    joint = ordered(joint, levels = c('TIP', 'DIP', 'PIP', 'MCP', 'CMC')),
     grasp = factor(grasp, ordered = T, levels = c('circular', 'prismatic'))
     ) %>%
   plot_ly(
     x = ~z,
     y = ~y,
     z = ~x,
-    marker = list(
-      size = ~joint,
-      # color = ~joint,
-      color = ~th_mcp_fe,
-      # color = ~th_cmc_fe,
-      # color = ~grasp,
-      colorbar = list(
-        title = 'colorbar_title'
-      ),
-      colorscale = 'Viridis',
-      showscale = T,
-      line = list(color = '#FFFFFF', width = 0)
-      )
+    color = ~joint,
+    colors = pal_nejm('default', alpha = 1)(5)
     ) %>% 
   add_markers(
-  ) %>% 
+    marker = list(
+      size = ~5,
+      line = list(color = '#FFFFFF', width = 0)
+      )
+  ) %>%
   add_paths(
     data = dh_lines,
     x = ~z,
     y = ~y,
     z = ~x,
-    line = list(color = '#000000', width = 5, showscale = F),
-    inherit = F
+    line = list(color = '#000000', width = 7, showscale = F),
+    inherit = F,
+    name = 'Pose'
     ) %>% 
   layout( 
     # title = 'Index Finger workspace',
     scene = list(
       title = list(text = 'title'),
       xaxis = list(
-        title='z [cm]', nticks=20, range=c(-3, 3)
+        title = list(text = '<b><i>z</i></b> [cm]',
+                  font = list(size = 18)),
+        tickfont = list(size = 13),
+        nticks= 20, range = c(-2.5, 2.5)
         ),
       yaxis = list(
-        title='y [cm]', nticks=20, range=c(10, -4)
+        title = list(text = '<b><i>y</i></b> [cm]',
+                  font = list(size = 18)),
+        tickfont = list(size = 13),
+        nticks=20, range=c(8, -3)
         ),
       zaxis = list(
-        title='x [cm]', nticks=20, range=c(0, 16)
+        title = list(text = '<b><i>x</i></b> [cm]',
+                  font = list(size = 18)),
+        tickfont = list(size = 13),
+        nticks=20, range=c(0, 16)
         ),
       aspectmode='manual',
-      aspectratio=list(x=0.6, y=1, z=1.2)
+      aspectratio=list(x=0.454545, y=1, z=1.454545)
     ),
-    # legend=list(title=list(text='<b> Trend </b>')),
+    legend=list(
+      title= list(text = '<b>Joint</b>',
+                  font = list(size = 16)),
+      font = list(size = 16),
+      yanchor="top",
+      y=0.98,
+      xanchor="left",
+      x=0.12
+      ),
     margin = list(
       l = 10,
       r = 10,
@@ -107,6 +141,7 @@ fig
 
 # FE plane plot - circular + prismatic
 dh_lines_fe <- dh %>% 
+  filter(beta == 'real') %>%
   # filter(grasp == 'circular') %>%
   # filter(grasp == 'prismatic') %>%
   # filter(th_cmc_fe == 0) %>%
@@ -125,6 +160,7 @@ dh_lines_fe <- dh %>%
     )
 
 dh %>%
+  filter(beta == 'real') %>%
   filter(th_mcp_aa == 0) %>%
   mutate(
     th_cmc_fe_joint = paste(th_cmc_fe, joint),
@@ -220,6 +256,7 @@ ggsave(filename = 'workspace_fe_plane.png',
 
 # AA plane plot - circular
 dh_lines_aa <- dh %>% 
+  filter(beta == 'real') %>%
   # filter(grasp == 'circular') %>%
   # filter(grasp == 'prismatic') %>%
   # filter(th_mcp_fe %in% seq(0, 90, length.out = 3)) %>%
@@ -239,21 +276,23 @@ dh_lines_aa <- dh %>%
       ),
     joint = factor(case_when(
       joint == 0 ~ 'CMC',
-      joint == 1 ~ 'MCP_AA',
-      joint == 2 ~ 'MCP_FE',
-      joint == 3 ~ 'PIP',
-      joint == 4 ~ 'DIP',
-      joint == 5 ~ 'TIP',
+      joint == 1 ~ 'CMC',
+      joint == 2 ~ 'MCP_AA',
+      joint == 3 ~ 'MCP_FE',
+      joint == 4 ~ 'PIP',
+      joint == 5 ~ 'DIP',
+      joint == 6 ~ 'TIP',
     ))
     )
 
 dh_joints_aa <- dh %>% 
+  filter(beta == 'real') %>%
   # filter(grasp == 'circular') %>%
   # filter(grasp == 'prismatic') %>%
   # filter(th_mcp_fe %in% seq(0, 90, length.out = 2)) %>%
   # filter(joint %in% c(1, 3, 4, 5)) %>%
-  filter((th_mcp_fe == 0 & joint %in% c(1, 2, 3, 4, 5)) | 
-           (th_mcp_fe == 90 & joint == 5)) %>% 
+  filter((th_mcp_fe == 0 & joint %in% c(1, 2, 3, 4, 5, 6)) | 
+           (th_mcp_fe == 90 & joint == 6)) %>% 
   # filter(th_mcp_fe == 0) %>%
   filter(th_cmc_fe == 0) %>%
   arrange(joint, th_mcp_fe, th_mcp_aa) %>% 
@@ -265,19 +304,21 @@ dh_joints_aa <- dh %>%
       ),
     joint = factor(case_when(
       joint == 0 ~ 'CMC',
-      joint == 1 ~ 'MCP_AA',
-      joint == 2 ~ 'MCP_FE',
-      joint == 3 ~ 'PIP',
-      joint == 4 ~ 'DIP',
-      joint == 5 ~ 'TIP',
+      joint == 1 ~ 'CMC',
+      joint == 2 ~ 'MCP_AA',
+      joint == 3 ~ 'MCP_FE',
+      joint == 4 ~ 'PIP',
+      joint == 5 ~ 'DIP',
+      joint == 6 ~ 'TIP',
     )),
     joint_th_mcp_fe = paste0(joint,  ' - ', th_mcp_fe, '°')
     )
 
 dh %>%
+  filter(beta == 'real') %>%
   filter(th_cmc_fe == 0) %>%
   # filter(th_mcp_fe %in% seq(0, 90, length.out = 3)) %>%
-  filter(joint == 5) %>% 
+  filter(joint == 6) %>% 
   # filter(grasp == 'circular') %>%
   # filter(grasp == 'prismatic') %>%
   mutate(
@@ -289,11 +330,12 @@ dh %>%
       ),
     joint = factor(case_when(
       joint == 0 ~ 'CMC',
-      joint == 1 ~ 'MCP_AA',
-      joint == 2 ~ 'MCP_FE',
-      joint == 3 ~ 'PIP',
-      joint == 4 ~ 'DIP',
-      joint == 5 ~ 'TIP',
+      joint == 1 ~ 'CMC',
+      joint == 2 ~ 'MCP_AA',
+      joint == 3 ~ 'MCP_FE',
+      joint == 4 ~ 'PIP',
+      joint == 5 ~ 'DIP',
+      joint == 6 ~ 'TIP',
     ))
     ) %>%
   ggplot(aes(y = x, x = z)) +
@@ -391,3 +433,147 @@ dh %>%
 
 ggsave(filename = 'workspace_aa_plane.png',
        width = 10, height = 8, units = 'cm', dpi = 320, pointsize = 12)
+
+# Calculate error (euclidean distance) between real and zero beta angles
+dh_error <- dh %>% select(-...1, -th_values, -a_values) %>%
+  group_by(grasp, joint, th_mcp_fe, th_mcp_aa, th_cmc_fe) %>% 
+  pivot_wider(names_from = beta, values_from = c(x, y, z)) %>%
+  mutate(
+    e_dist = sqrt((x_real - x_zero)^2 + (y_real - y_zero)^2 + (z_real - z_zero)^2),
+    rel_err = case_when(
+      (x_real == 0 & y_real == 0 & z_real == 0) ~ NA_real_,
+      TRUE ~ e_dist / sqrt(x_real^2 + y_real^2 + z_real^2)
+    )
+  ) %>% ungroup() %>% select(-ends_with(c('real', 'zero')))
+dh_error %>% arrange(desc(e_dist)) %>% View()
+
+# Min and max errors
+dh_error %>%
+  mutate(
+    joint = factor(case_when(
+      joint == 0 ~ 'CMC',
+      joint == 1 ~ 'CMC',
+      joint == 2 ~ 'MCP',
+      joint == 3 ~ 'MCP',
+      joint == 4 ~ 'PIP',
+      joint == 5 ~ 'DIP',
+      joint == 6 ~ 'TIP',
+      ), levels = c('CMC', 'MCP', 'PIP', 'DIP', 'TIP'))
+  ) %>% 
+  group_by(joint, grasp) %>%
+  summarise(
+    abs_min = min(e_dist),
+    abs_max = max(e_dist),
+    rel_min = min(rel_err*100),
+    rel_max = max(rel_err*100)
+  )
+  
+
+# Significance analysis - only th_mcp_fe, joint, grasp and interactions significant
+fit <- lm(
+  e_dist ~ (th_mcp_fe + joint + grasp)^2,
+  data = dh_error %>% mutate(joint = as.factor(joint), grasp = as.factor(grasp)))
+
+summary(fit)
+anova(fit)
+
+# Visualize error
+dh_error %>%
+  mutate(rel_err = rel_err * 100) %>% 
+  rename('Absolute error [cm]' = e_dist, 'Relative error [%]' = rel_err) %>% 
+  pivot_longer(
+    cols = c('Absolute error [cm]', 'Relative error [%]'), 
+    names_to = 'err_metric',
+    values_to = 'err_value'
+    ) %>% 
+  mutate(
+    grasp = case_when(
+      grasp == 'circular' ~ 'Circular',
+      grasp == 'prismatic' ~ 'Prismatic',
+      T ~ as.character('a')
+      ),
+    joint = factor(case_when(
+      joint == 0 ~ 'CMC',
+      joint == 1 ~ 'CMC',
+      joint == 2 ~ 'MCP',
+      joint == 3 ~ 'MCP',
+      joint == 4 ~ 'PIP',
+      joint == 5 ~ 'DIP',
+      joint == 6 ~ 'TIP',
+    ), levels = c('CMC', 'MCP', 'PIP', 'DIP', 'TIP'))
+    ) %>%
+  filter(joint %in% c('MCP', 'PIP', 'DIP', 'TIP')) %>%
+  distinct() %>% arrange(joint, th_mcp_fe) %>% 
+  ggplot(aes(y = err_value, x = th_mcp_fe)) +
+  facet_grid(err_metric ~ grasp, scales = 'free_y', switch = 'y') +
+  geom_line(
+    aes(color = joint),
+    stat = 'smooth',
+    formula = y ~ s(x, bs = "cs"),
+    method = 'gam',
+    se = T,
+    alpha = 0.4,
+    size = 0.5
+    # method = 'loess',
+    # formula = y ~ x, span = 0.5
+  ) +
+  geom_point(
+    aes(fill = joint),
+    # color = 'black',
+    size = 0.3,
+    shape = 21,
+    stroke = 0.0
+  ) +
+  scale_y_continuous(
+    # name = 'Euclidean distance (error) [cm]',
+    # breaks = seq(0, 1, 0.1),
+    # limits = c(0, NA)
+  ) +
+  scale_x_continuous(
+    name = expression(theta[MCP]*','[FE]*' [°]'),
+    breaks = seq(-10, 90, 10),
+    expand = c(0.02, 0.02)
+    # limits = c(2.5, -2.5),
+    ) +
+  scale_fill_nejm(
+    guide = 'none'
+    # name = expression('Joint')
+  ) +
+  scale_color_nejm(
+    name = expression('Joint')
+  ) +
+  ggtitle(expression('Model comparisons - real vs zero '*italic(beta))) +
+  theme_bw() + theme(
+    text = element_text(size = 5),
+    panel.border = element_rect(),
+    panel.background = element_blank(),
+    panel.spacing = unit(1, 'mm'),
+    panel.grid.minor.y = element_blank(),
+    strip.text = element_text(size = 6, margin = margin(0.5, 1, 0.5, 1, 'mm')),
+    legend.position = 'top',
+    legend.box.spacing = unit(2, 'mm'),
+    legend.spacing = unit(2, 'mm'),
+    legend.margin = margin(0.5, 0.5, 1, 0.5, 'mm'),
+    legend.text = element_text(size = 5),
+    legend.key.size = unit(3, 'mm'),
+    legend.title = element_text(size = 5),
+    axis.title = element_text(
+      size = 7,
+      margin = margin(0, 0, 0, 0, 'mm')
+      ),
+    axis.text.x = element_text(
+      colour="black", size = 6,
+      margin = margin(0, 0, 0, 0, 'mm')
+      ),
+    axis.text.y = element_text(colour="black", size = 6),
+    axis.title.y = element_blank(),
+    axis.line = element_line(size=0.5, colour = "black"),
+    plot.title = element_text(
+      hjust = 0.5, vjust = 0, size = 7,
+      margin = margin(0, 0, 0.5, 0, 'mm')
+      ),
+    plot.margin = margin(0, 1, 0, 1, 'mm'),
+  )
+
+ggsave(filename = 'position_error_mcp_fe.png',
+       width = 14, height = 6, units = 'cm', dpi = 320, pointsize = 12)
