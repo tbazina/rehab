@@ -138,6 +138,21 @@ fig <- dh %>%
   )
 fig
 
+config(fig, toImageButtonOptions = list(format= 'svg', # one of png, svg, jpeg, webp
+                                        filename= 'newplot',
+                                        height= 400,
+                                        width= 700,
+                                        scale= 1 ))%>%layout(plot_bgcolor='#e5ecf6',
+                                                             xaxis = list(
+                                                               zerolinecolor = '#ffff',
+                                                               zerolinewidth = 2,
+                                                               gridcolor = 'ffff'),
+                                                             yaxis = list(
+                                                               zerolinecolor = '#ffff',
+                                                               zerolinewidth = 2,
+                                                               gridcolor = 'ffff')
+                                        )
+
 
 # FE plane plot - circular + prismatic
 dh_lines_fe <- dh %>% 
@@ -464,8 +479,10 @@ dh_error %>%
   summarise(
     abs_min = min(e_dist),
     abs_max = max(e_dist),
+    abs_mean = mean(e_dist),
     rel_min = min(rel_err*100),
-    rel_max = max(rel_err*100)
+    rel_max = max(rel_err*100),
+    rel_mean = mean(rel_err*100)
   )
   
 

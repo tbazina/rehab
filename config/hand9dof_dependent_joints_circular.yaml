@@ -1,25 +1,17 @@
+# Circular grasping
 dependent_joints:
-  # ThumbTMC_AA_joint: {parent:, factor:}
   ThumbTMC_FE_joint: {parent: ThumbMCP_joint, factor: 1.1, offset: -0.785398}
-  # ThumbMCP_joint: {parent: ThumbIP_joint, factor: 0.8}
   ThumbIP_joint: {parent: ThumbMCP_joint, factor: 1.25}
   IndexCMC_joint: {parent: MiddleCMC_joint, factor: 1.0}
-  # IndexMCP_AA_joint: {parent:, factor:}
-  # IndexMCP_FE_joint: {parent: IndexPIP_joint, factor: 1.3333333}
   IndexPIP_joint: {parent: IndexMCP_FE_joint, factor: 0.75}
   IndexDIP_joint: {parent: IndexMCP_FE_joint, factor: 0.5}
   MiddleCMC_joint: {parent: RingCMC_joint, factor: 0.5}
   MiddleMCP_AA_joint: {parent: IndexMCP_AA_joint, factor: 0.2}
-  # MiddleMCP_FE_joint: {parent: MiddlePIP_joint, factor: 1.3333333}
   MiddlePIP_joint: {parent: MiddleMCP_FE_joint, factor: 0.75}
   MiddleDIP_joint: {parent: MiddleMCP_FE_joint, factor: 0.5}
   RingCMC_joint: {parent: LittleCMC_joint, factor: 0.66666667}
   RingMCP_AA_joint: {parent: LittleMCP_AA_joint, factor: 0.5}
-  # RingMCP_FE_joint: {parent: RingPIP_joint, factor: 1.3333333}
   RingPIP_joint: {parent: RingMCP_FE_joint, factor: 0.75}
   RingDIP_joint: {parent: RingMCP_FE_joint, factor: 0.5}
-  # LittleCMC_joint: {parent:, factor:}
-  # LittleMCP_AA_joint: {parent:, factor:}
-  # LittleMCP_FE_joint: {parent: LittlePIP_joint, factor: 1.3333333}
   LittlePIP_joint: {parent: LittleMCP_FE_joint, factor: 0.75}
   LittleDIP_joint: {parent: LittleMCP_FE_joint, factor: 0.5}
