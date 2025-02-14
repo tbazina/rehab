@@ -100,20 +100,20 @@ fig <- dh %>%
       title = list(text = 'title'),
       xaxis = list(
         title = list(text = '<b><i>z</i></b> [cm]',
-                  font = list(size = 18)),
-        tickfont = list(size = 13),
-        nticks= 20, range = c(-2.5, 2.5)
+                  font = list(size = 32)),
+        tickfont = list(size = 18),
+        nticks= 10, range = c(-2.5, 2.5)
         ),
       yaxis = list(
         title = list(text = '<b><i>y</i></b> [cm]',
-                  font = list(size = 18)),
-        tickfont = list(size = 13),
+                  font = list(size = 32)),
+        tickfont = list(size = 18),
         nticks=20, range=c(8, -3)
         ),
       zaxis = list(
         title = list(text = '<b><i>x</i></b> [cm]',
-                  font = list(size = 18)),
-        tickfont = list(size = 13),
+                  font = list(size = 32)),
+        tickfont = list(size = 18),
         nticks=20, range=c(0, 16)
         ),
       aspectmode='manual',
@@ -121,8 +121,8 @@ fig <- dh %>%
     ),
     legend=list(
       title= list(text = '<b>Joint</b>',
-                  font = list(size = 16)),
-      font = list(size = 16),
+                  font = list(size = 30)),
+      font = list(size = 30),
       yanchor="top",
       y=0.98,
       xanchor="left",
@@ -138,10 +138,10 @@ fig <- dh %>%
   )
 fig
 
-config(fig, toImageButtonOptions = list(format= 'svg', # one of png, svg, jpeg, webp
+config(fig, toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
                                         filename= 'newplot',
-                                        height= 400,
-                                        width= 700,
+                                        height= 800,
+                                        width= 1300,
                                         scale= 1 ))%>%layout(plot_bgcolor='#e5ecf6',
                                                              xaxis = list(
                                                                zerolinecolor = '#ffff',
@@ -154,6 +154,7 @@ config(fig, toImageButtonOptions = list(format= 'svg', # one of png, svg, jpeg, 
                                         )
 
 
+# Actuators plot - only circular, converted to mm, flipepd axes
 # FE plane plot - circular + prismatic
 dh_lines_fe <- dh %>% 
   filter(beta == 'real') %>%
@@ -171,12 +172,18 @@ dh_lines_fe <- dh %>%
       grasp == 'circular' ~ 'Circular',
       grasp == 'prismatic' ~ 'Prismatic',
       T ~ as.character('a')
-      )
+      ),
+    # Convert cm to mm for x, y, z
+    # make y negative
+    x = x*10,
+    y = -y*10,
+    z = z*10,
     )
 
 dh %>%
   filter(beta == 'real') %>%
   filter(th_mcp_aa == 0) %>%
+  filter(grasp == 'circular') %>%
   mutate(
     th_cmc_fe_joint = paste(th_cmc_fe, joint),
     linesize = factor(th_cmc_fe),
@@ -184,10 +191,15 @@ dh %>%
       grasp == 'circular' ~ 'Circular',
       grasp == 'prismatic' ~ 'Prismatic',
       T ~ as.character('a')
-    )
+    ),
+    # Convert cm to mm for x, y, z
+    # make y negative
+    x = x*10,
+    y = -y*10,
+    z = z*10,
     ) %>%
   ggplot(aes(y = x, x = y)) +
-  facet_wrap(. ~ grasp, scales = 'fixed') +
+  # facet_wrap(. ~ grasp, scales = 'fixed') +
   coord_fixed() +
   geom_path(
     aes(group = th_cmc_fe_joint, color = factor(th_cmc_fe)),
@@ -195,7 +207,7 @@ dh %>%
     lineend = 'round'
   ) +
   geom_path(
-    data = dh_lines_fe,
+    data = dh_lines_fe %>% filter(grasp == 'Circular'),
     aes(group = th_mcp_fe),
     color = 'black',
     lineend = 'round',
@@ -209,22 +221,23 @@ dh %>%
     stroke = 0.05,
     alpha = 0.6
     ) +
-  annotate(geom = 'text', y = 0, x = -1, label = 'CMC', size = 1.5) +
-  annotate(geom = 'text', y = 6.8, x = -1.2, label = 'MCP', size = 1.5) +
-  annotate(geom = 'text', y = 10.5, x = -1.6, label = 'PIP', size = 1.5) +
-  annotate(geom = 'text', y = 13.6, x = -1, label = 'DIP', size = 1.5) +
-  annotate(geom = 'text', y = 15.2, x = -2, label = 'TIP', size = 1.5) +
-  annotate(geom = 'text', y = 15.3, x = 0, label = 'Neutral', size = 1.5) +
+  annotate(geom = 'text', y = 3, x = 8, label = 'CMC', size = 2.3) +
+  annotate(geom = 'text', y = 64, x = 10, label = 'MCP', size = 2.3) +
+  annotate(geom = 'text', y = 105, x = 16, label = 'PIP', size = 2.3) +
+  annotate(geom = 'text', y = 136, x = 10, label = 'DIP', size = 2.3) +
+  annotate(geom = 'text', y = 152, x = 19, label = 'TIP', size = 2.3) +
+  annotate(geom = 'text', y = 153, x = 0, label = 'Neutral', size = 2.3) +
   scale_y_continuous(
-    name = expression(italic(x)*' [cm]'),
-    breaks = seq(0, 30, 2),
+    name = expression(italic(z)*' [mm]'),
+    breaks = seq(0, 160, 20),
     # limits = c(0, NA)
   ) +
   scale_x_continuous(
-    name = expression(italic(y)*' [cm]'),
-    breaks = seq(-10, 15, 2),
+    name = expression(italic(x)*' [mm]'),
+    breaks = seq(-100, 20, 20),
+    labels = ~sub("-", "\u2212", .x) 
     # limits = c(-4, 10),
-    trans = 'reverse'
+    # trans = 'reverse'
     ) +
   scale_fill_viridis_c(
     name = expression(theta)
@@ -234,40 +247,39 @@ dh %>%
     name = expression(theta[CMC]*','[FE]*' [°]')
     # values = c("dodgerblue3", "darksalmon")
   ) +
-  ggtitle(expression('Workspace of index finger in FE plane '*(theta[MCP]*','[AA]*' = 0°'))) +
+  # ggtitle(expression('Workspace of index finger in FE plane '*(theta[MCP]*','[AA]*' = 0°'))) +
   theme_bw() + theme(
-    text = element_text(size = 5),
+    text = element_text(size = 7),
     panel.border = element_rect(),
     panel.background = element_blank(),
     panel.spacing = unit(1, 'mm'),
     panel.grid.minor.y = element_blank(),
-    strip.text = element_text(size = 6, margin = margin(0.5, 1, 0.5, 1, 'mm')),
-    legend.position = c(0.46,  0.24),
+    strip.text = element_text(size = 7, margin = margin(0.5, 1, 0.5, 1, 'mm')),
+    legend.position = 'right',
     legend.box.spacing = unit(2, 'mm'),
     legend.spacing = unit(2, 'mm'),
     legend.margin = margin(0.5, 0.5, 0.0, 0.5, 'mm'),
-    legend.text = element_text(size = 5),
+    legend.text = element_text(size = 7),
     legend.key.size = unit(3, 'mm'),
-    legend.title = element_text(size = 5),
+    legend.title = element_text(size = 7),
     axis.title = element_text(
       size = 7,
       margin = margin(0, 0, 0, 0, 'mm')
       ),
     axis.text.x = element_text(
-      colour="black", size = 6,
+      colour="black", size = 7,
       margin = margin(0, 0, 0, 0, 'mm')
       ),
-    axis.text.y = element_text(colour="black", size = 6),
+    axis.text.y = element_text(colour="black", size = 7),
     axis.line = element_line(size=0.5, colour = "black"),
-    plot.title = element_text(
-      hjust = 0.5, vjust = 0, size = 7,
-      margin = margin(0, 0, 0.5, 0, 'mm')
-      ),
-    plot.margin = margin(0, 1, 0, 1, 'mm'),
+    plot.margin = margin(0.9, 0.2, 0.2, 0.2, 'mm'),
   )
 
-ggsave(filename = 'workspace_fe_plane.png',
-       width = 10, height = 8, units = 'cm', dpi = 320, pointsize = 12)
+ggsave(
+  filename = 'workspace_fe_plane_index_circular.png',
+  device = grDevices::png, width = 8, height = 9.2, units = 'cm', dpi = 320,
+  pointsize = 12
+  )
 
 # AA plane plot - circular
 dh_lines_aa <- dh %>% 
@@ -497,9 +509,9 @@ anova(fit)
 # Visualize error
 dh_error %>%
   mutate(rel_err = rel_err * 100) %>% 
-  rename('Absolute error [cm]' = e_dist, 'Relative error [%]' = rel_err) %>% 
+  rename('AE [cm]' = e_dist, 'RE [%]' = rel_err) %>% 
   pivot_longer(
-    cols = c('Absolute error [cm]', 'Relative error [%]'), 
+    cols = c('AE [cm]', 'RE [%]'), 
     names_to = 'err_metric',
     values_to = 'err_value'
     ) %>% 
@@ -530,14 +542,14 @@ dh_error %>%
     method = 'gam',
     se = T,
     alpha = 0.4,
-    size = 0.5
+    size = 0.8
     # method = 'loess',
     # formula = y ~ x, span = 0.5
   ) +
   geom_point(
     aes(fill = joint),
     # color = 'black',
-    size = 0.3,
+    size = 0.6,
     shape = 21,
     stroke = 0.0
   ) +
@@ -559,38 +571,38 @@ dh_error %>%
   scale_color_nejm(
     name = expression('Joint')
   ) +
-  ggtitle(expression('Model comparisons - real vs zero '*italic(beta))) +
+  # ggtitle(expression('Model comparisons - real vs zero '*italic(beta))) +
   theme_bw() + theme(
-    text = element_text(size = 5),
+    text = element_text(size = 9),
     panel.border = element_rect(),
     panel.background = element_blank(),
-    panel.spacing = unit(1, 'mm'),
+    panel.spacing = unit(2, 'mm'),
     panel.grid.minor.y = element_blank(),
-    strip.text = element_text(size = 6, margin = margin(0.5, 1, 0.5, 1, 'mm')),
+    strip.text = element_text(size = 9, margin = margin(0.5, 1, 0.5, 1, 'mm')),
     legend.position = 'top',
     legend.box.spacing = unit(2, 'mm'),
     legend.spacing = unit(2, 'mm'),
     legend.margin = margin(0.5, 0.5, 1, 0.5, 'mm'),
-    legend.text = element_text(size = 5),
+    legend.text = element_text(size = 9),
     legend.key.size = unit(3, 'mm'),
-    legend.title = element_text(size = 5),
+    legend.title = element_text(face = 'bold', size = 10),
     axis.title = element_text(
-      size = 7,
+      size = 10,
       margin = margin(0, 0, 0, 0, 'mm')
       ),
     axis.text.x = element_text(
-      colour="black", size = 6,
+      colour="black", size = 8,
       margin = margin(0, 0, 0, 0, 'mm')
       ),
-    axis.text.y = element_text(colour="black", size = 6),
+    axis.text.y = element_text(colour="black", size = 8),
     axis.title.y = element_blank(),
     axis.line = element_line(size=0.5, colour = "black"),
     plot.title = element_text(
-      hjust = 0.5, vjust = 0, size = 7,
+      hjust = 0.5, vjust = 0, size = 12,
       margin = margin(0, 0, 0.5, 0, 'mm')
       ),
     plot.margin = margin(0, 1, 0, 1, 'mm'),
   )
 
 ggsave(filename = 'position_error_mcp_fe.png',
-       width = 14, height = 6, units = 'cm', dpi = 320, pointsize = 12)
+       width = 12, height = 7, units = 'cm', dpi = 320, pointsize = 12)
