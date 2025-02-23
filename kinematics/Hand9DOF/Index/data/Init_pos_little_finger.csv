@@ -1,0 +1,11 @@
+name,init_pos_x
+mcp_start_u1,0
+mcp_u1,15.4
+mcp_end_u1,30
+pip_start_u1,49.574
+pip_u1,59.774
+pip_end_u1,69.974
+dip_start_u1,83.583
+dip_u1,91.583
+dip_end_u1,99.583
+tip_u1,115
