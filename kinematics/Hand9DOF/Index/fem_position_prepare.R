@@ -1128,7 +1128,7 @@ pos_dat_wide_arc_resample %>%
 
 # Load model PRB data
 model_prb_dat <- 
-  # read_csv('data/PRB_position_data_little.csv') %>% 
+  # read_csv('data/PRB_position_data_little.csv') %>%
   read_csv('data/PRB_position_data_index.csv') %>%
   separate(joint, into = c('joint', 'coord_segment'), sep = '_') %>% 
   rename(resample_u1 = u1, resample_u2 = u2)
@@ -1159,15 +1159,13 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   ggplot(aes(x = resample_u1, y = resample_u2)) +
   # Plot resampled data
   coord_fixed(
-    # Index
-    xlim = c(0, 125),
-    # Little
-    # xlim = c(0, 110),
+    xlim = c(0, 125), # Index
+    # xlim = c(0, 110), # Little
     ylim = c(-90, 0),
   ) +
   geom_point(
-    aes(fill = L2_norm, shape = source),
-    size = 1.0,
+    aes(fill = L2_norm, shape = source, size = source),
+    # size = 1.0,
     stroke = 0.0,
     # shape = 21,
     alpha = 0.6,
@@ -1193,10 +1191,8 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   # Add curved arrow to show bending direction
   annotate(
     geom = 'curve',
-    # For index
-    x = 120, y = -55, xend = 90, yend = -85,
-    # For little
-    # x = 105, y = -55, xend = 75, yend = -85,
+    x = 120, y = -55, xend = 90, yend = -85, # For index
+    # x = 105, y = -55, xend = 75, yend = -85, # For little
     curvature = -0.2,
     arrow = arrow(type = 'open', length = unit(0.2, 'cm')),
     color = 'black',
@@ -1205,10 +1201,8 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   # Add text near arrow to signify it's pressure in bar
   annotate(
     geom = 'text',
-    # Index
-    x = 80, y = -92,
-    # Little
-    # x = 65, y = -92,
+    x = 80, y = -92, # Index
+    # x = 65, y = -92, # Little
     label = "'Pressure '*italic(p)*' [bar]'",
     parse = T,
     hjust = 0,
@@ -1255,7 +1249,11 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
     ) +
   scale_shape_manual(
     name = 'Data:',
-    values = c(21, 23)
+    values = c(24, 21)
+  ) +
+  scale_size_manual(
+    name = 'Data:',
+    values = c(0.9, 1.3)
   ) +
   scale_color_nejm(
     labels = scales::label_parse(),
@@ -1288,7 +1286,7 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   theme_bw() + theme(
     legend.position = 'top',
     legend.title = element_text(
-      size = 10, margin = margin(2, 2, 2, 6, 'mm')),
+      size = 10, margin = margin(2, 2, 2, 2, 'mm')),
     legend.title.position = 'left',
     legend.box = 'horizontal',
     legend.direction = 'horizontal',
