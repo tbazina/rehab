@@ -15,10 +15,12 @@ pos_data_wide <-
   ) %>%
   mutate(finger = 'index') %>%
   # Bind rows with little finger data
-  # bind_rows(
-  #   read_csv('data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample.csv') %>%
-  #     mutate(finger = 'little')
-  # ) %>%
+  bind_rows(
+    read_csv(
+      'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample_ogden.csv'
+    ) %>%
+      mutate(finger = 'little')
+  ) %>%
   # Select finger, pressure, joint, theta_joint, delta_L
   select(finger, pressure, joint, theta_joint, delta_L)
 
@@ -64,7 +66,7 @@ plt_rev <- pos_data_wide %>%
     labels = scales::label_parse(),
   ) +
   scale_x_continuous(
-    breaks = seq(0, 6, 0.5),
+    breaks = seq(0, 6, 1.0),
     # minor_breaks = seq(0, 1, length.out = 22)^1.8,
     # expand = c(0, 0.04)
   ) +
@@ -191,7 +193,7 @@ plt_elong <- pos_data_wide %>%
     labels = scales::label_parse(),
   ) +
   scale_x_continuous(
-    breaks = seq(0, 6, 0.5),
+    breaks = seq(0, 6, 1),
     # minor_breaks = seq(0, 1, length.out = 22)^1.8,
     # expand = c(0, 0.04)
   ) +
@@ -278,7 +280,7 @@ ggsave(
 
 # Regression analysis for bending angles
 pos_data_wide %>%
-  filter(finger == 'index') %>%
+  filter(finger == 'little') %>%
   filter(joint == 'DIP') %>%
   # Transform pressure to bar
   mutate(

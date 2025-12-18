@@ -67,12 +67,13 @@ compute_arc_params <- function(x1, y1, x2, y2, x3, y3) {
 }
 
 # Load relative position data for each FEM measured point
-pos_dat <- read_csv('data/FEM_index_finger_ogden.csv')
+# pos_dat <- read_csv('data/FEM_index_finger_ogden.csv')
+pos_dat <- read_csv('data/FEM_little_finger_ogden.csv')
 # pos_dat <- read_csv('data/FEM_index_finger.csv')
 # pos_dat <- read_csv('data/FEM_little_finger.csv')
 # Load absolute x coordinate for each FEM measured point
-pos_abs_init <- read_csv('data/Init_pos_index_finger.csv')
-# pos_abs_init <- read_csv('data/Init_pos_little_finger.csv')
+# pos_abs_init <- read_csv('data/Init_pos_index_finger.csv')
+pos_abs_init <- read_csv('data/Init_pos_little_finger.csv')
 
 # Filter initial pos_data to remove rows where pressure > 0.604 bar
 pos_dat <- pos_dat %>% filter(pressure <= 0.604)
@@ -228,7 +229,8 @@ pos_dat_inter_joint <- pos_dat %>%
 
 # Save to csv
 pos_dat_inter_joint %>%
-  write_csv('data/inter_joint_distance_index_ogden.csv')
+  # write_csv('data/inter_joint_distance_index_ogden.csv')
+  write_csv('data/inter_joint_distance_little_ogden.csv')
 # write_csv('data/inter_joint_distance_index.csv')
 # write_csv('data/inter_joint_distance_little.csv')
 
@@ -242,8 +244,8 @@ pos_dat_inter_joint %>%
     caption = 'Compression of inter-joint distance.',
     label = 'tab:inter-finger-distance',
   ) %>%
-  print() %>%
-  write_clip(object_type = 'character')
+  print()
+write_clip(object_type = 'character')
 
 # Compute each joint angles. Take xy coord difference between the following
 # joint start, and previous joint end points. USe atan2 to compute angle.
@@ -664,7 +666,8 @@ pos_bend_plt <- pos_dat %>%
   )
 pos_bend_plt
 ggsave(
-  filename = 'plots/FEM_index_finger_movement_ogden.png',
+  # filename = 'plots/FEM_index_finger_movement_ogden.png',
+  filename = 'plots/FEM_little_finger_movement_ogden.png',
   # filename = 'plots/FEM_index_finger_movement.png',
   # filename = 'plots/FEM_little_finger_movement.png',
   plot = pos_bend_plt,
@@ -688,9 +691,11 @@ pos_dat_wide_arc %>%
     by = c('pressure', 'joint')
   ) %>%
   write_csv(
-    'data/FEM_position_data_index_arc_approx_joint_elongation_angles_ogden.csv'
+    # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_ogden.csv'
+    'data/FEM_position_data_little_arc_approx_joint_elongation_angles_ogden.csv'
+    # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles.csv'
+    # 'data/FEM_position_data_little_arc_approx_joint_elongation_angles.csv'
   )
-# write_csv('data/FEM_position_data_little_arc_approx_joint_elongation_angles.csv')
 
 # Compute uniformly resampled x and y coordinates using LOESS
 pos_dat_resample <- pos_dat %>%
@@ -795,7 +800,10 @@ pos_bend_resample_plt <- pos_dat_resample %>%
   ggplot(aes(x = resample_u1, y = resample_u2, color = joint)) +
   # Plot resampled data
   coord_fixed(
-    xlim = c(0, 135),
+    # For index
+    # xlim = c(0, 137),
+    # For little
+    xlim = c(0, 126),
     ylim = c(-90, 5),
   ) +
   geom_point(
@@ -911,12 +919,12 @@ pos_bend_resample_plt <- pos_dat_resample %>%
   annotate(
     geom = 'curve',
     # For index
-    x = 130,
-    y = -55,
-    xend = 100,
-    yend = -85,
+    # x = 130, y = -55, xend = 100, yend = -85,
     # For little
-    # x = 120, y = -55, xend = 90, yend = -85,
+    x = 120,
+    y = -55,
+    xend = 90,
+    yend = -85,
     curvature = -0.2,
     arrow = arrow(type = 'open', length = unit(0.2, 'cm')),
     color = 'black',
@@ -946,10 +954,10 @@ pos_bend_resample_plt <- pos_dat_resample %>%
   annotate(
     geom = 'text',
     # Index
-    x = 90,
-    y = -90,
+    # x = 90, y = -90,
     # Little
-    # x = 80, y = -90,
+    x = 80,
+    y = -90,
     label = "'Pressure '*italic(p)*' [bar]'",
     parse = T,
     hjust = 0,
@@ -1041,13 +1049,16 @@ pos_bend_resample_plt <- pos_dat_resample %>%
   )
 pos_bend_resample_plt
 ggsave(
-  filename = 'plots/FEM_index_finger_movement_resample_ogden.png',
+  # filename = 'plots/FEM_index_finger_movement_resample_ogden.png',
+  filename = 'plots/FEM_little_finger_movement_resample_ogden.png',
   # filename = 'plots/FEM_index_finger_movement_resample.png',
   # filename = 'plots/FEM_little_finger_movement_resample.png',
   plot = pos_bend_resample_plt,
   device = grDevices::png,
-  # width = 9, height = 7, units = 'cm', dpi = 360
-  width = 8,
+  # For index
+  # width = 9, height = 7,
+  # For little to match index in side-by-side plot
+  width = 8.36,
   height = 7,
   units = 'cm',
   dpi = 360
@@ -1241,7 +1252,8 @@ joint_angle_resample_plt <- joint_angles_resample %>%
   )
 joint_angle_resample_plt
 ggsave(
-  filename = 'plots/FEM_joint_angles_index_ogden.png',
+  # filename = 'plots/FEM_joint_angles_index_ogden.png',
+  filename = 'plots/FEM_joint_angles_little_ogden.png',
   # filename = 'plots/FEM_joint_angles_index.png',
   # filename = 'plots/FEM_joint_angles_little.png',
   plot = joint_angle_resample_plt,
@@ -1315,7 +1327,8 @@ pos_dat_wide_arc_resample %>%
     by = c('pressure', 'joint')
   ) %>%
   write_csv(
-    'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden.csv'
+    # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden.csv'
+    'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample_ogden.csv'
     # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample.csv'
     # 'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample.csv'
   )
