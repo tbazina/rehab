@@ -1,3 +1,4 @@
+import timeit
 from concurrent.futures import ProcessPoolExecutor
 
 import matplotlib.pyplot as plt
@@ -370,7 +371,11 @@ R_outer = (
     15.5 - 0.8
 )  # Outer diameter of bellow (mm) - 15.5 is from thick element to top
 r_inner = d_bellow_in + 0.575  # Inner diameter of bellow (mm)
-n_bellow = np.array([7, 5, 5])  # Number of bellows
+# Number of bellows - Index, little
+n_bellow = np.array(
+    [7, 5, 5]
+    # [7, 5, 4]
+)
 
 
 # Basin hopping search near optimum point, bounded by max_bin_count +- (approx_max_loc * max_num_bins)
@@ -428,21 +433,27 @@ def run_basinhopping_optimization(*args, **kwargs):
     bounds_minimizer = BoundsNoLocalMinimization(
         lower_bounds=np.array(
             [
+                # Radius mixing
                 0.40,
                 0.40,
                 0.40,
+                # Bending–elongation angle coefficient
                 0.00,
                 0.00,
                 0.00,
+                # Rib–count coefficient
                 0.00,
                 0.00,
                 0.00,
+                # Characteristic radius
                 0.0,
                 0.0,
                 0.0,
+                # Angle coefficient
                 1.0,
                 1.0,
                 1.0,
+                # Quadratic moment–angle coefficient
                 -1.0,
                 -1.0,
                 -1.0,
@@ -450,21 +461,27 @@ def run_basinhopping_optimization(*args, **kwargs):
         ),
         upper_bounds=np.array(
             [
+                # Radius mixing
                 1.5,
                 1.5,
                 1.5,
+                # Bending–elongation angle coefficient
                 15.0,
                 15.0,
                 15.0,
+                # Rib–count coefficient
                 0.20,
                 0.20,
                 0.20,
+                # Characteristic radius
                 1.0,
                 1.0,
                 1.0,
+                # Angle coefficient
                 8.0,
                 8.0,
                 8.0,
+                # Quadratic moment–angle coefficient
                 20.0,
                 20.0,
                 20.0,
@@ -491,16 +508,21 @@ def run_basinhopping_optimization(*args, **kwargs):
     return opt_res_bh, bounds_minimizer, take_step_routine
 
 
-with ProcessPoolExecutor(max_workers=4) as executor:
+# Time the parallel execution of optimization
+num_parallel_workers = 4
+start_time = timeit.default_timer()
+with ProcessPoolExecutor(max_workers=num_parallel_workers) as executor:
     results_list = list(executor.map(run_basinhopping_optimization, range(4)))
+end_time = timeit.default_timer()
 
 
 best_results = min(results_list, key=lambda x: x[0].fun)
-# Get fun and x for results in list
-[(i[0].fun, i[0].x) for i in results_list]
 # results_list
 best_results[0]
 # plt.plot(best_results[1].f)
+
+# Get fun and x for results in list
+[(i[0].fun, i[0].x) for i in results_list]
 
 # Plot results
 joint_coords, theta_end = compute_joint_coordinates(
@@ -521,6 +543,50 @@ joint_coords, theta_end = compute_joint_coordinates(
     d_bellow_in=d_bellow_in,
     t=t,
 )
+
+# Create pandas dataframe with optimal parameters from best_results[0]
+optimal_params = pd.DataFrame(
+    {
+        "joint": ["MCP", "PIP", "DIP"],
+        "lmbd": best_results[0].x[0:3],
+        "delta_l_theta_modifier": best_results[0].x[3:6],
+        "delta_l_n_bellow_modifier": best_results[0].x[6:9],
+        "gamma": best_results[0].x[9:12],
+        "c_theta": best_results[0].x[12:15],
+        "quadratic_correction_term": best_results[0].x[15:18],
+    }
+)
+
+# Calculate average time per function evaluation and add to optimal_params
+total_execution_time = end_time - start_time
+total_function_evaluations = best_results[0].nfev * num_parallel_workers
+average_time_per_evaluation = total_execution_time / total_function_evaluations
+print(f"Total execution time: {total_execution_time:.4f} seconds")
+print(f"Total function evaluations: {total_function_evaluations}")
+print(
+    f"Average time per function evaluation: {average_time_per_evaluation:.6f} seconds"
+)
+optimal_params["total_execution_time"] = total_execution_time
+optimal_params["total_function_evaluations"] = total_function_evaluations
+optimal_params["average_time_per_evaluation"] = average_time_per_evaluation
+
+# Print Mean and max L2 between FEM and PRB in mm
+mean_l2 = np.mean(np.linalg.norm(joint_coords_fem - joint_coords, axis=2))
+max_l2 = np.max(np.linalg.norm(joint_coords_fem - joint_coords, axis=2))
+print(f"Mean L2: {mean_l2}")
+print(f"Max L2: {max_l2}")
+
+# Add Mean and Max L2 to optimal params as a separate columns
+optimal_params["mean_l2"] = mean_l2
+optimal_params["max_l2"] = max_l2
+
+# Save optimal parameters to csv
+optimal_params.to_csv(
+    "data/PRB_optimal_params_index_ogden.csv",
+    # "data/PRB_optimal_params_little_ogden.csv", index=False
+    index=False,
+)
+
 # Plot all joint coords as scatterplot
 fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(10, 10))
 ax.scatter(joint_coords[:, :, 0], joint_coords[:, :, 1], marker=".")
@@ -532,3 +598,26 @@ ax.grid()
 ax.set_aspect("equal")
 plt.tight_layout()
 plt.show()
+
+# Plot and store results
+pos_data_optim = pd.DataFrame(joint_coords.reshape(-1, 2), columns=["u1", "u2"])
+# Assign joint names MCP_start, MCP_end, PIP_start, PIP_end, DIP_start, DIP_end to every
+# fem_num_points data points and add to pos_data_optim
+# TODO: important - use the same number of points as in fem
+# fem_num_points = 100
+fem_num_points = 86
+pos_data_optim["joint"] = np.repeat(
+    np.array(["MCP_start", "MCP_end", "PIP_start", "PIP_end", "DIP_start", "DIP_end"]),
+    fem_num_points,
+)
+# Add pressure column to pos_data_optim by repeating pressure values 6 times
+pos_data_optim["pressure"] = np.tile(pressure, 6)
+pos_data_optim
+# Save optimized position data to csv
+pos_data_optim.to_csv(
+    # 'data/PRB_position_data_index.csv', index=False
+    # 'data/PRB_position_data_little.csv', index=False
+    "data/PRB_position_data_index_ogden.csv",
+    # "data/PRB_position_data_little_ogden.csv",
+    index=False,
+)
