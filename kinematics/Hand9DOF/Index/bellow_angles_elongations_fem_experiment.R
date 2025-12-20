@@ -10,16 +10,40 @@ library(datapasta)
 pos_data_wide <-
   # Load index finger data
   # read_csv('data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample.csv') %>%
+  # read_csv(
+  #   'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden.csv'
+  # ) %>%
+  # mutate(finger = 'index') %>%
+  # # Bind rows with little finger data
+  # bind_rows(
+  #   read_csv(
+  #     'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample_ogden.csv'
+  #   ) %>%
+  #     mutate(finger = 'little')
+  # ) %>%
+  # Load index finger mesh data
   read_csv(
-    'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden.csv'
+    'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh04.csv'
   ) %>%
-  mutate(finger = 'index') %>%
-  # Bind rows with little finger data
+  mutate(finger = '0.4') %>%
+  # Bind rows
   bind_rows(
     read_csv(
-      'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample_ogden.csv'
+      'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh06.csv'
     ) %>%
-      mutate(finger = 'little')
+      mutate(finger = '0.6')
+  ) %>%
+  bind_rows(
+    read_csv(
+      'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh08.csv'
+    ) %>%
+      mutate(finger = '0.8')
+  ) %>%
+  bind_rows(
+    read_csv(
+      'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh1.csv'
+    ) %>%
+      mutate(finger = '1.0')
   ) %>%
   # Select finger, pressure, joint, theta_joint, delta_L
   select(finger, pressure, joint, theta_joint, delta_L)
@@ -83,7 +107,8 @@ plt_rev <- pos_data_wide %>%
   guides(
     # Remove legend for color
     color = guide_legend(
-      title = 'Finger actuator:',
+      # title = 'Finger actuator:',
+      title = 'Mesh element size:',
       byrow = F,
       reverse = F
     )
@@ -142,7 +167,8 @@ plt_rev <- pos_data_wide %>%
 plt_rev
 ggsave(
   # filename = 'plots/Figure_4_FEM_bellow_end_angles.png',
-  filename = 'plots/Figure_4_FEM_bellow_end_angles_ogden.png',
+  # filename = 'plots/Figure_4_FEM_bellow_end_angles_ogden.png',
+  filename = 'plots/Figure_4_FEM_bellow_end_angles_ogden_mesh.png',
   plot = plt_rev,
   device = grDevices::png,
   width = 16.5,
@@ -210,7 +236,8 @@ plt_elong <- pos_data_wide %>%
   guides(
     # Remove legend for color
     color = guide_legend(
-      title = 'Finger actuator:',
+      # title = 'Finger actuator:',
+      title = 'Mesh element size: ',
       byrow = F,
       reverse = F
     )
@@ -269,7 +296,8 @@ plt_elong <- pos_data_wide %>%
 plt_elong
 ggsave(
   # filename = 'plots/Figure_4_FEM_bellow_elongations.png',
-  filename = 'plots/Figure_4_FEM_bellow_elongations_ogden.png',
+  # filename = 'plots/Figure_4_FEM_bellow_elongations_ogden.png',
+  filename = 'plots/Figure_4_FEM_bellow_elongations_ogden_mesh.png',
   plot = plt_elong,
   device = grDevices::png,
   width = 16.5,

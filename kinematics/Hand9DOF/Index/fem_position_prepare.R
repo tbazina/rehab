@@ -67,16 +67,24 @@ compute_arc_params <- function(x1, y1, x2, y2, x3, y3) {
 }
 
 # Load relative position data for each FEM measured point
-# pos_dat <- read_csv('data/FEM_index_finger_ogden.csv')
-pos_dat <- read_csv('data/FEM_little_finger_ogden.csv')
+pos_dat <- read_csv('data/FEM_index_finger_ogden.csv')
+# pos_dat <- read_csv('data/FEM_little_finger_ogden.csv')
 # pos_dat <- read_csv('data/FEM_index_finger.csv')
 # pos_dat <- read_csv('data/FEM_little_finger.csv')
+# Load relative position data for mesh convergence
+# pos_dat <- read_csv(
+# 'data/FEM_index_finger_ogden_mesh04.csv'
+# 'data/FEM_index_finger_ogden_mesh06.csv'
+# 'data/FEM_index_finger_ogden_mesh1.csv'
+# )
 # Load absolute x coordinate for each FEM measured point
-# pos_abs_init <- read_csv('data/Init_pos_index_finger.csv')
-pos_abs_init <- read_csv('data/Init_pos_little_finger.csv')
+pos_abs_init <- read_csv('data/Init_pos_index_finger.csv')
+# pos_abs_init <- read_csv('data/Init_pos_little_finger.csv')
 
-# Filter initial pos_data to remove rows where pressure > 0.604 bar
-pos_dat <- pos_dat %>% filter(pressure <= 0.604)
+# Filter initial pos_data to remove rows where pressure > 0.604 MPa
+# pos_dat <- pos_dat %>% filter(pressure <= 0.604)
+# For mesh convergence, lowers pressure, all simulations ended up on is 0.434 Mpa
+pos_dat <- pos_dat %>% filter(pressure <= 0.435)
 
 # Separate joint and abs coordinates for merging data
 pos_abs_init <- pos_abs_init %>%
@@ -244,8 +252,8 @@ pos_dat_inter_joint %>%
     caption = 'Compression of inter-joint distance.',
     label = 'tab:inter-finger-distance',
   ) %>%
-  print()
-write_clip(object_type = 'character')
+  print() %>%
+  write_clip(object_type = 'character')
 
 # Compute each joint angles. Take xy coord difference between the following
 # joint start, and previous joint end points. USe atan2 to compute angle.
@@ -1328,19 +1336,30 @@ pos_dat_wide_arc_resample %>%
   ) %>%
   write_csv(
     # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden.csv'
-    'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample_ogden.csv'
+    # 'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample_ogden.csv'
     # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample.csv'
     # 'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample.csv'
+    # Mesh convergence data
+    # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh04.csv'
+    # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh06.csv'
+    'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh08.csv'
+    # 'data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden_mesh1.csv'
   )
 
 # Load model PRB data
 model_prb_dat <-
-  # read_csv('data/PRB_position_data_little.csv') %>%
-  read_csv('data/PRB_position_data_index.csv') %>%
+  read_csv(
+    # 'data/PRB_position_data_index.csv'
+    # 'data/PRB_position_data_little.csv'
+    'data/PRB_position_data_index_ogden.csv'
+    # 'data/PRB_position_data_little_ogden.csv'
+  ) %>%
   separate(joint, into = c('joint', 'coord_segment'), sep = '_') %>%
   rename(resample_u1 = u1, resample_u2 = u2)
 
 # Plot u1 vs u2 for all joints and segment point measures
+plt_point_dwns = 10
+plt_point_start = 7
 pos_bend_model_compare_plt <- pos_dat_resample %>%
   select(pressure, joint, coord_segment, resample_u1, resample_u2) %>%
   mutate(source = 'FEM') %>%
@@ -1369,9 +1388,9 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   ggplot(aes(x = resample_u1, y = resample_u2)) +
   # Plot resampled data
   coord_fixed(
-    xlim = c(0, 125), # Index
+    xlim = c(0, 129), # Index
     # xlim = c(0, 110), # Little
-    ylim = c(-90, 0),
+    ylim = c(-80, 0),
   ) +
   geom_point(
     aes(fill = L2_norm, shape = source, size = source),
@@ -1386,26 +1405,47 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   geom_text(
     data = pos_dat_resample %>%
       group_by(joint, coord_segment) %>%
-      filter(row_number() %% 10 == 1) %>%
+      filter(row_number() %% plt_point_dwns == plt_point_start) %>%
       filter(joint == 'DIP' & coord_segment == 'end'),
     # Convert pressure to bar
-    aes(label = pressure * 10),
+    aes(label = round(pressure * 10, 1)),
     nudge_x = 4,
-    nudge_y = -6,
+    # For index
+    nudge_y = -5,
+    # For little
+    # nudge_y = -6,
     hjust = 0,
     vjust = 0,
-    size = 3,
+    size = 2.5,
+    color = 'black',
+    show.legend = F
+  ) +
+  # Label path at zero pressure at tip coordinates
+  geom_text(
+    data = pos_dat_resample %>%
+      group_by(joint, coord_segment) %>%
+      filter(row_number() == 1) %>%
+      filter(joint == 'DIP' & coord_segment == 'end'),
+    # Convert pressure to bar
+    aes(label = round(pressure * 10, 1)),
+    nudge_x = 4,
+    nudge_y = -3,
+    hjust = 0,
+    vjust = 0,
+    size = 2.5,
     color = 'black',
     show.legend = F
   ) +
   # Add curved arrow to show bending direction
   annotate(
     geom = 'curve',
-    x = 120,
-    y = -55,
-    xend = 90,
-    yend = -85, # For index
-    # x = 105, y = -55, xend = 75, yend = -85, # For little
+    # For index
+    x = 130,
+    y = -35,
+    xend = 110,
+    yend = -65,
+    # For little
+    # x = 110, y = -50, xend = 90, yend = -75,
     curvature = -0.2,
     arrow = arrow(type = 'open', length = unit(0.2, 'cm')),
     color = 'black',
@@ -1414,55 +1454,64 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   # Add text near arrow to signify it's pressure in bar
   annotate(
     geom = 'text',
-    x = 80,
-    y = -92, # Index
-    # x = 65, y = -92, # Little
+    # Index
+    x = 100,
+    y = -72,
+    # Little
+    # x = 80, y = -82,
     label = "'Pressure '*italic(p)*' [bar]'",
     parse = T,
     hjust = 0,
     vjust = 0,
-    size = 3,
+    size = 2.5,
     color = 'black',
   ) +
   # Add MCP, PIP, and DIP joint angles
   annotate(
     geom = 'text',
+    # Little + Index
     x = 12,
-    y = 0, # Little + Index
+    y = 0,
     label = "MCP",
     parse = T,
     hjust = 0,
     vjust = 0,
-    size = 3,
+    size = 2.5,
     color = 'black',
   ) +
   annotate(
     geom = 'text',
+    # Index
     x = 60,
-    y = 0, # Index
-    # x = 57, y = 0, # Little
+    y = 0,
+    # Little
+    # x = 57, y = 0,
     label = "PIP",
     parse = T,
     hjust = 0,
     vjust = 0,
-    size = 3,
+    size = 2.5,
     color = 'black',
   ) +
   annotate(
     geom = 'text',
+    # Index
     x = 98,
-    y = 0, # Index
-    # x = 90, y = 0, # Little
+    y = 0,
+    # Little
+    # x = 90, y = 0,
     label = "DIP",
     parse = T,
     hjust = 0,
     vjust = 0,
-    size = 3,
+    size = 2.5,
     color = 'black',
   ) +
   scale_fill_viridis_c(
     name = 'L2 norm:',
-    option = 'plasma'
+    option = 'plasma',
+    breaks = seq(0, 10, 1),
+    limits = c(0, 9.3)
   ) +
   scale_shape_manual(
     name = 'Data:',
@@ -1504,7 +1553,7 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   theme(
     legend.position = 'top',
     legend.title = element_text(
-      size = 10,
+      size = 8,
       margin = margin(2, 2, 2, 2, 'mm')
     ),
     legend.title.position = 'left',
@@ -1516,9 +1565,10 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
     legend.margin = margin(0, 0, 0, 0, 'mm'),
     legend.key.spacing = unit(0.5, 'mm'),
     legend.key.size = unit(3, 'mm'),
+    legend.key.width = unit(4, 'mm'),
     legend.text = element_text(
       colour = "black",
-      size = 8,
+      size = 7,
       margin = margin(0, 0., 0, 0, 'mm')
     ),
     plot.margin = margin(0.5, 0.5, 0.5, 0.5, 'mm'),
@@ -1529,10 +1579,10 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
     # panel.grid.minor = element_line(
     #   color = 'azure4', linewidth = 0.15, linetype = 'solid'
     #   ),
-    axis.title = element_text(face = "bold", size = 10),
+    axis.title = element_text(face = "bold", size = 8),
     axis.text = element_text(
       color = "black",
-      size = 9,
+      size = 7,
       margin = margin(0.0, 0.0, 0.0, 0.0, 'mm'),
     ),
     # axis.text.x = element_text(angle = 0, hjust = 1, vjust = 1.),
@@ -1544,7 +1594,7 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
     strip.background = element_rect(linewidth = 0.01),
     strip.text = element_text(
       color = 'black',
-      size = 9.0,
+      size = 7.0,
       margin = margin(b = 0.3, t = 0.3, unit = 'mm')
     ),
     axis.ticks = element_line(linewidth = 0.2),
@@ -1553,13 +1603,15 @@ pos_bend_model_compare_plt <- pos_dat_resample %>%
   )
 pos_bend_model_compare_plt
 ggsave(
-  filename = 'plots/Figure_4_FEM_PRB_index_finger_movement_resample_model_compare.png',
+  # filename = 'plots/Figure_4_FEM_PRB_index_finger_movement_resample_model_compare.png',
   # filename = 'plots/Figure_4_FEM_PRB_little_finger_movement_resample_model_compare.png',
+  filename = 'plots/Figure_4_FEM_PRB_index_finger_movement_resample_model_compare_ogden.png',
+  # filename = 'plots/Figure_4_FEM_PRB_little_finger_movement_resample_model_compare_ogden.png',
   plot = pos_bend_model_compare_plt,
   device = grDevices::png,
-  width = 8.6,
+  width = 9.9,
+  # width = 8.5,
   height = 7,
   units = 'cm',
   dpi = 360
-  # width = 7.7, height = 7, units = 'cm', dpi = 360
 )

@@ -294,32 +294,36 @@ def obj_func_single_param(x):
 # fem_data = pd.read_csv('kinematics/Hand9DOF/Index/data/FEM_position_data_arc_approx_joint_elongation_angles.csv')
 fem_data = pd.read_csv(
     # "data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample.csv"
-    "data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden.csv"
+    # "data/FEM_position_data_index_arc_approx_joint_elongation_angles_resample_ogden.csv"
+    'data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample_ogden.csv'
 )
 # fem_data = pd.read_csv('kinematics/Hand9DOF/Index/data/FEM_position_data_little_arc_approx_joint_elongation_angles_resample.csv')
-inter_joint_dist_df = pd.read_csv("data/inter_joint_distance_index.csv")
+inter_joint_dist_df = pd.read_csv(
+    # "data/inter_joint_distance_index.csv"
+    'data/inter_joint_distance_little.csv'
+)
 # inter_joint_dist_df = pd.read_csv('kinematics/Hand9DOF/Index/data/inter_joint_distance_little.csv')
 # Length of all three bellow segments in mm
-L_init = fem_data["L_init"].unique()
-pressure = fem_data["pressure"].unique()  # Internal pressure (MPa)
-inter_joint_dist = inter_joint_dist_df["max"].to_numpy()  # Maximum inter-joint distance
+L_init = fem_data['L_init'].unique()
+pressure = fem_data['pressure'].unique()  # Internal pressure (MPa)
+inter_joint_dist = inter_joint_dist_df['max'].to_numpy()  # Maximum inter-joint distance
 
 joint_coords_fem = np.stack(
     (
         np.vstack(
             (
-                fem_data[fem_data["joint"] == "MCP"][
-                    ["resample_u1_start", "resample_u1_end"]
+                fem_data[fem_data['joint'] == 'MCP'][
+                    ['resample_u1_start', 'resample_u1_end']
                 ]
                 .to_numpy()
                 .T,
-                fem_data[fem_data["joint"] == "PIP"][
-                    ["resample_u1_start", "resample_u1_end"]
+                fem_data[fem_data['joint'] == 'PIP'][
+                    ['resample_u1_start', 'resample_u1_end']
                 ]
                 .to_numpy()
                 .T,
-                fem_data[fem_data["joint"] == "DIP"][
-                    ["resample_u1_start", "resample_u1_end"]
+                fem_data[fem_data['joint'] == 'DIP'][
+                    ['resample_u1_start', 'resample_u1_end']
                 ]
                 .to_numpy()
                 .T,
@@ -327,18 +331,18 @@ joint_coords_fem = np.stack(
         ),
         np.vstack(
             (
-                fem_data[fem_data["joint"] == "MCP"][
-                    ["resample_u2_start", "resample_u2_end"]
+                fem_data[fem_data['joint'] == 'MCP'][
+                    ['resample_u2_start', 'resample_u2_end']
                 ]
                 .to_numpy()
                 .T,
-                fem_data[fem_data["joint"] == "PIP"][
-                    ["resample_u2_start", "resample_u2_end"]
+                fem_data[fem_data['joint'] == 'PIP'][
+                    ['resample_u2_start', 'resample_u2_end']
                 ]
                 .to_numpy()
                 .T,
-                fem_data[fem_data["joint"] == "DIP"][
-                    ["resample_u2_start", "resample_u2_end"]
+                fem_data[fem_data['joint'] == 'DIP'][
+                    ['resample_u2_start', 'resample_u2_end']
                 ]
                 .to_numpy()
                 .T,
@@ -373,8 +377,8 @@ R_outer = (
 r_inner = d_bellow_in + 0.575  # Inner diameter of bellow (mm)
 # Number of bellows - Index, little
 n_bellow = np.array(
-    [7, 5, 5]
-    # [7, 5, 4]
+    # [7, 5, 5]
+    [7, 5, 4]
 )
 
 
@@ -396,7 +400,7 @@ class BoundsNoLocalMinimization:
 
     def impose_bounds(self, **kwargs):
         # Limit search space
-        x = kwargs["x_new"]
+        x = kwargs['x_new']
         return np.all((self.lower_bounds <= x) * (x <= self.upper_bounds))
 
     def store_jumps(self, x, f, accepted):
@@ -503,7 +507,7 @@ def run_basinhopping_optimization(*args, **kwargs):
         target_accept_rate=0.60,  # 60% acceptance rate on step taking
         callback=bounds_minimizer.store_jumps,
         accept_test=bounds_minimizer.impose_bounds,
-        minimizer_kwargs={"method": bounds_minimizer.no_minimization},
+        minimizer_kwargs={'method': bounds_minimizer.no_minimization},
     )
     return opt_res_bh, bounds_minimizer, take_step_routine
 
@@ -547,13 +551,13 @@ joint_coords, theta_end = compute_joint_coordinates(
 # Create pandas dataframe with optimal parameters from best_results[0]
 optimal_params = pd.DataFrame(
     {
-        "joint": ["MCP", "PIP", "DIP"],
-        "lmbd": best_results[0].x[0:3],
-        "delta_l_theta_modifier": best_results[0].x[3:6],
-        "delta_l_n_bellow_modifier": best_results[0].x[6:9],
-        "gamma": best_results[0].x[9:12],
-        "c_theta": best_results[0].x[12:15],
-        "quadratic_correction_term": best_results[0].x[15:18],
+        'joint': ['MCP', 'PIP', 'DIP'],
+        'lmbd': best_results[0].x[0:3],
+        'delta_l_theta_modifier': best_results[0].x[3:6],
+        'delta_l_n_bellow_modifier': best_results[0].x[6:9],
+        'gamma': best_results[0].x[9:12],
+        'c_theta': best_results[0].x[12:15],
+        'quadratic_correction_term': best_results[0].x[15:18],
     }
 )
 
@@ -561,63 +565,63 @@ optimal_params = pd.DataFrame(
 total_execution_time = end_time - start_time
 total_function_evaluations = best_results[0].nfev * num_parallel_workers
 average_time_per_evaluation = total_execution_time / total_function_evaluations
-print(f"Total execution time: {total_execution_time:.4f} seconds")
-print(f"Total function evaluations: {total_function_evaluations}")
+print(f'Total execution time: {total_execution_time:.4f} seconds')
+print(f'Total function evaluations: {total_function_evaluations}')
 print(
-    f"Average time per function evaluation: {average_time_per_evaluation:.6f} seconds"
+    f'Average time per function evaluation: {average_time_per_evaluation:.6f} seconds'
 )
-optimal_params["total_execution_time"] = total_execution_time
-optimal_params["total_function_evaluations"] = total_function_evaluations
-optimal_params["average_time_per_evaluation"] = average_time_per_evaluation
+optimal_params['total_execution_time'] = total_execution_time
+optimal_params['total_function_evaluations'] = total_function_evaluations
+optimal_params['average_time_per_evaluation'] = average_time_per_evaluation
 
 # Print Mean and max L2 between FEM and PRB in mm
 mean_l2 = np.mean(np.linalg.norm(joint_coords_fem - joint_coords, axis=2))
 max_l2 = np.max(np.linalg.norm(joint_coords_fem - joint_coords, axis=2))
-print(f"Mean L2: {mean_l2}")
-print(f"Max L2: {max_l2}")
+print(f'Mean L2: {mean_l2}')
+print(f'Max L2: {max_l2}')
 
 # Add Mean and Max L2 to optimal params as a separate columns
-optimal_params["mean_l2"] = mean_l2
-optimal_params["max_l2"] = max_l2
+optimal_params['mean_l2'] = mean_l2
+optimal_params['max_l2'] = max_l2
 
 # Save optimal parameters to csv
 optimal_params.to_csv(
-    "data/PRB_optimal_params_index_ogden.csv",
-    # "data/PRB_optimal_params_little_ogden.csv", index=False
+    # "data/PRB_optimal_params_index_ogden.csv",
+    'data/PRB_optimal_params_little_ogden.csv',
     index=False,
 )
 
 # Plot all joint coords as scatterplot
 fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(10, 10))
-ax.scatter(joint_coords[:, :, 0], joint_coords[:, :, 1], marker=".")
-ax.scatter(joint_coords_fem[:, :, 0], joint_coords_fem[:, :, 1], marker=".")
+ax.scatter(joint_coords[:, :, 0], joint_coords[:, :, 1], marker='.')
+ax.scatter(joint_coords_fem[:, :, 0], joint_coords_fem[:, :, 1], marker='.')
 # Add gridlines at 10 mm intervals
 ax.set_xticks(np.arange(0, 120, 10))
 ax.set_yticks(np.arange(-100, 10, 10))
 ax.grid()
-ax.set_aspect("equal")
+ax.set_aspect('equal')
 plt.tight_layout()
 plt.show()
 
 # Plot and store results
-pos_data_optim = pd.DataFrame(joint_coords.reshape(-1, 2), columns=["u1", "u2"])
+pos_data_optim = pd.DataFrame(joint_coords.reshape(-1, 2), columns=['u1', 'u2'])
 # Assign joint names MCP_start, MCP_end, PIP_start, PIP_end, DIP_start, DIP_end to every
 # fem_num_points data points and add to pos_data_optim
 # TODO: important - use the same number of points as in fem
 # fem_num_points = 100
 fem_num_points = 86
-pos_data_optim["joint"] = np.repeat(
-    np.array(["MCP_start", "MCP_end", "PIP_start", "PIP_end", "DIP_start", "DIP_end"]),
+pos_data_optim['joint'] = np.repeat(
+    np.array(['MCP_start', 'MCP_end', 'PIP_start', 'PIP_end', 'DIP_start', 'DIP_end']),
     fem_num_points,
 )
 # Add pressure column to pos_data_optim by repeating pressure values 6 times
-pos_data_optim["pressure"] = np.tile(pressure, 6)
+pos_data_optim['pressure'] = np.tile(pressure, 6)
 pos_data_optim
 # Save optimized position data to csv
 pos_data_optim.to_csv(
     # 'data/PRB_position_data_index.csv', index=False
     # 'data/PRB_position_data_little.csv', index=False
-    "data/PRB_position_data_index_ogden.csv",
-    # "data/PRB_position_data_little_ogden.csv",
+    # "data/PRB_position_data_index_ogden.csv",
+    'data/PRB_position_data_little_ogden.csv',
     index=False,
 )
