@@ -1,4 +1,13 @@
 # UpperExtremity URDF Export from Blender
+
+This repository contains a ROS package for an upper-limb rehabilitation device. It includes URDF/Xacro models for the complete device, its upper-extremity components, and a 9-DOF hand, together with meshes, RViz launch/configuration files, joint-dependency parameters, kinematics and IK assets, and a TF publisher for visualization and analysis.
+
+The main contents are:
+
+- `urdf/`: robot descriptions and component meshes for the rehabilitation device, forearm, upper extremity, and hand.
+- `launch/`, `rviz/`, and `config/`: ROS visualization launch files, RViz configurations, and hand joint-dependency parameters.
+- `kinematics/`, `models/`, and `scripts/`: kinematic references, Blender models, IK outputs, and the hand-device TF publisher.
+
 1. Rotate model (Euler coordinates of root link) -> y-axis points upoward
 2. Export URDF
 3. Indent XML in Gvim  :'<,'>!xmllint --format -
