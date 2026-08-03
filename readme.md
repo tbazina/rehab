@@ -1,4 +1,4 @@
-# UpperExtremity URDF Export from Blender
+# Rehab
 
 This repository contains a ROS package for an upper-limb rehabilitation device. It includes URDF/Xacro models for the complete device, its upper-extremity components, and a 9-DOF hand, together with meshes, RViz launch/configuration files, joint-dependency parameters, kinematics and IK assets, and a TF publisher for visualization and analysis.
 
@@ -8,13 +8,15 @@ The main contents are:
 - `launch/`, `rviz/`, and `config/`: ROS visualization launch files, RViz configurations, and hand joint-dependency parameters.
 - `kinematics/`, `models/`, and `scripts/`: kinematic references, Blender models, IK outputs, and the hand-device TF publisher.
 
+## UpperExtremity URDF Export from Blender
+
 1. Rotate model (Euler coordinates of root link) -> y-axis points upoward
 2. Export URDF
 3. Indent XML in Gvim  :'<,'>!xmllint --format -
 3. Manually edit URDF and rotate ground_joint by 1.570796327 (roll).
 
-# RehabConcept
-## Configuring robot model in Blender
+## RehabConcept
+### Configuring robot model in Blender
 - Steps to assign new segment to visual:
   1. Select visual geometry
   2. Move cursor to selected
@@ -32,13 +34,13 @@ The main contents are:
   8. After setting coordinates press Z to wireframe and check if segment is
      located precisely inside cursor.
 
-## URDF Export from Blender
+### URDF Export from Blender
 1. Rotate model (Euler coordinates of BaseLink) -> y-axis points upoward
 2. Export URDF (Absolute Filepaths)
 3. Indent XML in Gvim  :'<,'>!xmllint --format -
 3. Manually edit URDF and rotate BaseLink_joint by 1.570796327 (roll).
 
-# Hand9DOF
+## Hand9DOF
 - Implemented as 24 DOFs hand model with `dependent_joints` inside `hand9dof_dependent_joints.yaml` reducing model to 9 DOFs
 - Launch iside Rviz using `hand9dof_rviz.launch`
 - Steps for exporting from `rehab_hand.blend` using HBP:
